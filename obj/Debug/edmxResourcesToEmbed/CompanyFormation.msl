@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CompanyFormation_dbModelStoreContainer" CdmEntityContainer="CompanyFormation_dbEntities">
+    <EntitySetMapping Name="cls_agree_tbl">
+      <EntityTypeMapping TypeName="CompanyFormation_dbModel.cls_agree_tbl">
+        <MappingFragment StoreEntitySet="cls_agree_tbl">
+          <ScalarProperty Name="cfid" ColumnName="cfid" />
+          <ScalarProperty Name="agree" ColumnName="agree" />
+          <ScalarProperty Name="nonthirdparties" ColumnName="nonthirdparties" />
+          <ScalarProperty Name="incorporationtype" ColumnName="incorporationtype" />
+          <ScalarProperty Name="companypacktype" ColumnName="companypacktype" />
+          <ScalarProperty Name="paymenttype" ColumnName="paymenttype" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="companyname" ColumnName="companyname" />
+          <ScalarProperty Name="addressline1" ColumnName="addressline1" />
+          <ScalarProperty Name="addressline2" ColumnName="addressline2" />
+          <ScalarProperty Name="addressline3" ColumnName="addressline3" />
+          <ScalarProperty Name="postcode" ColumnName="postcode" />
+          <ScalarProperty Name="phonenumber" ColumnName="phonenumber" />
+          <ScalarProperty Name="email" ColumnName="email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cls_companyincorporation_tbl">
+      <EntityTypeMapping TypeName="CompanyFormation_dbModel.cls_companyincorporation_tbl">
+        <MappingFragment StoreEntitySet="cls_companyincorporation_tbl">
+          <ScalarProperty Name="companytype" ColumnName="companytype" />
+          <ScalarProperty Name="additionalwording" ColumnName="additionalwording" />
+          <ScalarProperty Name="principalactivity" ColumnName="principalactivity" />
+          <ScalarProperty Name="thirdchoice" ColumnName="thirdchoice" />
+          <ScalarProperty Name="secondchoice" ColumnName="secondchoice" />
+          <ScalarProperty Name="firstchoice" ColumnName="firstchoice" />
+          <ScalarProperty Name="cfid" ColumnName="cfid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="CompanyFormation_dbModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cls_sharecapital_tbl">
+      <EntityTypeMapping TypeName="CompanyFormation_dbModel.cls_sharecapital_tbl">
+        <MappingFragment StoreEntitySet="cls_sharecapital_tbl">
+          <ScalarProperty Name="authorisedsharecapital" ColumnName="authorisedsharecapital" />
+          <ScalarProperty Name="shareclass" ColumnName="shareclass" />
+          <ScalarProperty Name="nominalamoutpershare" ColumnName="nominalamoutpershare" />
+          <ScalarProperty Name="issuedsharecapital" ColumnName="issuedsharecapital" />
+          <ScalarProperty Name="cfid" ColumnName="cfid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cls_secretary_tbl">
+      <EntityTypeMapping TypeName="CompanyFormation_dbModel.cls_secretary_tbl">
+        <MappingFragment StoreEntitySet="cls_secretary_tbl">
+          <ScalarProperty Name="compnaycountry" ColumnName="compnaycountry" />
+          <ScalarProperty Name="compnaypostal" ColumnName="compnaypostal" />
+          <ScalarProperty Name="companyaddressline2" ColumnName="companyaddressline2" />
+          <ScalarProperty Name="companyaddressline1" ColumnName="companyaddressline1" />
+          <ScalarProperty Name="companyregionaloffice" ColumnName="companyregionaloffice" />
+          <ScalarProperty Name="companydirector" ColumnName="companydirector" />
+          <ScalarProperty Name="companynumber" ColumnName="companynumber" />
+          <ScalarProperty Name="companyname" ColumnName="companyname" />
+          <ScalarProperty Name="country" ColumnName="country" />
+          <ScalarProperty Name="postalcode" ColumnName="postalcode" />
+          <ScalarProperty Name="addressline3" ColumnName="addressline3" />
+          <ScalarProperty Name="addressline2" ColumnName="addressline2" />
+          <ScalarProperty Name="addressline1" ColumnName="addressline1" />
+          <ScalarProperty Name="dob" ColumnName="dob" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="cfid" ColumnName="cfid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cls_director_tbl">
+      <EntityTypeMapping TypeName="CompanyFormation_dbModel.cls_director_tbl">
+        <MappingFragment StoreEntitySet="cls_director_tbl">
+          <ScalarProperty Name="beneficialowner" ColumnName="beneficialowner" />
+          <ScalarProperty Name="numberofshare" ColumnName="numberofshare" />
+          <ScalarProperty Name="restricted" ColumnName="restricted" />
+          <ScalarProperty Name="otherdirectorship3" ColumnName="otherdirectorship3" />
+          <ScalarProperty Name="otherdirectorship2" ColumnName="otherdirectorship2" />
+          <ScalarProperty Name="otherdirectorship1" ColumnName="otherdirectorship1" />
+          <ScalarProperty Name="nationality" ColumnName="nationality" />
+          <ScalarProperty Name="country" ColumnName="country" />
+          <ScalarProperty Name="postalcode" ColumnName="postalcode" />
+          <ScalarProperty Name="addressline3" ColumnName="addressline3" />
+          <ScalarProperty Name="addressline2" ColumnName="addressline2" />
+          <ScalarProperty Name="addressline1" ColumnName="addressline1" />
+          <ScalarProperty Name="occupation" ColumnName="occupation" />
+          <ScalarProperty Name="dob" ColumnName="dob" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="cfid" ColumnName="cfid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cls_subscriber_tbl">
+      <EntityTypeMapping TypeName="CompanyFormation_dbModel.cls_subscriber_tbl">
+        <MappingFragment StoreEntitySet="cls_subscriber_tbl">
+          <ScalarProperty Name="beneficialowner" ColumnName="beneficialowner" />
+          <ScalarProperty Name="numberofshare" ColumnName="numberofshare" />
+          <ScalarProperty Name="occupation" ColumnName="occupation" />
+          <ScalarProperty Name="nationality" ColumnName="nationality" />
+          <ScalarProperty Name="country" ColumnName="country" />
+          <ScalarProperty Name="postalcode" ColumnName="postalcode" />
+          <ScalarProperty Name="addressline3" ColumnName="addressline3" />
+          <ScalarProperty Name="addressline2" ColumnName="addressline2" />
+          <ScalarProperty Name="addressline1" ColumnName="addressline1" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="cfid" ColumnName="cfid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cls_corporatesubscriber_tbl">
+      <EntityTypeMapping TypeName="CompanyFormation_dbModel.cls_corporatesubscriber_tbl">
+        <MappingFragment StoreEntitySet="cls_corporatesubscriber_tbl">
+          <ScalarProperty Name="numberofshare" ColumnName="numberofshare" />
+          <ScalarProperty Name="country" ColumnName="country" />
+          <ScalarProperty Name="postalcode" ColumnName="postalcode" />
+          <ScalarProperty Name="addressline3" ColumnName="addressline3" />
+          <ScalarProperty Name="addressline2" ColumnName="addressline2" />
+          <ScalarProperty Name="registerofficeaddress" ColumnName="registerofficeaddress" />
+          <ScalarProperty Name="companydirector" ColumnName="companydirector" />
+          <ScalarProperty Name="companyname" ColumnName="companyname" />
+          <ScalarProperty Name="cfid" ColumnName="cfid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cls_beneficialowner_tbl">
+      <EntityTypeMapping TypeName="CompanyFormation_dbModel.cls_beneficialowner_tbl">
+        <MappingFragment StoreEntitySet="cls_beneficialowner_tbl">
+          <ScalarProperty Name="natureofownership" ColumnName="natureofownership" />
+          <ScalarProperty Name="occupation" ColumnName="occupation" />
+          <ScalarProperty Name="nationality" ColumnName="nationality" />
+          <ScalarProperty Name="country" ColumnName="country" />
+          <ScalarProperty Name="postalcode" ColumnName="postalcode" />
+          <ScalarProperty Name="addressline3" ColumnName="addressline3" />
+          <ScalarProperty Name="addressline2" ColumnName="addressline2" />
+          <ScalarProperty Name="addressline1" ColumnName="addressline1" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="cfid" ColumnName="cfid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cls_addressdetails_tbl">
+      <EntityTypeMapping TypeName="CompanyFormation_dbModel.cls_addressdetails_tbl">
+        <MappingFragment StoreEntitySet="cls_addressdetails_tbl">
+          <ScalarProperty Name="roisalsothebusinessorcaaddress" ColumnName="roisalsothebusinessorcaaddress" />
+          <ScalarProperty Name="capostalcode" ColumnName="capostalcode" />
+          <ScalarProperty Name="caaddressline3" ColumnName="caaddressline3" />
+          <ScalarProperty Name="caaddressline2" ColumnName="caaddressline2" />
+          <ScalarProperty Name="caaddressline1" ColumnName="caaddressline1" />
+          <ScalarProperty Name="ropostalcode" ColumnName="ropostalcode" />
+          <ScalarProperty Name="oraddressline3" ColumnName="oraddressline3" />
+          <ScalarProperty Name="roaddressline2" ColumnName="roaddressline2" />
+          <ScalarProperty Name="roaddressline1" ColumnName="roaddressline1" />
+          <ScalarProperty Name="cfid" ColumnName="cfid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cls_additionalinfo_tbl">
+      <EntityTypeMapping TypeName="CompanyFormation_dbModel.cls_additionalinfo_tbl">
+        <MappingFragment StoreEntitySet="cls_additionalinfo_tbl">
+          <ScalarProperty Name="additionalinformation" ColumnName="additionalinformation" />
+          <ScalarProperty Name="cfid" ColumnName="cfid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

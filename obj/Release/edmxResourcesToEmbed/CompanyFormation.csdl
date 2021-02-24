@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CompanyFormation_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="cls_agree_tbl">
+    <Key>
+      <PropertyRef Name="cfid" />
+    </Key>
+    <Property Name="cfid" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="agree" Type="Int64" />
+    <Property Name="nonthirdparties" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="incorporationtype" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="companypacktype" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="paymenttype" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="companyname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="addressline1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="addressline2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="addressline3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="postcode" Type="Decimal" Precision="10" Scale="0" />
+    <Property Name="phonenumber" Type="Decimal" Precision="11" Scale="0" />
+    <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="CompanyFormation_dbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="cls_agree_tbl" EntityType="Self.cls_agree_tbl" />
+    <EntitySet Name="cls_companyincorporation_tbl" EntityType="CompanyFormation_dbModel.cls_companyincorporation_tbl" />
+    <EntitySet Name="sysdiagrams" EntityType="CompanyFormation_dbModel.sysdiagram" />
+    <EntitySet Name="cls_sharecapital_tbl" EntityType="CompanyFormation_dbModel.cls_sharecapital_tbl" />
+    <EntitySet Name="cls_secretary_tbl" EntityType="CompanyFormation_dbModel.cls_secretary_tbl" />
+    <EntitySet Name="cls_director_tbl" EntityType="CompanyFormation_dbModel.cls_director_tbl" />
+    <EntitySet Name="cls_subscriber_tbl" EntityType="CompanyFormation_dbModel.cls_subscriber_tbl" />
+    <EntitySet Name="cls_corporatesubscriber_tbl" EntityType="CompanyFormation_dbModel.cls_corporatesubscriber_tbl" />
+  </EntityContainer>
+  <EntityType Name="cls_companyincorporation_tbl">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cfid" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="firstchoice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="secondchoice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="thirdchoice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="principalactivity" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="additionalwording" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="companytype" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="cls_sharecapital_tbl">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cfid" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="issuedsharecapital" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="nominalamoutpershare" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="shareclass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="authorisedsharecapital" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="cls_secretary_tbl">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cfid" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="name" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="dob" Type="DateTime" Precision="3" />
+    <Property Name="addressline1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="addressline2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="addressline3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="postalcode" Type="Decimal" Precision="10" Scale="0" />
+    <Property Name="country" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="companyname" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="companynumber" Type="Decimal" Precision="11" Scale="0" />
+    <Property Name="companydirector" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="companyregionaloffice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="companyaddressline1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="companyaddressline2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="compnaypostal" Type="Decimal" Precision="10" Scale="0" />
+    <Property Name="compnaycountry" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="cls_director_tbl">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cfid" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="name" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="dob" Type="DateTime" Precision="3" />
+    <Property Name="occupation" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="addressline1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="addressline2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="addressline3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="postalcode" Type="Decimal" Precision="10" Scale="0" />
+    <Property Name="country" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="nationality" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="otherdirectorship1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="otherdirectorship2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="otherdirectorship3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="restricted" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="numberofshare" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="beneficialowner" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="cls_subscriber_tbl">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cfid" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="name" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="addressline1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="addressline2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="addressline3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="postalcode" Type="Decimal" Precision="10" Scale="0" />
+    <Property Name="country" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="nationality" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="occupation" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="numberofshare" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="beneficialowner" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="cls_corporatesubscriber_tbl">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cfid" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="companyname" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="companydirector" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="registerofficeaddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="addressline2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="addressline3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="postalcode" Type="Decimal" Precision="10" Scale="0" />
+    <Property Name="country" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="numberofshare" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>
