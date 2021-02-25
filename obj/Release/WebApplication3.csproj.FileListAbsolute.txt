@@ -67,3 +67,4 @@ E:\Work From Home\CompanyFormation\WebApplication3\WebApplication3\obj\Release\W
 E:\Work From Home\CompanyFormation\WebApplication3\WebApplication3\obj\Release\WebApplication3.csproj.CopyComplete
 E:\Work From Home\CompanyFormation\WebApplication3\WebApplication3\obj\Release\WebApplication3.dll
 E:\Work From Home\CompanyFormation\WebApplication3\WebApplication3\obj\Release\WebApplication3.pdb
+E:\Work From Home\CompanyFormation\WebApplication3\WebApplication3\bin\MultipartDataMediaFormatter.dll

@@ -77,10 +77,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>09/10/2013 16:29:20</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>02/19/2021 18:10:47</publishTime>
+      <publishTime>02/25/2021 17:36:25</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>02/19/2021 18:10:47</publishTime>
+      <publishTime>02/25/2021 17:36:25</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>10/23/2017 13:15:18</publishTime>
@@ -93,6 +93,9 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
       <publishTime>07/25/2012 11:48:56</publishTime>
+    </File>
+    <File Include="bin/MultipartDataMediaFormatter.dll">
+      <publishTime>02/14/2021 10:57:58</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>04/22/2019 01:06:16</publishTime>
@@ -212,16 +215,16 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>11/28/2018 13:04:24</publishTime>
     </File>
     <File Include="bin/WebApplication3.dll">
-      <publishTime>02/19/2021 18:10:40</publishTime>
+      <publishTime>02/25/2021 17:36:18</publishTime>
     </File>
     <File Include="bin/WebApplication3.pdb">
-      <publishTime>02/19/2021 18:10:40</publishTime>
+      <publishTime>02/25/2021 17:36:18</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>01/23/2014 13:57:34</publishTime>
     </File>
     <File Include="CompanyFormation.edmx.diagram">
-      <publishTime>02/19/2021 17:37:26</publishTime>
+      <publishTime>02/25/2021 17:32:44</publishTime>
     </File>
     <File Include="Content/bootstrap-theme.css">
       <publishTime>02/16/2021 17:21:33</publishTime>
@@ -269,7 +272,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>02/16/2021 17:21:32</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>02/19/2021 18:10:41</publishTime>
+      <publishTime>02/25/2021 17:36:20</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js">
       <publishTime>02/16/2021 17:21:32</publishTime>
@@ -314,7 +317,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>02/16/2021 17:21:15</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>02/19/2021 18:10:40</publishTime>
+      <publishTime>02/25/2021 17:36:18</publishTime>
     </File>
   </ItemGroup>
 </Project>

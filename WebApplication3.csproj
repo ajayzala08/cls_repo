@@ -52,6 +52,9 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MultipartDataMediaFormatter, Version=2.1.0.0, Culture=neutral, PublicKeyToken=67148dd0761d95a0, processorArchitecture=MSIL">
+      <HintPath>..\packages\MultipartDataMediaFormatter.V2.2.1.0\lib\net45\MultipartDataMediaFormatter.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -198,6 +201,12 @@
     <Compile Include="cls_subscriber_tbl.cs">
       <DependentUpon>CompanyFormation.tt</DependentUpon>
     </Compile>
+    <Compile Include="cls_ticketmst_tbl.cs">
+      <DependentUpon>CompanyFormation.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cls_ticketreply_tbl.cs">
+      <DependentUpon>CompanyFormation.tt</DependentUpon>
+    </Compile>
     <Compile Include="CompanyFormation.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -221,6 +230,7 @@
     <Compile Include="Controllers\clscorporatesubscriberController.cs" />
     <Compile Include="Controllers\clscreateticketController.cs" />
     <Compile Include="Controllers\clsdirectorController.cs" />
+    <Compile Include="Controllers\clsreplyticketController.cs" />
     <Compile Include="Controllers\clssecretaryController.cs" />
     <Compile Include="Controllers\clssharecapitalController.cs" />
     <Compile Include="Controllers\clssubscriberController.cs" />
@@ -238,10 +248,9 @@
     <Compile Include="Models\secretarymodel.cs" />
     <Compile Include="Models\sharecapitalmodel.cs" />
     <Compile Include="Models\subscribermodel.cs" />
+    <Compile Include="Models\ticketmodel.cs" />
+    <Compile Include="Models\ticketviewmodel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="sysdiagram.cs">
-      <DependentUpon>CompanyFormation.tt</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
@@ -313,6 +322,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="TicketRepo\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

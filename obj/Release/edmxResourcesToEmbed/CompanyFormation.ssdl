@@ -1,5 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="CompanyFormation_dbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="CompanyFormation_dbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="cls_additionalinfo_tbl">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cfid" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="additionalinformation" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="cls_addressdetails_tbl">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cfid" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="roaddressline1" Type="nvarchar(max)" />
+    <Property Name="roaddressline2" Type="nvarchar(max)" />
+    <Property Name="oraddressline3" Type="nvarchar(max)" />
+    <Property Name="ropostalcode" Type="decimal" Precision="10" Scale="0" />
+    <Property Name="caaddressline1" Type="nvarchar(max)" />
+    <Property Name="caaddressline2" Type="nvarchar(max)" />
+    <Property Name="caaddressline3" Type="nvarchar(max)" />
+    <Property Name="capostalcode" Type="decimal" Precision="10" Scale="0" />
+    <Property Name="roisalsothebusinessorcaaddress" Type="varchar" MaxLength="10" />
+  </EntityType>
   <EntityType Name="cls_agree_tbl">
     <Key>
       <PropertyRef Name="cfid" />
@@ -18,6 +42,22 @@
     <Property Name="postcode" Type="numeric" Precision="10" Scale="0" />
     <Property Name="phonenumber" Type="numeric" Precision="11" Scale="0" />
     <Property Name="email" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="cls_beneficialowner_tbl">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cfid" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="name" Type="varchar" MaxLength="1000" />
+    <Property Name="addressline1" Type="nvarchar(max)" />
+    <Property Name="addressline2" Type="nvarchar(max)" />
+    <Property Name="addressline3" Type="nvarchar(max)" />
+    <Property Name="postalcode" Type="decimal" Precision="10" Scale="0" />
+    <Property Name="country" Type="varchar" MaxLength="100" />
+    <Property Name="nationality" Type="varchar" MaxLength="100" />
+    <Property Name="occupation" Type="nvarchar" MaxLength="100" />
+    <Property Name="natureofownership" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="cls_companyincorporation_tbl">
     <Key>
@@ -119,24 +159,51 @@
     <Property Name="numberofshare" Type="nvarchar" MaxLength="50" />
     <Property Name="beneficialowner" Type="nvarchar" MaxLength="10" />
   </EntityType>
-  <EntityType Name="sysdiagrams">
+  <EntityType Name="cls_ticketmst_tbl">
     <Key>
-      <PropertyRef Name="diagram_id" />
+      <PropertyRef Name="ticket_id" />
     </Key>
-    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="principal_id" Type="int" Nullable="false" />
-    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="version" Type="int" />
-    <Property Name="definition" Type="varbinary(max)" />
+    <Property Name="ticket_id" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ticket_number" Type="nvarchar" MaxLength="11" Nullable="false" />
+    <Property Name="ticket_email" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="ticket_name" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="ticket_business" Type="nvarchar" MaxLength="1000" />
+    <Property Name="ticket_phoneno" Type="nvarchar" MaxLength="12" />
+    <Property Name="ticket_extension" Type="nvarchar" MaxLength="5" />
+    <Property Name="ticket_helptopic" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ticket_issuesummary" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="ticket_details" Type="nvarchar(max)" />
+    <Property Name="ticket_files" Type="nvarchar(max)" />
+    <Property Name="ticket_initial_status" Type="nvarchar(max)" />
+    <Property Name="ticket_createdate" Type="datetime" />
+    <Property Name="ticket_final_status" Type="nvarchar(max)" />
+    <Property Name="ticket_finaldate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="cls_ticketreply_tbl">
+    <Key>
+      <PropertyRef Name="reply_id" />
+    </Key>
+    <Property Name="reply_id" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tciket_number" Type="nvarchar" MaxLength="11" Nullable="false" />
+    <Property Name="reply_email" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="reply_name" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="reply_details" Type="nvarchar(max)" />
+    <Property Name="reply_files" Type="nvarchar(max)" />
+    <Property Name="reply_status" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="reply_date" Type="datetime" />
   </EntityType>
   <EntityContainer Name="CompanyFormation_dbModelStoreContainer">
+    <EntitySet Name="cls_additionalinfo_tbl" EntityType="Self.cls_additionalinfo_tbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cls_addressdetails_tbl" EntityType="Self.cls_addressdetails_tbl" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="cls_agree_tbl" EntityType="Self.cls_agree_tbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cls_beneficialowner_tbl" EntityType="Self.cls_beneficialowner_tbl" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="cls_companyincorporation_tbl" EntityType="Self.cls_companyincorporation_tbl" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="cls_corporatesubscriber_tbl" EntityType="Self.cls_corporatesubscriber_tbl" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="cls_director_tbl" EntityType="Self.cls_director_tbl" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="cls_secretary_tbl" EntityType="Self.cls_secretary_tbl" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="cls_sharecapital_tbl" EntityType="Self.cls_sharecapital_tbl" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="cls_subscriber_tbl" EntityType="Self.cls_subscriber_tbl" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cls_ticketmst_tbl" EntityType="Self.cls_ticketmst_tbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cls_ticketreply_tbl" EntityType="Self.cls_ticketreply_tbl" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>

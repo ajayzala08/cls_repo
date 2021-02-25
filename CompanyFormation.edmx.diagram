@@ -4,18 +4,19 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="087688d9862f4b0c8636d8eaafe553f0" Name="Diagram1">
-        <EntityTypeShape EntityType="CompanyFormation_dbModel.cls_agree_tbl" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CompanyFormation_dbModel.cls_companyincorporation_tbl" Width="1.5" PointX="3.375" PointY="0.75" />
-        <EntityTypeShape EntityType="CompanyFormation_dbModel.sysdiagram" Width="1.5" PointX="3.375" PointY="4.75" />
-        <EntityTypeShape EntityType="CompanyFormation_dbModel.cls_sharecapital_tbl" Width="1.5" PointX="5.375" PointY="0.75" />
-        <EntityTypeShape EntityType="CompanyFormation_dbModel.cls_secretary_tbl" Width="1.5" PointX="0.75" PointY="5.75" />
-        <EntityTypeShape EntityType="CompanyFormation_dbModel.cls_director_tbl" Width="1.5" PointX="5.375" PointY="3.75" />
-        <EntityTypeShape EntityType="CompanyFormation_dbModel.cls_subscriber_tbl" Width="1.5" PointX="7.375" PointY="0.75" />
-        <EntityTypeShape EntityType="CompanyFormation_dbModel.cls_corporatesubscriber_tbl" Width="1.5" PointX="7.375" PointY="5.75" />
-        <EntityTypeShape EntityType="CompanyFormation_dbModel.cls_beneficialowner_tbl" Width="1.5" PointX="9.375" PointY="0.75" />
-        <EntityTypeShape EntityType="CompanyFormation_dbModel.cls_addressdetails_tbl" Width="1.5" PointX="3.375" PointY="9.75" />
-        <EntityTypeShape EntityType="CompanyFormation_dbModel.cls_additionalinfo_tbl" Width="1.5" PointX="9.375" PointY="4.75" />
+      <Diagram DiagramId="d2cc89b044e44040a298b1415dd91b96" Name="Diagram1">
+        <EntityTypeShape EntityType="CompanyFormation_dbModel.cls_additionalinfo_tbl" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CompanyFormation_dbModel.cls_addressdetails_tbl" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CompanyFormation_dbModel.cls_agree_tbl" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CompanyFormation_dbModel.cls_beneficialowner_tbl" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CompanyFormation_dbModel.cls_companyincorporation_tbl" Width="1.5" PointX="2.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CompanyFormation_dbModel.cls_corporatesubscriber_tbl" Width="1.5" PointX="4.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CompanyFormation_dbModel.cls_director_tbl" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CompanyFormation_dbModel.cls_secretary_tbl" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CompanyFormation_dbModel.cls_sharecapital_tbl" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CompanyFormation_dbModel.cls_subscriber_tbl" Width="1.5" PointX="8.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CompanyFormation_dbModel.cls_ticketmst_tbl" Width="1.5" PointX="8.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CompanyFormation_dbModel.cls_ticketreply_tbl" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

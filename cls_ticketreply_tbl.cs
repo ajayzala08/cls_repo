@@ -12,12 +12,15 @@ namespace WebApplication3
     using System;
     using System.Collections.Generic;
     
-    public partial class sysdiagram
+    public partial class cls_ticketreply_tbl
     {
-        public string name { get; set; }
-        public int principal_id { get; set; }
-        public int diagram_id { get; set; }
-        public Nullable<int> version { get; set; }
-        public byte[] definition { get; set; }
+        public decimal reply_id { get; set; }
+        public string tciket_number { get; set; }
+        public string reply_email { get; set; }
+        public string reply_name { get; set; }
+        public string reply_details { get; set; }
+        public string reply_files { get; set; }
+        public string reply_status { get; set; }
+        public Nullable<System.DateTime> reply_date { get; set; }
     }
 }
