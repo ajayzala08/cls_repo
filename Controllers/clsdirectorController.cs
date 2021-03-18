@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
@@ -9,7 +8,7 @@ using WebApplication3.Models;
 
 namespace WebApplication3.Controllers
 {
-    [EnableCors(origins:"*",headers:"*",methods:"*")]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class clsdirectorController : ApiController
     {
         public HttpResponseMessage postclsdirector(List<directormodel> model)
@@ -65,7 +64,7 @@ namespace WebApplication3.Controllers
                     {
                         response = Request.CreateResponse(HttpStatusCode.BadRequest, "Fail");
                     }
-                    
+
                 }
                 return response;
             }

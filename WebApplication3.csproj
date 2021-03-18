@@ -45,11 +45,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.6.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.6.1\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.2, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.2\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.xmlworker, Version=5.5.13.2, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itextsharp.xmlworker.5.5.13.2\lib\itextsharp.xmlworker.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="MultipartDataMediaFormatter, Version=2.1.0.0, Culture=neutral, PublicKeyToken=67148dd0761d95a0, processorArchitecture=MSIL">
@@ -198,6 +207,9 @@
     <Compile Include="cls_sharecapital_tbl.cs">
       <DependentUpon>CompanyFormation.tt</DependentUpon>
     </Compile>
+    <Compile Include="cls_statusmst_tbl.cs">
+      <DependentUpon>CompanyFormation.tt</DependentUpon>
+    </Compile>
     <Compile Include="cls_subscriber_tbl.cs">
       <DependentUpon>CompanyFormation.tt</DependentUpon>
     </Compile>
@@ -205,6 +217,9 @@
       <DependentUpon>CompanyFormation.tt</DependentUpon>
     </Compile>
     <Compile Include="cls_ticketreply_tbl.cs">
+      <DependentUpon>CompanyFormation.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cls_usermst_tbl.cs">
       <DependentUpon>CompanyFormation.tt</DependentUpon>
     </Compile>
     <Compile Include="CompanyFormation.Context.cs">
@@ -230,9 +245,12 @@
     <Compile Include="Controllers\clscorporatesubscriberController.cs" />
     <Compile Include="Controllers\clscreateticketController.cs" />
     <Compile Include="Controllers\clsdirectorController.cs" />
+    <Compile Include="Controllers\clsloginController.cs" />
+    <Compile Include="Controllers\clspdfformController.cs" />
     <Compile Include="Controllers\clsreplyticketController.cs" />
     <Compile Include="Controllers\clssecretaryController.cs" />
     <Compile Include="Controllers\clssharecapitalController.cs" />
+    <Compile Include="Controllers\clsstatusController.cs" />
     <Compile Include="Controllers\clssubscriberController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -245,11 +263,16 @@
     <Compile Include="Models\companyincorporationdetailsmodel.cs" />
     <Compile Include="Models\corporatesubscribermodel.cs" />
     <Compile Include="Models\directormodel.cs" />
+    <Compile Include="Models\loginmodel.cs" />
+    <Compile Include="Models\LoginResponseModel.cs" />
+    <Compile Include="Models\responsemodel.cs" />
     <Compile Include="Models\secretarymodel.cs" />
     <Compile Include="Models\sharecapitalmodel.cs" />
+    <Compile Include="Models\statusmodel.cs" />
     <Compile Include="Models\subscribermodel.cs" />
     <Compile Include="Models\ticketmodel.cs" />
     <Compile Include="Models\ticketviewmodel.cs" />
+    <Compile Include="Models\usermode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -268,9 +291,14 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\style.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Images\cls-logo-white.png" />
+    <Content Include="Images\facebook.png" />
+    <Content Include="Images\linkedin.png" />
+    <Content Include="Images\twitter.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
@@ -305,6 +333,8 @@
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="TemplateFile\email.html" />
+    <Content Include="TemplateFile\Formpdf.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -322,6 +352,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="PdfForm\" />
     <Folder Include="TicketRepo\" />
   </ItemGroup>
   <ItemGroup>

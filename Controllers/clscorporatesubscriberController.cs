@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using WebApplication3.Models;
 
+
 namespace WebApplication3.Controllers
 {
-    [EnableCors(origins:"*",headers:"*",methods:"*")]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class clscorporatesubscriberController : ApiController
     {
         public HttpResponseMessage Postclscorporatesubscriber(List<corporatesubscribermodel> model)
@@ -28,6 +28,7 @@ namespace WebApplication3.Controllers
                             cls_corporatesubscriber_tbl tbl = new cls_corporatesubscriber_tbl();
                             tbl.cfid = model[i].cfid;
                             tbl.companyname = model[i].companyname;
+                            tbl.companyphonenumber = model[i].companyphonenumber;
                             tbl.companydirector = model[i].companydirector;
                             tbl.registerofficeaddress = model[i].registeroffice;
                             tbl.addressline2 = model[i].addressline2;

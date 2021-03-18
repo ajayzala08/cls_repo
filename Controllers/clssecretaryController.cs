@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
@@ -9,7 +7,7 @@ using WebApplication3.Models;
 
 namespace WebApplication3.Controllers
 {
-    [EnableCors(origins:"*",headers:"*",methods:"*")]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class clssecretaryController : ApiController
     {
         public HttpResponseMessage postclssecretary(secretarymodel model)
@@ -22,7 +20,7 @@ namespace WebApplication3.Controllers
                     cls_secretary_tbl tbl = new cls_secretary_tbl();
                     tbl.cfid = model.cfid;
                     tbl.name = model.name;
-                    if (model.dob != null && model.dob.Year>1)
+                    if (model.dob != null && model.dob.Year > 1)
                     {
                         tbl.dob = Convert.ToDateTime(model.dob);
                     }

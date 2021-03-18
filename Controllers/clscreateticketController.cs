@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Linq;
@@ -9,8 +8,6 @@ using System.Net.Mail;
 using System.Web;
 using System.Web.Http;
 using System.Web.Http.Cors;
-using WebApplication3.Models;
-using System.Web.Configuration;
 
 namespace WebApplication3.Controllers
 {
@@ -75,7 +72,7 @@ namespace WebApplication3.Controllers
                     db.cls_ticketmst_tbl.Add(tbl);
                     if (db.SaveChanges() > 0)
                     {
-                        email_send(httpRequest.Form["email"].ToString(), tn, httpRequest.Form["name"].ToString());
+                        // email_send(httpRequest.Form["email"].ToString(), tn, httpRequest.Form["name"].ToString());
                         response = Request.CreateResponse(HttpStatusCode.Created, tn);
                         return response;
                     }
@@ -212,10 +209,10 @@ namespace WebApplication3.Controllers
                         }
                     }
 
-                    
+
                 }
 
-                
+
             }
             catch (Exception ex)
             {
@@ -223,7 +220,68 @@ namespace WebApplication3.Controllers
                 return response;
             }
         }
-        
+
+        public HttpResponseMessage Post(string email, string ticketno)
+        {
+            HttpResponseMessage response = new HttpResponseMessage();
+            try
+            {
+                string body = string.Empty;
+                string toEmail = string.Empty;
+                string ticketNo = string.Empty;
+                string htmlstring = string.Empty;
+                using (var db = new CompanyFormation_dbEntities())
+                {
+                    var replies = db.cls_ticketmst_tbl.Where(x => x.ticket_email == email && x.ticket_number == ticketno).FirstOrDefault();
+                    if (replies != null)
+                    {
+
+                        toEmail = replies.ticket_email.ToString();
+                        ticketNo = replies.ticket_number.ToString();
+                        htmlstring = PopulateBody(ticketNo);
+                    }
+
+                    MailMessage mail = new MailMessage();
+                    mail.From = new MailAddress("ajay.zala@archesoftronix.com");
+                    mail.To.Add(new MailAddress(toEmail));
+                    mail.Subject = "Ticket [" + ticketNo + "] Access Link";
+                    mail.Body = htmlstring;
+                    mail.IsBodyHtml = true;
+                    SmtpClient smtp = new SmtpClient();
+                    smtp.Host = "mail1.archesoftronix.com";
+
+
+                    smtp.Port = 587;
+
+
+                    smtp.EnableSsl = false;
+                    smtp.UseDefaultCredentials = true;
+                    smtp.Credentials = new System.Net.NetworkCredential("ajay.zala@archesoftronix.com", "Ajay@2013", "");
+                    smtp.Send(mail);
+                    response = Request.CreateResponse(HttpStatusCode.OK, "Link Send Successfully");
+                    return response;
+
+                }
+            }
+            catch (Exception ex)
+            {
+                response = Request.CreateErrorResponse(HttpStatusCode.ExpectationFailed, "Exception");
+                return response;
+            }
+        }
+
+        private string PopulateBody(string tn)
+        {
+            string path = System.Web.Hosting.HostingEnvironment.MapPath("~/TemplateFile/email.html");
+            string body = string.Empty;
+            using (StreamReader reader = new StreamReader(path))
+            {
+                body = reader.ReadToEnd();
+                body = body.Replace("{ticketNo}", tn.ToString());
+                return body;
+            }
+        }
+
     }
 
 }

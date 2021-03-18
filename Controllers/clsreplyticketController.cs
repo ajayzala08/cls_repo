@@ -13,7 +13,7 @@ using WebApplication3.Models;
 
 namespace WebApplication3.Controllers
 {
-    [EnableCors(origins:"*",headers:"*",methods:"*")]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class clsreplyticketController : ApiController
     {
         public HttpResponseMessage postclsreplyticket()
@@ -51,7 +51,7 @@ namespace WebApplication3.Controllers
 
                     }
                 }
-                using (var db= new CompanyFormation_dbEntities())
+                using (var db = new CompanyFormation_dbEntities())
                 {
                     string tn = httpRequest.Form["ticketno"].ToString();
                     cls_ticketreply_tbl tbl = new cls_ticketreply_tbl();
@@ -85,7 +85,7 @@ namespace WebApplication3.Controllers
 
                 }
 
-                
+
             }
             catch (Exception ex)
             {
@@ -93,7 +93,7 @@ namespace WebApplication3.Controllers
                 return response;
             }
 
-            
+
         }
         public HttpResponseMessage Get(string ticketno)
         {
@@ -111,7 +111,7 @@ namespace WebApplication3.Controllers
                         details = x.reply_details,
                         files = x.reply_files,
                         status = x.reply_status,
-                        replydate =(DateTime)x.reply_date
+                        replydate = (DateTime)x.reply_date
                     }).ToList();
 
                     var ticket = db.cls_ticketmst_tbl.Where(x => x.ticket_number == ticketno).FirstOrDefault();
@@ -142,7 +142,7 @@ namespace WebApplication3.Controllers
                     }
                     return response;
                 }
-               
+
             }
             catch (Exception ex)
             {

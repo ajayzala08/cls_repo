@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
@@ -9,7 +7,7 @@ using WebApplication3.Models;
 
 namespace WebApplication3.Controllers
 {
-    [EnableCors(origins:"*",headers:"*",methods:"*")]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class clssharecapitalController : ApiController
     {
         public HttpResponseMessage Postclssharecapital(sharecapitalmodel model)
@@ -40,7 +38,7 @@ namespace WebApplication3.Controllers
             }
             catch (Exception ex)
             {
-                response = Request.CreateResponse(HttpStatusCode.BadRequest,"Exception");
+                response = Request.CreateResponse(HttpStatusCode.BadRequest, "Exception");
                 return response;
             }
         }

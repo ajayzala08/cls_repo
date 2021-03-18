@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
@@ -9,9 +7,10 @@ using WebApplication3.Models;
 
 namespace WebApplication3.Controllers
 {
-    [EnableCors(origins:"*",headers:"*",methods:"*")]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class clsaddressdetailsController : ApiController
     {
+        
         public HttpResponseMessage postclsaddressdetails(addressdetailsmodel model)
         {
             HttpResponseMessage respose;
@@ -52,7 +51,7 @@ namespace WebApplication3.Controllers
                         return respose;
                     }
                 }
-                
+
             }
             catch (Exception ex)
             {

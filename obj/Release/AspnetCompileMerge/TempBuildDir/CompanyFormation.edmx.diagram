@@ -10,13 +10,15 @@
         <EntityTypeShape EntityType="CompanyFormation_dbModel.cls_agree_tbl" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CompanyFormation_dbModel.cls_beneficialowner_tbl" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CompanyFormation_dbModel.cls_companyincorporation_tbl" Width="1.5" PointX="2.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CompanyFormation_dbModel.cls_corporatesubscriber_tbl" Width="1.5" PointX="4.75" PointY="5.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CompanyFormation_dbModel.cls_director_tbl" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CompanyFormation_dbModel.cls_secretary_tbl" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CompanyFormation_dbModel.cls_sharecapital_tbl" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CompanyFormation_dbModel.cls_subscriber_tbl" Width="1.5" PointX="8.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CompanyFormation_dbModel.cls_ticketmst_tbl" Width="1.5" PointX="8.75" PointY="8.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CompanyFormation_dbModel.cls_ticketreply_tbl" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CompanyFormation_dbModel.cls_usermst_tbl" Width="1.5" PointX="3.375" PointY="9.75" />
+        <EntityTypeShape EntityType="CompanyFormation_dbModel.cls_corporatesubscriber_tbl" Width="1.5" PointX="11.375" PointY="0.75" />
+        <EntityTypeShape EntityType="CompanyFormation_dbModel.cls_statusmst_tbl" Width="1.5" PointX="11.375" PointY="4.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

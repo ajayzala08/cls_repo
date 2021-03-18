@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
@@ -9,7 +8,7 @@ using WebApplication3.Models;
 
 namespace WebApplication3.Controllers
 {
-    [EnableCors(origins:"*",headers:"*",methods:"*")]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class clsbenefeficialownerController : ApiController
     {
         public HttpResponseMessage postclsbeneficialowner(List<beneficialownermodel> model)
@@ -58,7 +57,7 @@ namespace WebApplication3.Controllers
                         response = Request.CreateResponse(HttpStatusCode.BadRequest, "Fail");
                         return response;
                     }
-                    
+
                 }
             }
             catch (Exception ex)
@@ -67,7 +66,7 @@ namespace WebApplication3.Controllers
                 return response;
             }
 
-            
+
         }
     }
 }

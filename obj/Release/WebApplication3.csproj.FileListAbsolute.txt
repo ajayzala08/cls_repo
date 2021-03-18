@@ -68,3 +68,81 @@ E:\Work From Home\CompanyFormation\WebApplication3\WebApplication3\obj\Release\W
 E:\Work From Home\CompanyFormation\WebApplication3\WebApplication3\obj\Release\WebApplication3.dll
 E:\Work From Home\CompanyFormation\WebApplication3\WebApplication3\obj\Release\WebApplication3.pdb
 E:\Work From Home\CompanyFormation\WebApplication3\WebApplication3\bin\MultipartDataMediaFormatter.dll
+E:\Work From Home\CompanyFormation\WebApplication3\WebApplication3\bin\BouncyCastle.Crypto.dll
+E:\Work From Home\CompanyFormation\WebApplication3\WebApplication3\bin\itextsharp.dll
+E:\Work From Home\CompanyFormation\WebApplication3\WebApplication3\bin\itextsharp.xmlworker.dll
+E:\Work From Home\CompanyFormation\WebApplication3\WebApplication3\bin\itextsharp.xml
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\WebApplication3.dll.config
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\WebApplication3.dll
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\WebApplication3.pdb
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\roslyn\csc.exe
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\roslyn\csc.exe.config
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\roslyn\csc.rsp
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\roslyn\csi.exe
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\roslyn\csi.rsp
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\roslyn\System.AppContext.dll
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\roslyn\System.Collections.Immutable.dll
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\roslyn\System.IO.FileSystem.dll
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\roslyn\System.Reflection.Metadata.dll
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\roslyn\vbc.exe
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\roslyn\vbc.exe.config
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\roslyn\vbc.rsp
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\roslyn\VBCSCompiler.exe
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\roslyn\VBCSCompiler.exe.config
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\Antlr3.Runtime.dll
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\BouncyCastle.Crypto.dll
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\EntityFramework.dll
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\EntityFramework.SqlServer.dll
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\itextsharp.dll
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\itextsharp.xmlworker.dll
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\Microsoft.Web.Infrastructure.dll
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\MultipartDataMediaFormatter.dll
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\Newtonsoft.Json.dll
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\System.Net.Http.Formatting.dll
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\System.Web.Cors.dll
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\System.Web.Helpers.dll
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\System.Web.Http.Cors.dll
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\System.Web.Http.dll
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\System.Web.Http.WebHost.dll
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\System.Web.Mvc.dll
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\System.Web.Optimization.dll
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\System.Web.Razor.dll
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\System.Web.WebPages.Deployment.dll
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\System.Web.WebPages.dll
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\System.Web.WebPages.Razor.dll
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\WebGrease.dll
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\EntityFramework.xml
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\EntityFramework.SqlServer.xml
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\itextsharp.xml
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\System.Web.Http.Cors.xml
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\Newtonsoft.Json.xml
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\System.Net.Http.Formatting.xml
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\System.Web.Helpers.xml
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\System.Web.Http.xml
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\System.Web.Http.WebHost.xml
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\System.Web.Mvc.xml
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\System.Web.Optimization.xml
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\System.Web.Razor.xml
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\System.Web.WebPages.xml
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\System.Web.WebPages.Deployment.xml
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\System.Web.WebPages.Razor.xml
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\Antlr3.Runtime.pdb
+D:\CompanyFormation\WebApplication3\WebApplication3\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\CompanyFormation\WebApplication3\WebApplication3\obj\Release\WebApplication3.csprojAssemblyReference.cache
+D:\CompanyFormation\WebApplication3\WebApplication3\obj\Release\WebApplication3.csproj.CoreCompileInputs.cache
+D:\CompanyFormation\WebApplication3\WebApplication3\obj\Release\WebApplication3.csproj.CopyComplete
+D:\CompanyFormation\WebApplication3\WebApplication3\obj\Release\WebApplication3.dll
+D:\CompanyFormation\WebApplication3\WebApplication3\obj\Release\WebApplication3.pdb

@@ -4,7 +4,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 -->
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <_PublishTargetUrl>E:\CLS</_PublishTargetUrl>
+    <_PublishTargetUrl>D:\CLSPublishFiles</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="Areas/HelpPage/HelpPage.css">
@@ -77,16 +77,25 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>09/10/2013 16:29:20</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>02/25/2021 17:36:25</publishTime>
+      <publishTime>03/18/2021 11:59:03</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>02/25/2021 17:36:25</publishTime>
+      <publishTime>03/18/2021 11:59:03</publishTime>
+    </File>
+    <File Include="bin/BouncyCastle.Crypto.dll">
+      <publishTime>02/21/2020 16:24:54</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>10/23/2017 13:15:18</publishTime>
     </File>
     <File Include="bin/EntityFramework.SqlServer.dll">
       <publishTime>10/23/2017 13:15:20</publishTime>
+    </File>
+    <File Include="bin/itextsharp.dll">
+      <publishTime>08/27/2020 11:20:20</publishTime>
+    </File>
+    <File Include="bin/itextsharp.xmlworker.dll">
+      <publishTime>08/27/2020 11:20:20</publishTime>
     </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
       <publishTime>09/05/2018 16:10:50</publishTime>
@@ -215,16 +224,16 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>11/28/2018 13:04:24</publishTime>
     </File>
     <File Include="bin/WebApplication3.dll">
-      <publishTime>02/25/2021 17:36:18</publishTime>
+      <publishTime>03/18/2021 11:58:58</publishTime>
     </File>
     <File Include="bin/WebApplication3.pdb">
-      <publishTime>02/25/2021 17:36:18</publishTime>
+      <publishTime>03/18/2021 11:58:58</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>01/23/2014 13:57:34</publishTime>
     </File>
     <File Include="CompanyFormation.edmx.diagram">
-      <publishTime>02/25/2021 17:32:44</publishTime>
+      <publishTime>03/17/2021 11:44:51</publishTime>
     </File>
     <File Include="Content/bootstrap-theme.css">
       <publishTime>02/16/2021 17:21:33</publishTime>
@@ -253,6 +262,9 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Content/Site.css">
       <publishTime>02/16/2021 17:21:15</publishTime>
     </File>
+    <File Include="Content/style.css">
+      <publishTime>03/04/2021 17:04:02</publishTime>
+    </File>
     <File Include="favicon.ico">
       <publishTime>02/16/2021 17:21:15</publishTime>
     </File>
@@ -271,8 +283,20 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="fonts/glyphicons-halflings-regular.woff2">
       <publishTime>02/16/2021 17:21:32</publishTime>
     </File>
+    <File Include="Images/cls-logo-white.png">
+      <publishTime>03/04/2021 16:58:56</publishTime>
+    </File>
+    <File Include="Images/facebook.png">
+      <publishTime>03/04/2021 16:58:56</publishTime>
+    </File>
+    <File Include="Images/linkedin.png">
+      <publishTime>03/04/2021 16:58:56</publishTime>
+    </File>
+    <File Include="Images/twitter.png">
+      <publishTime>03/04/2021 16:58:56</publishTime>
+    </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>02/25/2021 17:36:20</publishTime>
+      <publishTime>03/18/2021 11:58:59</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js">
       <publishTime>02/16/2021 17:21:32</publishTime>
@@ -301,6 +325,12 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Scripts/modernizr-2.8.3.js">
       <publishTime>02/16/2021 17:21:52</publishTime>
     </File>
+    <File Include="TemplateFile/email.html">
+      <publishTime>03/04/2021 17:04:20</publishTime>
+    </File>
+    <File Include="TemplateFile/Formpdf.html">
+      <publishTime>03/04/2021 15:53:04</publishTime>
+    </File>
     <File Include="Views/Home/Index.cshtml">
       <publishTime>02/17/2021 10:45:17</publishTime>
     </File>
@@ -317,7 +347,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>02/16/2021 17:21:15</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>02/25/2021 17:36:18</publishTime>
+      <publishTime>03/16/2021 10:51:38</publishTime>
     </File>
   </ItemGroup>
 </Project>

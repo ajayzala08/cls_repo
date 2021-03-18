@@ -17,6 +17,7 @@ namespace WebApplication3
         public decimal id { get; set; }
         public Nullable<decimal> cfid { get; set; }
         public string companyname { get; set; }
+        public string companyphonenumber { get; set; }
         public string companydirector { get; set; }
         public string registerofficeaddress { get; set; }
         public string addressline2 { get; set; }

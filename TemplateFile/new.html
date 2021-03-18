@@ -1,0 +1,33 @@
+<html>
+        <head>
+        <title>Your popup</title>
+        </head>
+        <body>
+
+        <h1>Pop</h1>
+        <p>Print me</p>
+        <a href="print.html" onclick="window.print();return false;">
+            <img src="images/printer.png" height="32px" width="32px">
+        </a>
+
+        </body>
+      </html>
+
+//Main page
+    <html>
+        <head>
+        <title>main</title>
+        </head>
+        <body>
+
+        <h1>Pop & print</h1>
+        <button onclick="pop();">Pop</button>
+        <script type="text/javascript">
+          var POP;
+          function pop() {
+            POP = window.open('popup.html', 'thePopup', 'width=350,height=350');
+          }
+        </script>
+
+        </body>
+      </html>

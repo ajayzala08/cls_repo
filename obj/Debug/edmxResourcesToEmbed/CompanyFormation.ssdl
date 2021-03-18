@@ -79,6 +79,7 @@
     <Property Name="id" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="cfid" Type="decimal" Precision="18" Scale="0" />
     <Property Name="companyname" Type="nvarchar" MaxLength="1000" />
+    <Property Name="companyphonenumber" Type="nvarchar" MaxLength="15" />
     <Property Name="companydirector" Type="varchar" MaxLength="1000" />
     <Property Name="registerofficeaddress" Type="nvarchar(max)" />
     <Property Name="addressline2" Type="nvarchar(max)" />
@@ -142,6 +143,17 @@
     <Property Name="shareclass" Type="nvarchar" MaxLength="50" />
     <Property Name="authorisedsharecapital" Type="nvarchar" MaxLength="50" />
   </EntityType>
+  <EntityType Name="cls_statusmst_tbl">
+    <Key>
+      <PropertyRef Name="cfid" />
+    </Key>
+    <Property Name="cfid" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="company_name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="form_status" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="pdf_filename" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="pdf_filepath" Type="varchar(max)" Nullable="false" />
+    <Property Name="createdon" Type="datetime" Nullable="false" />
+  </EntityType>
   <EntityType Name="cls_subscriber_tbl">
     <Key>
       <PropertyRef Name="id" />
@@ -192,6 +204,22 @@
     <Property Name="reply_status" Type="nvarchar(max)" Nullable="false" />
     <Property Name="reply_date" Type="datetime" />
   </EntityType>
+  <EntityType Name="cls_usermst_tbl">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_code" Type="nvarchar" MaxLength="50" />
+    <Property Name="user_fullname" Type="nvarchar" MaxLength="1000" />
+    <Property Name="user_emailid" Type="nvarchar" MaxLength="100" />
+    <Property Name="user_username" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="user_pwd" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="user_department" Type="nvarchar" MaxLength="100" />
+    <Property Name="user_phone" Type="nvarchar" MaxLength="15" />
+    <Property Name="user_active" Type="int" Nullable="false" />
+    <Property Name="user_delete" Type="int" Nullable="false" />
+    <Property Name="user_createdon" Type="datetime" Nullable="false" />
+  </EntityType>
   <EntityContainer Name="CompanyFormation_dbModelStoreContainer">
     <EntitySet Name="cls_additionalinfo_tbl" EntityType="Self.cls_additionalinfo_tbl" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="cls_addressdetails_tbl" EntityType="Self.cls_addressdetails_tbl" Schema="dbo" store:Type="Tables" />
@@ -202,8 +230,10 @@
     <EntitySet Name="cls_director_tbl" EntityType="Self.cls_director_tbl" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="cls_secretary_tbl" EntityType="Self.cls_secretary_tbl" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="cls_sharecapital_tbl" EntityType="Self.cls_sharecapital_tbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cls_statusmst_tbl" EntityType="Self.cls_statusmst_tbl" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="cls_subscriber_tbl" EntityType="Self.cls_subscriber_tbl" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="cls_ticketmst_tbl" EntityType="Self.cls_ticketmst_tbl" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="cls_ticketreply_tbl" EntityType="Self.cls_ticketreply_tbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cls_usermst_tbl" EntityType="Self.cls_usermst_tbl" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>
