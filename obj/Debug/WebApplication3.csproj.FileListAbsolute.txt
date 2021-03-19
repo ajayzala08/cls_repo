@@ -145,3 +145,4 @@ D:\CompanyFormation\WebApplication3\WebApplication3\obj\Debug\WebApplication3.cs
 D:\CompanyFormation\WebApplication3\WebApplication3\obj\Debug\WebApplication3.csproj.CopyComplete
 D:\CompanyFormation\WebApplication3\WebApplication3\obj\Debug\WebApplication3.dll
 D:\CompanyFormation\WebApplication3\WebApplication3\obj\Debug\WebApplication3.pdb
+D:\CompanyFormation\WebApplication3\WebApplication3\obj\Debug\WebApplication3.csprojAssemblyReference.cache

@@ -1006,10 +1006,17 @@ namespace WebApplication3.Controllers
                     body = body.Replace("{caaddressline2}", section9.caaddressline2 != null ? section9.caaddressline2.ToString() : "");
                     body = body.Replace("{caaddressline3}", section9.caaddressline3 != null ? section9.caaddressline3.ToString() : "");
                     body = body.Replace("{capostcode}", section9.capostalcode != null ? section9.capostalcode.ToString() : "");
-                    if (section9.roisalsothebusinessorcaaddress.ToString() == "true")
-                        body = body.Replace("{roissameasca}", "Yes");
+                    if (section9.roisalsothebusinessorcaaddress != null)
+                    {
+                        if (section9.roisalsothebusinessorcaaddress.ToString() == "true")
+                            body = body.Replace("{roissameasca}", "Yes");
+                        else
+                            body = body.Replace("{roissameasca}", "No");
+                    }
                     else
+                    {
                         body = body.Replace("{roissameasca}", "No");
+                    }
                 }
                 else
                 {
