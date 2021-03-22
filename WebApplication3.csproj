@@ -244,6 +244,7 @@
     <Compile Include="Controllers\clsaddressdetailsController.cs" />
     <Compile Include="Controllers\clsagreeController.cs" />
     <Compile Include="Controllers\clsbenefeficialownerController.cs" />
+    <Compile Include="Controllers\clscfidController.cs" />
     <Compile Include="Controllers\clscompanyincorporationController.cs" />
     <Compile Include="Controllers\clscorporatesubscriberController.cs" />
     <Compile Include="Controllers\clscreateticketController.cs" />
