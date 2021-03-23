@@ -22,12 +22,16 @@ namespace WebApplication3.Controllers
                     if (cfid != null && cfid.ToString() != "")
                     {
                         Dictionary<string, string> keyValues = new Dictionary<string, string>();
-                        keyValues.Add("cfid", cfid);
+                        decimal newcfid = Convert.ToDecimal(cfid) + Convert.ToDecimal("1");
+                        keyValues.Add("cfid", newcfid.ToString());
                         response = Request.CreateResponse(HttpStatusCode.OK, keyValues);
                     }
                     else
                     {
-                        response = Request.CreateResponse(HttpStatusCode.NotFound, "Not Found");
+                        Dictionary<string, string> keyValues = new Dictionary<string, string>();
+                        decimal newcfid = Convert.ToDecimal(cfid) + Convert.ToDecimal("1");
+                        keyValues.Add("cfid", newcfid.ToString());
+                        response = Request.CreateResponse(HttpStatusCode.NotFound, keyValues);
                     }
                     return response;
                 }
