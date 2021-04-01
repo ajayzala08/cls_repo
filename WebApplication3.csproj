@@ -251,12 +251,16 @@
     <Compile Include="Controllers\clsdirectorController.cs" />
     <Compile Include="Controllers\clsloginController.cs" />
     <Compile Include="Controllers\clspdfformController.cs" />
+    <Compile Include="Controllers\clsregistrationController.cs" />
     <Compile Include="Controllers\clsreplyticketController.cs" />
     <Compile Include="Controllers\clssecretaryController.cs" />
     <Compile Include="Controllers\clssharecapitalController.cs" />
     <Compile Include="Controllers\clsstatusController.cs" />
     <Compile Include="Controllers\clssubscriberController.cs" />
+    <Compile Include="Controllers\DealController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\StageController.cs" />
+    <Compile Include="Controllers\TeamspaceController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -266,14 +270,17 @@
     <Compile Include="Models\beneficialownermodel.cs" />
     <Compile Include="Models\companyincorporationdetailsmodel.cs" />
     <Compile Include="Models\corporatesubscribermodel.cs" />
+    <Compile Include="Models\dealmodel.cs" />
     <Compile Include="Models\directormodel.cs" />
     <Compile Include="Models\loginmodel.cs" />
     <Compile Include="Models\LoginResponseModel.cs" />
+    <Compile Include="Models\registrationmodel.cs" />
     <Compile Include="Models\responsemodel.cs" />
     <Compile Include="Models\secretarymodel.cs" />
     <Compile Include="Models\sharecapitalmodel.cs" />
     <Compile Include="Models\statusmodel.cs" />
     <Compile Include="Models\subscribermodel.cs" />
+    <Compile Include="Models\teamspacemodel.cs" />
     <Compile Include="Models\ticketmodel.cs" />
     <Compile Include="Models\ticketviewmodel.cs" />
     <Compile Include="Models\usermode.cs" />
@@ -413,7 +420,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>55771</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:55771/</IISUrl>
+          <IISUrl>http://localhost:55781/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

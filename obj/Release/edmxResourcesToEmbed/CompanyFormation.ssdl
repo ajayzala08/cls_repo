@@ -216,6 +216,7 @@
     <Property Name="user_pwd" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="user_department" Type="nvarchar" MaxLength="100" />
     <Property Name="user_phone" Type="nvarchar" MaxLength="15" />
+    <Property Name="user_role" Type="nvarchar" MaxLength="50" />
     <Property Name="user_active" Type="int" Nullable="false" />
     <Property Name="user_delete" Type="int" Nullable="false" />
     <Property Name="user_createdon" Type="datetime" Nullable="false" />

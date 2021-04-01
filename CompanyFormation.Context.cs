@@ -36,8 +36,8 @@ namespace WebApplication3
         public virtual DbSet<cls_subscriber_tbl> cls_subscriber_tbl { get; set; }
         public virtual DbSet<cls_ticketmst_tbl> cls_ticketmst_tbl { get; set; }
         public virtual DbSet<cls_ticketreply_tbl> cls_ticketreply_tbl { get; set; }
-        public virtual DbSet<cls_usermst_tbl> cls_usermst_tbl { get; set; }
         public virtual DbSet<cls_corporatesubscriber_tbl> cls_corporatesubscriber_tbl { get; set; }
         public virtual DbSet<cls_statusmst_tbl> cls_statusmst_tbl { get; set; }
+        public virtual DbSet<cls_usermst_tbl> cls_usermst_tbl { get; set; }
     }
 }

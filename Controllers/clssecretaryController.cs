@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
@@ -17,35 +18,66 @@ namespace WebApplication3.Controllers
             {
                 using (var db = new CompanyFormation_dbEntities())
                 {
-                    cls_secretary_tbl tbl = new cls_secretary_tbl();
-                    tbl.cfid = model.cfid;
-                    tbl.name = model.name;
-                    if (model.dob != null && model.dob.Year > 1)
+                    var checkname = db.cls_secretary_tbl.Where(x => x.name.ToLower() == model.name.ToLower()).FirstOrDefault();
+                    if (checkname == null)
                     {
-                        tbl.dob = Convert.ToDateTime(model.dob);
-                    }
-                    tbl.addressline1 = model.addressline1;
-                    tbl.addressline2 = model.addressline2;
-                    tbl.addressline3 = model.addressline3;
-                    tbl.postalcode = model.postal;
-                    tbl.country = model.country;
-                    tbl.companyname = model.companyname;
-                    tbl.companynumber = model.companynumber;
-                    tbl.companydirector = model.companydirector;
-                    tbl.companyregionaloffice = model.companyregiseroffice;
-                    tbl.companyaddressline1 = model.companyaddressline1;
-                    tbl.companyaddressline2 = model.companyaddressline2;
-                    tbl.compnaypostal = model.companypostal;
-                    tbl.compnaycountry = model.companycountry;
-                    db.cls_secretary_tbl.Add(tbl);
-                    var result = db.SaveChanges();
-                    if (result > 0)
-                    {
-                        response = Request.CreateResponse(HttpStatusCode.Created, "Success");
+                        var checkcompanyname = db.cls_secretary_tbl.Where(x => x.companyname.ToLower() == model.companyname.ToLower()).FirstOrDefault();
+                        if (checkcompanyname == null)
+                        {
+                            var checkcompanyno = db.cls_secretary_tbl.Where(x => x.companynumber == model.companynumber).FirstOrDefault();
+                            if (checkcompanyno == null)
+                            {
+                                var checkcompanydirector = db.cls_secretary_tbl.Where(x => x.companydirector.ToLower() == model.companydirector.ToLower()).FirstOrDefault();
+                                if (checkcompanydirector == null)
+                                {
+                                    cls_secretary_tbl tbl = new cls_secretary_tbl();
+                                    tbl.cfid = model.cfid;
+                                    tbl.name = model.name;
+                                    if (model.dob != null && model.dob.Year > 1)
+                                    {
+                                        tbl.dob = Convert.ToDateTime(model.dob);
+                                    }
+                                    tbl.addressline1 = model.addressline1;
+                                    tbl.addressline2 = model.addressline2;
+                                    tbl.addressline3 = model.addressline3;
+                                    tbl.postalcode = model.postal;
+                                    tbl.country = model.country;
+                                    tbl.companyname = model.companyname;
+                                    tbl.companynumber = model.companynumber;
+                                    tbl.companydirector = model.companydirector;
+                                    tbl.companyregionaloffice = model.companyregiseroffice;
+                                    tbl.companyaddressline1 = model.companyaddressline1;
+                                    tbl.companyaddressline2 = model.companyaddressline2;
+                                    tbl.compnaypostal = model.companypostal;
+                                    tbl.compnaycountry = model.companycountry;
+                                    db.cls_secretary_tbl.Add(tbl);
+                                    var result = db.SaveChanges();
+                                    if (result > 0)
+                                    {
+                                        response = Request.CreateResponse(HttpStatusCode.Created, "Success");
+                                    }
+                                    else
+                                    {
+                                        response = Request.CreateResponse(HttpStatusCode.BadRequest, "Fail");
+                                    }
+                                }
+                                else
+                                {
+                                    response = Request.CreateResponse(HttpStatusCode.BadRequest, "Company Director '" + model.companydirector + "' already exisits.");
+                                }
+                            }
+                            else {
+                                response = Request.CreateResponse(HttpStatusCode.BadRequest, "Company Number '" + model.companynumber + "' already exisits.");
+                            }
+                        }
+                        else
+                        {
+                            response = Request.CreateResponse(HttpStatusCode.BadRequest, "Company Name '" + model.companyname + "' already exisits.");
+                        }
                     }
                     else
                     {
-                        response = Request.CreateErrorResponse(HttpStatusCode.BadRequest, "Fail");
+                        response = Request.CreateResponse(HttpStatusCode.BadRequest, "Name '" + model.name + "' already exisits.");
                     }
                 }
                 return response;

@@ -22,6 +22,7 @@ namespace WebApplication3
         public string user_pwd { get; set; }
         public string user_department { get; set; }
         public string user_phone { get; set; }
+        public string user_role { get; set; }
         public int user_active { get; set; }
         public int user_delete { get; set; }
         public System.DateTime user_createdon { get; set; }

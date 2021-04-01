@@ -32,15 +32,23 @@ namespace WebApplication3.Controllers
                         }
                         else
                         {
-                            firstname = names[0];
-                            lastname = names[1];
+                            if (names.Length == 1)
+                            {
+                                firstname = names[0];
+                                lastname = "";
+                            }
+                            else
+                            {
+                                firstname = names[0];
+                                lastname = names[1];
+                            }
                         }
 
                         LoginResponseModel loginResponse = new LoginResponseModel();
                         loginResponse.EmployeeCode = Convert.ToDecimal(user.user_code);
                         loginResponse.Firstname = firstname;
                         loginResponse.Lastname = lastname;
-                        loginResponse.Role = "";
+                        loginResponse.Role = user.user_role;
                         loginResponse.Username = user.user_username;
                         loginResponse.token = "eyj0exaioijkv1qilcjhbgcioijiuzi1nij9.eyjpc3mioijjb2rlcnrozw1lcyisimlhdci6mtu4nzm1njy0oswizxhwijoxotayodg5ndq5lcjhdwqioijjb2rlcnrozw1lcy5jb20ilcjzdwiioijzdxbwb3j0qgnvzgvydghlbwvzlmnvbsisimxhc3royw1lijoivgvzdcisikvtywlsijoic3vwcg9ydebjb2rlcnrozw1lcy5jb20ilcjsb2xlijoiqwrtaw4ilcjmaxjzde5hbwuioijtahjlexuifq.d-isMYoGH6Ah4i_dHxplgJNGtXTLEqZYvha_ULSJRFU";
                         loginResponse.auth = "true";

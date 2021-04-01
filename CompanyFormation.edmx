@@ -221,6 +221,7 @@
           <Property Name="user_pwd" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="user_department" Type="nvarchar" MaxLength="100" />
           <Property Name="user_phone" Type="nvarchar" MaxLength="15" />
+          <Property Name="user_role" Type="nvarchar" MaxLength="50" />
           <Property Name="user_active" Type="int" Nullable="false" />
           <Property Name="user_delete" Type="int" Nullable="false" />
           <Property Name="user_createdon" Type="datetime" Nullable="false" />
@@ -434,26 +435,10 @@
           <EntitySet Name="cls_subscriber_tbl" EntityType="Self.cls_subscriber_tbl" />
           <EntitySet Name="cls_ticketmst_tbl" EntityType="Self.cls_ticketmst_tbl" />
           <EntitySet Name="cls_ticketreply_tbl" EntityType="Self.cls_ticketreply_tbl" />
-          <EntitySet Name="cls_usermst_tbl" EntityType="CompanyFormation_dbModel.cls_usermst_tbl" />
           <EntitySet Name="cls_corporatesubscriber_tbl" EntityType="CompanyFormation_dbModel.cls_corporatesubscriber_tbl" />
           <EntitySet Name="cls_statusmst_tbl" EntityType="CompanyFormation_dbModel.cls_statusmst_tbl" />
+          <EntitySet Name="cls_usermst_tbl" EntityType="CompanyFormation_dbModel.cls_usermst_tbl" />
         </EntityContainer>
-        <EntityType Name="cls_usermst_tbl">
-          <Key>
-            <PropertyRef Name="user_id" />
-          </Key>
-          <Property Name="user_id" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="user_code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="user_fullname" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
-          <Property Name="user_emailid" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="user_username" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
-          <Property Name="user_pwd" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="user_department" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="user_phone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
-          <Property Name="user_active" Type="Int32" Nullable="false" />
-          <Property Name="user_delete" Type="Int32" Nullable="false" />
-          <Property Name="user_createdon" Type="DateTime" Nullable="false" Precision="3" />
-        </EntityType>
         <EntityType Name="cls_corporatesubscriber_tbl">
           <Key>
             <PropertyRef Name="id" />
@@ -480,6 +465,23 @@
           <Property Name="pdf_filename" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="pdf_filepath" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="createdon" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="cls_usermst_tbl">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="user_fullname" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="user_emailid" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="user_username" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="user_pwd" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="user_department" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="user_phone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="user_role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="user_active" Type="Int32" Nullable="false" />
+          <Property Name="user_delete" Type="Int32" Nullable="false" />
+          <Property Name="user_createdon" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -675,23 +677,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="cls_usermst_tbl">
-            <EntityTypeMapping TypeName="CompanyFormation_dbModel.cls_usermst_tbl">
-              <MappingFragment StoreEntitySet="cls_usermst_tbl">
-                <ScalarProperty Name="user_createdon" ColumnName="user_createdon" />
-                <ScalarProperty Name="user_delete" ColumnName="user_delete" />
-                <ScalarProperty Name="user_active" ColumnName="user_active" />
-                <ScalarProperty Name="user_phone" ColumnName="user_phone" />
-                <ScalarProperty Name="user_department" ColumnName="user_department" />
-                <ScalarProperty Name="user_pwd" ColumnName="user_pwd" />
-                <ScalarProperty Name="user_username" ColumnName="user_username" />
-                <ScalarProperty Name="user_emailid" ColumnName="user_emailid" />
-                <ScalarProperty Name="user_fullname" ColumnName="user_fullname" />
-                <ScalarProperty Name="user_code" ColumnName="user_code" />
-                <ScalarProperty Name="user_id" ColumnName="user_id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="cls_corporatesubscriber_tbl">
             <EntityTypeMapping TypeName="CompanyFormation_dbModel.cls_corporatesubscriber_tbl">
               <MappingFragment StoreEntitySet="cls_corporatesubscriber_tbl">
@@ -718,6 +703,24 @@
                 <ScalarProperty Name="form_status" ColumnName="form_status" />
                 <ScalarProperty Name="company_name" ColumnName="company_name" />
                 <ScalarProperty Name="cfid" ColumnName="cfid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cls_usermst_tbl">
+            <EntityTypeMapping TypeName="CompanyFormation_dbModel.cls_usermst_tbl">
+              <MappingFragment StoreEntitySet="cls_usermst_tbl">
+                <ScalarProperty Name="user_createdon" ColumnName="user_createdon" />
+                <ScalarProperty Name="user_delete" ColumnName="user_delete" />
+                <ScalarProperty Name="user_active" ColumnName="user_active" />
+                <ScalarProperty Name="user_role" ColumnName="user_role" />
+                <ScalarProperty Name="user_phone" ColumnName="user_phone" />
+                <ScalarProperty Name="user_department" ColumnName="user_department" />
+                <ScalarProperty Name="user_pwd" ColumnName="user_pwd" />
+                <ScalarProperty Name="user_username" ColumnName="user_username" />
+                <ScalarProperty Name="user_emailid" ColumnName="user_emailid" />
+                <ScalarProperty Name="user_fullname" ColumnName="user_fullname" />
+                <ScalarProperty Name="user_code" ColumnName="user_code" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
