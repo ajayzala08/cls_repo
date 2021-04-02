@@ -50,17 +50,17 @@ namespace WebApplication3.Controllers
                             }
                             else
                             {
-                                response = Request.CreateResponse(HttpStatusCode.BadRequest, "Third Choice '" + model.thirdchoice + "' already exisits.");
+                                response = Request.CreateResponse(HttpStatusCode.BadRequest, "Third Choice '" + model.thirdchoice + "' already exists.");
                             }
                         }
                         else
                         {
-                            response = Request.CreateResponse(HttpStatusCode.BadRequest, "Second Choice '" + model.secondchoice + "' already exisits.");
+                            response = Request.CreateResponse(HttpStatusCode.BadRequest, "Second Choice '" + model.secondchoice + "' already exists.");
                         }
                     }
                     else
                     {
-                        response = Request.CreateResponse(HttpStatusCode.BadRequest, "First Choice '" + model.firstchoice + "' already exisits.");
+                        response = Request.CreateResponse(HttpStatusCode.BadRequest, "First Choice '" + model.firstchoice + "' already exists.");
                     }
                 }
 

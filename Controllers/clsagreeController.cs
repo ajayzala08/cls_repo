@@ -58,22 +58,22 @@ namespace WebApplication3.Controllers
                                 }
                                 else
                                 {
-                                    response = Request.CreateResponse(HttpStatusCode.BadRequest, "Phone Number '" + agreemodel.phone + "' already exisits.");
+                                    response = Request.CreateResponse(HttpStatusCode.BadRequest, "Phone Number '" + agreemodel.phone + "' already exists.");
                                 }
                             }
                             else
                             {
-                                response = Request.CreateResponse(HttpStatusCode.BadRequest, "Email '" + agreemodel.email + "' already exisits.");
+                                response = Request.CreateResponse(HttpStatusCode.BadRequest, "Email '" + agreemodel.email + "' already exists.");
                             }
                         }
                         else
                         {
-                            response = Request.CreateResponse(HttpStatusCode.BadRequest, "Company Name '" + agreemodel.companyname + "' already exisits.");
+                            response = Request.CreateResponse(HttpStatusCode.BadRequest, "Company Name '" + agreemodel.companyname + "' already exists.");
                         }
                     }
                     else
                     {
-                        response = Request.CreateResponse(HttpStatusCode.BadRequest, "Name '" + agreemodel.name + "' already exisits.");
+                        response = Request.CreateResponse(HttpStatusCode.BadRequest, "Name '" + agreemodel.name + "' already exists.");
                         
                     }
                     return response; 

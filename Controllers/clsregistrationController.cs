@@ -25,7 +25,7 @@ namespace WebApplication3.Controllers
                     var finduser = db.cls_usermst_tbl.Where(x => x.user_fullname.ToLower() == registration.fullname.ToLower() || x.user_code==registration.empcode).FirstOrDefault();
                     if (finduser != null)
                     {
-                        response = Request.CreateResponse(HttpStatusCode.BadRequest, "Fullname/Employee Code Already Exists.");
+                        response = Request.CreateResponse(HttpStatusCode.BadRequest, "Fullname/Employee Code Already exists.");
                     }
                     else
                     {

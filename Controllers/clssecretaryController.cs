@@ -63,21 +63,21 @@ namespace WebApplication3.Controllers
                                 }
                                 else
                                 {
-                                    response = Request.CreateResponse(HttpStatusCode.BadRequest, "Company Director '" + model.companydirector + "' already exisits.");
+                                    response = Request.CreateResponse(HttpStatusCode.BadRequest, "Company Director '" + model.companydirector + "' already exists.");
                                 }
                             }
                             else {
-                                response = Request.CreateResponse(HttpStatusCode.BadRequest, "Company Number '" + model.companynumber + "' already exisits.");
+                                response = Request.CreateResponse(HttpStatusCode.BadRequest, "Company Number '" + model.companynumber + "' already exists.");
                             }
                         }
                         else
                         {
-                            response = Request.CreateResponse(HttpStatusCode.BadRequest, "Company Name '" + model.companyname + "' already exisits.");
+                            response = Request.CreateResponse(HttpStatusCode.BadRequest, "Company Name '" + model.companyname + "' already exists.");
                         }
                     }
                     else
                     {
-                        response = Request.CreateResponse(HttpStatusCode.BadRequest, "Name '" + model.name + "' already exisits.");
+                        response = Request.CreateResponse(HttpStatusCode.BadRequest, "Name '" + model.name + "' already exists.");
                     }
                 }
                 return response;

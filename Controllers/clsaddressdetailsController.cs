@@ -14,36 +14,19 @@ namespace WebApplication3.Controllers
         
         public HttpResponseMessage postclsaddressdetails(addressdetailsmodel model)
         {
-            HttpResponseMessage respose;
+            HttpResponseMessage respose = new HttpResponseMessage();
             try
             {
                 using (var db = new CompanyFormation_dbEntities())
                 {
                     if (model.cfid > 0 && model.cfid.ToString() != "")
                     {
-                        var checckaddress = db.cls_addressdetails_tbl.Where(x => x.roaddressline1.ToLower() == model.roaddressline1.ToLower()
-                        && x.roaddressline2.ToLower() == model.roaddressline2.ToLower() && x.oraddressline3.ToLower()==model.roaddressline3.ToLower() 
-                        && x.ropostalcode ==model.ropostalcode
-                        ).FirstOrDefault();
-                        if (checckaddress !=null)
-                        {
-
-                            respose = Request.CreateResponse(HttpStatusCode.BadRequest, "Register Office Address Already Exists.");
-                        }
-                        else
-                        {
-                            var checkcaaddress = db.cls_addressdetails_tbl.Where(x=>x.caaddressline1.ToLower() == model.caaddressline1.ToLower() 
-                            && x.caaddressline2.ToLower() ==model.caaddressline2.ToLower() && x.caaddressline3.ToLower() == model.caaddressline3.ToLower() 
-                            && x.capostalcode == model.capostalcode
-                            ).FirstOrDefault();
-
-                            if (checkcaaddress != null)
-                            {
-                                respose = Request.CreateResponse(HttpStatusCode.BadRequest, "Central Administration Address Already Exists.");
-                            }
-                            else
-                            {
-
+                        //bool checkroofficeaddress = checckaddress(model);
+                        //if(checkroofficeaddress)
+                        //{
+                        //    bool checkcaofficeaddress = checkcaaddress(model);
+                        //    if (checkcaofficeaddress)
+                        //    {
                                 cls_addressdetails_tbl tbl = new cls_addressdetails_tbl();
                                 tbl.cfid = model.cfid;
                                 tbl.roaddressline1 = model.roaddressline1;
@@ -67,16 +50,17 @@ namespace WebApplication3.Controllers
                                     respose = Request.CreateResponse(HttpStatusCode.BadRequest, "Fail");
 
                                 }
-                            }
+                        //        }
+                        //    }
+                        //    return respose;
                         }
+                        //else
+                        //{
+                        //    respose = Request.CreateResponse(HttpStatusCode.BadRequest, "Fail");
+                        //    
+                        //}
                         return respose;
                     }
-                    else
-                    {
-                        respose = Request.CreateResponse(HttpStatusCode.BadRequest, "Fail");
-                        return respose;
-                    }
-                }
 
             }
             catch (Exception ex)
@@ -86,5 +70,69 @@ namespace WebApplication3.Controllers
             }
 
         }
+
+        //public bool checckaddress(addressdetailsmodel model)
+        //{
+        //    bool checkaddresscondition = false;
+        //    using (var db =new CompanyFormation_dbEntities())
+        //    {
+        //        if ((model.roaddressline1.ToString() != "") && (model.roaddressline1 != null))
+        //        {
+        //            var checckaddress = db.cls_addressdetails_tbl.Where(x => x.roaddressline1.ToLower() == model.roaddressline1.ToLower()
+        //                    && x.roaddressline2.ToLower() == model.roaddressline2.ToLower() && x.oraddressline3.ToLower() == model.roaddressline3.ToLower()
+        //                    && x.ropostalcode == model.ropostalcode
+        //                    ).FirstOrDefault();
+        //            if (checckaddress != null)
+        //            {
+
+        //                checkaddresscondition = false;
+
+        //            }
+        //            else
+        //            {
+        //                checkaddresscondition = true;
+        //            }
+        //        }
+        //        else
+        //        {
+        //            checkaddresscondition = true;
+        //        }
+        //    }
+            
+
+        //    return checkaddresscondition;
+        //}
+
+        //public bool checkcaaddress(addressdetailsmodel model)
+        //{
+        //    bool checkaddresscondition = false;
+        //    using (var db = new CompanyFormation_dbEntities())
+        //    {
+        //        if ((model.caaddressline1.ToString() != "") && (model.caaddressline1 != null))
+        //        {
+        //            var checkcaaddress = db.cls_addressdetails_tbl.Where(x => x.caaddressline1.ToLower() == model.caaddressline1.ToLower()
+        //                  && x.caaddressline2.ToLower() == model.caaddressline2.ToLower() && x.caaddressline3.ToLower() == model.caaddressline3.ToLower()
+        //                  && x.capostalcode == model.capostalcode
+        //                  ).FirstOrDefault();
+        //            if (checkcaaddress != null)
+        //            {
+
+        //                checkaddresscondition = false;
+
+        //            }
+        //            else
+        //            {
+        //                checkaddresscondition = true;
+        //            }
+        //        }
+        //        else
+        //        {
+        //            checkaddresscondition = true;
+        //        }
+        //    }
+
+
+        //    return checkaddresscondition;
+        //}
     }
 }

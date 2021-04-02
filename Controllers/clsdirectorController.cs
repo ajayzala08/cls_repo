@@ -27,38 +27,43 @@ namespace WebApplication3.Controllers
                         {
                             for (int i = 0; i < model.Count; i++)
                             {
-                                total++;
+                               
                                 if (model[i].cfid > 0)
                                 {
-                                    cls_director_tbl tbl = new cls_director_tbl();
-                                    tbl.cfid = model[i].cfid;
-                                    tbl.name = model[i].name;
-                                    if (model[i].dob != null && model[i].dob.Year > 1)
+                                    if ((model[i].name != null) && (model[i].name.ToString() != ""))
                                     {
-                                        tbl.dob = model[i].dob;
-                                    }
-                                    tbl.occupation = model[i].occupation;
-                                    tbl.addressline1 = model[i].addressline1;
-                                    tbl.addressline2 = model[i].addressline2;
-                                    tbl.addressline3 = model[i].addressline3;
-                                    tbl.postalcode = model[i].postal;
-                                    tbl.country = model[i].country;
-                                    tbl.nationality = model[i].nationality;
-                                    tbl.otherdirectorship1 = model[i].otherdirectorship1;
-                                    tbl.otherdirectorship2 = model[i].otherdirectorship2;
-                                    tbl.otherdirectorship3 = model[i].otherdirectorship3;
-                                    tbl.restricted = model[i].restricted;
-                                    tbl.numberofshare = model[i].numberofshare;
-                                    tbl.beneficialowner = model[i].beneficialowner;
-                                    db.cls_director_tbl.Add(tbl);
-                                    var result = db.SaveChanges();
-                                    if (result > 0)
-                                    {
-                                        success++;
-                                    }
-                                    else
-                                    {
-                                        fail++;
+                                        total++;
+
+                                        cls_director_tbl tbl = new cls_director_tbl();
+                                        tbl.cfid = model[i].cfid;
+                                        tbl.name = model[i].name;
+                                        if (model[i].dob != null && model[i].dob.Year > 1)
+                                        {
+                                            tbl.dob = model[i].dob;
+                                        }
+                                        tbl.occupation = model[i].occupation;
+                                        tbl.addressline1 = model[i].addressline1;
+                                        tbl.addressline2 = model[i].addressline2;
+                                        tbl.addressline3 = model[i].addressline3;
+                                        tbl.postalcode = model[i].postal;
+                                        tbl.country = model[i].country;
+                                        tbl.nationality = model[i].nationality;
+                                        tbl.otherdirectorship1 = model[i].otherdirectorship1;
+                                        tbl.otherdirectorship2 = model[i].otherdirectorship2;
+                                        tbl.otherdirectorship3 = model[i].otherdirectorship3;
+                                        tbl.restricted = model[i].restricted;
+                                        tbl.numberofshare = model[i].numberofshare;
+                                        tbl.beneficialowner = model[i].beneficialowner;
+                                        db.cls_director_tbl.Add(tbl);
+                                        var result = db.SaveChanges();
+                                        if (result > 0)
+                                        {
+                                            success++;
+                                        }
+                                        else
+                                        {
+                                            fail++;
+                                        }
                                     }
                                 }
                             }
@@ -93,15 +98,19 @@ namespace WebApplication3.Controllers
             {
                 using (var db = new CompanyFormation_dbEntities())
                 {
-                    var name = model[i].name.ToLower();
-                    var find = (from c in db.cls_director_tbl where c.name.ToLower() == name  select c).FirstOrDefault();
-                    //var find = db.cls_director_tbl.Where(x => x.name.ToLower() == model[i].name.ToLower()).ToList();
-                    
-
-                    if (find != null)
+                    if ((model[i].name != null) && (model[i].name.ToString() != ""))
                     {
-                        checkdrirectroname = false;
-                        goto directornamecheckcondition;
+                        var name = model[i].name.ToLower();
+                        var find = (from c in db.cls_director_tbl where c.name.ToLower() == name select c).FirstOrDefault();
+                        if (find != null)
+                        {
+                            checkdrirectroname = false;
+                            goto directornamecheckcondition;
+                        }
+                        else
+                        {
+                            checkdrirectroname = true;
+                        }
                     }
                     else
                     {

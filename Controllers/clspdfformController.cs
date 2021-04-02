@@ -764,7 +764,7 @@ namespace WebApplication3.Controllers
                         body = body.Replace("{csnoofshare5}", "");
                     }
 
-                    if (section7.Count >= 5)
+                    if (section7.Count >= 6)
                     {
                         body = body.Replace("{cscompanyname6}", section7[5].companyname != null ? section7[5].companyname.ToString() : "");
                         body = body.Replace("{cscompanynumber6}", section7[5].companyphonenumber != null ? section7[5].companyphonenumber.ToString() : "");
@@ -789,7 +789,7 @@ namespace WebApplication3.Controllers
                         body = body.Replace("{csnoofshare6}", "");
                     }
 
-                    if (section7.Count >= 6)
+                    if (section7.Count >= 7)
                     {
                         body = body.Replace("{cscompanyname7}", section7[6].companyname != null ? section7[6].companyname.ToString() : "");
                         body = body.Replace("{cscompanynumber7}", section7[6].companyphonenumber != null ? section7[6].companyphonenumber.ToString() : "");

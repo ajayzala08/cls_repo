@@ -34,27 +34,30 @@ namespace WebApplication3.Controllers
                                 {
                                     for (int i = 0; i < model.Count; i++)
                                     {
-                                        total++;
-                                        cls_corporatesubscriber_tbl tbl = new cls_corporatesubscriber_tbl();
-                                        tbl.cfid = model[i].cfid;
-                                        tbl.companyname = model[i].companyname;
-                                        tbl.companyphonenumber = model[i].companyphonenumber;
-                                        tbl.companydirector = model[i].companydirector;
-                                        tbl.registerofficeaddress = model[i].registeroffice;
-                                        tbl.addressline2 = model[i].addressline2;
-                                        tbl.addressline3 = model[i].addressline3;
-                                        tbl.postalcode = model[i].postalcode;
-                                        tbl.country = model[i].country;
-                                        tbl.numberofshare = model[i].numberofshare;
-                                        db.cls_corporatesubscriber_tbl.Add(tbl);
-                                        var result = db.SaveChanges();
-                                        if (result > 0)
+                                        if ((model[i].companyname != null) && (model[i].companyname.ToString() != ""))
                                         {
-                                            success++;
-                                        }
-                                        else
-                                        {
-                                            fail++;
+                                            total++;
+                                            cls_corporatesubscriber_tbl tbl = new cls_corporatesubscriber_tbl();
+                                            tbl.cfid = model[i].cfid;
+                                            tbl.companyname = model[i].companyname;
+                                            tbl.companyphonenumber = model[i].companyphonenumber;
+                                            tbl.companydirector = model[i].companydirector;
+                                            tbl.registerofficeaddress = model[i].registeroffice;
+                                            tbl.addressline2 = model[i].addressline2;
+                                            tbl.addressline3 = model[i].addressline3;
+                                            tbl.postalcode = model[i].postalcode;
+                                            tbl.country = model[i].country;
+                                            tbl.numberofshare = model[i].numberofshare;
+                                            db.cls_corporatesubscriber_tbl.Add(tbl);
+                                            var result = db.SaveChanges();
+                                            if (result > 0)
+                                            {
+                                                success++;
+                                            }
+                                            else
+                                            {
+                                                fail++;
+                                            }
                                         }
                                     }
                                     response = Request.CreateResponse(HttpStatusCode.Created, success.ToString() + "/" + total.ToString() + " Success");
@@ -97,15 +100,22 @@ namespace WebApplication3.Controllers
             {
                 using (var db = new CompanyFormation_dbEntities())
                 {
-                    var Companyname = model[i].companyname.ToLower();
-                    var find = db.cls_corporatesubscriber_tbl.Where(x => x.companyname.ToLower() == Companyname).FirstOrDefault();
-                    //var find = db.cls_director_tbl.Where(x => x.name.ToLower() == model[i].name.ToLower()).ToList();
-
-
-                    if (find != null)
+                    if ((model[i].companyname != null) && (model[i].companyname.ToString() != ""))
                     {
-                        checkcorporatesubscribername = false;
-                        goto corporatesubscribercondition;
+                        var Companyname = model[i].companyname.ToLower();
+                        var find = db.cls_corporatesubscriber_tbl.Where(x => x.companyname.ToLower() == Companyname).FirstOrDefault();
+                        //var find = db.cls_director_tbl.Where(x => x.name.ToLower() == model[i].name.ToLower()).ToList();
+
+
+                        if (find != null)
+                        {
+                            checkcorporatesubscribername = false;
+                            goto corporatesubscribercondition;
+                        }
+                        else
+                        {
+                            checkcorporatesubscribername = true;
+                        }
                     }
                     else
                     {
@@ -143,6 +153,10 @@ namespace WebApplication3.Controllers
                             checknumber = true;
                         }
                     }
+                    else
+                    {
+                        checknumber = true;
+                    }
                 }
             }
         corporatesubscribercondition:
@@ -158,15 +172,22 @@ namespace WebApplication3.Controllers
             {
                 using (var db = new CompanyFormation_dbEntities())
                 {
-                    var directorname = model[i].companydirector.ToLower();
-                    var find = db.cls_corporatesubscriber_tbl.Where(x => x.companydirector.ToLower() == directorname).FirstOrDefault();
-                    //var find = db.cls_director_tbl.Where(x => x.name.ToLower() == model[i].name.ToLower()).ToList();
-
-
-                    if (find != null)
+                    if ((model[i].companydirector != null) && (model[i].companydirector.ToString() != ""))
                     {
-                        checkdirector = false;
-                        goto corporatesubscribercondition;
+                        var directorname = model[i].companydirector.ToLower();
+                        var find = db.cls_corporatesubscriber_tbl.Where(x => x.companydirector.ToLower() == directorname).FirstOrDefault();
+                        //var find = db.cls_director_tbl.Where(x => x.name.ToLower() == model[i].name.ToLower()).ToList();
+
+
+                        if (find != null)
+                        {
+                            checkdirector = false;
+                            goto corporatesubscribercondition;
+                        }
+                        else
+                        {
+                            checkdirector = true;
+                        }
                     }
                     else
                     {
