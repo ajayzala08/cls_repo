@@ -28,5 +28,6 @@ namespace WebApplication3
         public Nullable<decimal> postcode { get; set; }
         public Nullable<decimal> phonenumber { get; set; }
         public string email { get; set; }
+        public string username { get; set; }
     }
 }

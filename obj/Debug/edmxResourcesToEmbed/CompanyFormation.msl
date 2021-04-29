@@ -30,6 +30,7 @@
     <EntitySetMapping Name="cls_agree_tbl">
       <EntityTypeMapping TypeName="CompanyFormation_dbModel.cls_agree_tbl">
         <MappingFragment StoreEntitySet="cls_agree_tbl">
+          <ScalarProperty Name="username" ColumnName="username" />
           <ScalarProperty Name="cfid" ColumnName="cfid" />
           <ScalarProperty Name="agree" ColumnName="agree" />
           <ScalarProperty Name="nonthirdparties" ColumnName="nonthirdparties" />

@@ -48,6 +48,7 @@ namespace WebApplication3.Controllers
                                     tbl.postcode = agreemodel.postal;
                                     tbl.phonenumber = agreemodel.phone;
                                     tbl.email = agreemodel.email;
+                                    tbl.username = agreemodel.username;
 
                                     db.cls_agree_tbl.Add(tbl);
                                     db.SaveChanges();

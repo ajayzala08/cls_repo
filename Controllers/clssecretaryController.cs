@@ -21,13 +21,14 @@ namespace WebApplication3.Controllers
                     var checkname = db.cls_secretary_tbl.Where(x => x.name.ToLower() == model.name.ToLower()).FirstOrDefault();
                     if (checkname == null)
                     {
-                        var checkcompanyname = db.cls_secretary_tbl.Where(x => x.companyname.ToLower() == model.companyname.ToLower()).FirstOrDefault();
+                        var checkcompanyname = db.cls_secretary_tbl.Where(x => x.companyname.ToLower() == model.companyname.ToLower() && model.companyname.ToString() != "").FirstOrDefault();
                         if (checkcompanyname == null)
                         {
-                            var checkcompanyno = db.cls_secretary_tbl.Where(x => x.companynumber == model.companynumber).FirstOrDefault();
+                            var checkcompanyno = db.cls_secretary_tbl.Where(x => x.companynumber == model.companynumber && model.companynumber != 0).FirstOrDefault();
                             if (checkcompanyno == null)
                             {
-                                var checkcompanydirector = db.cls_secretary_tbl.Where(x => x.companydirector.ToLower() == model.companydirector.ToLower()).FirstOrDefault();
+                                
+                                var checkcompanydirector = db.cls_secretary_tbl.Where(x => x.companydirector.ToLower() == model.companydirector.ToLower() && model.companydirector.ToString() !="").FirstOrDefault();
                                 if (checkcompanydirector == null)
                                 {
                                     cls_secretary_tbl tbl = new cls_secretary_tbl();

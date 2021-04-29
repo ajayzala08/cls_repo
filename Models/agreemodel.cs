@@ -16,5 +16,6 @@
         public decimal postal { get; set; }
         public decimal phone { get; set; }
         public string email { get; set; }
+        public string username { get; set; }
     }
 }

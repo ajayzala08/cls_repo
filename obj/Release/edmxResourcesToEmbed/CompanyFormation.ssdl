@@ -42,6 +42,7 @@
     <Property Name="postcode" Type="numeric" Precision="10" Scale="0" />
     <Property Name="phonenumber" Type="numeric" Precision="11" Scale="0" />
     <Property Name="email" Type="nvarchar" MaxLength="100" />
+    <Property Name="username" Type="nvarchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="cls_beneficialowner_tbl">
     <Key>

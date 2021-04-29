@@ -47,6 +47,7 @@
           <Property Name="postcode" Type="numeric" Precision="10" Scale="0" />
           <Property Name="phonenumber" Type="numeric" Precision="11" Scale="0" />
           <Property Name="email" Type="nvarchar" MaxLength="100" />
+          <Property Name="username" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="cls_beneficialowner_tbl">
           <Key>
@@ -288,6 +289,7 @@
           <Property Name="postcode" Type="Decimal" Precision="10" Scale="0" />
           <Property Name="phonenumber" Type="Decimal" Precision="11" Scale="0" />
           <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="username" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="cls_beneficialowner_tbl">
           <Key>
@@ -518,6 +520,7 @@
           <EntitySetMapping Name="cls_agree_tbl">
             <EntityTypeMapping TypeName="CompanyFormation_dbModel.cls_agree_tbl">
               <MappingFragment StoreEntitySet="cls_agree_tbl">
+                <ScalarProperty Name="username" ColumnName="username" />
                 <ScalarProperty Name="cfid" ColumnName="cfid" />
                 <ScalarProperty Name="agree" ColumnName="agree" />
                 <ScalarProperty Name="nonthirdparties" ColumnName="nonthirdparties" />
