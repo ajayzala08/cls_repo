@@ -13,10 +13,10 @@ namespace WebApplication3
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class CompanyFormation_dbEntities : DbContext
+    public partial class CompanyFormationdbEntities : DbContext
     {
-        public CompanyFormation_dbEntities()
-            : base("name=CompanyFormation_dbEntities")
+        public CompanyFormationdbEntities()
+            : base("name=CompanyFormationdbEntities")
         {
         }
     
@@ -30,14 +30,14 @@ namespace WebApplication3
         public virtual DbSet<cls_agree_tbl> cls_agree_tbl { get; set; }
         public virtual DbSet<cls_beneficialowner_tbl> cls_beneficialowner_tbl { get; set; }
         public virtual DbSet<cls_companyincorporation_tbl> cls_companyincorporation_tbl { get; set; }
+        public virtual DbSet<cls_corporatesubscriber_tbl> cls_corporatesubscriber_tbl { get; set; }
         public virtual DbSet<cls_director_tbl> cls_director_tbl { get; set; }
         public virtual DbSet<cls_secretary_tbl> cls_secretary_tbl { get; set; }
         public virtual DbSet<cls_sharecapital_tbl> cls_sharecapital_tbl { get; set; }
+        public virtual DbSet<cls_statusmst_tbl> cls_statusmst_tbl { get; set; }
         public virtual DbSet<cls_subscriber_tbl> cls_subscriber_tbl { get; set; }
         public virtual DbSet<cls_ticketmst_tbl> cls_ticketmst_tbl { get; set; }
         public virtual DbSet<cls_ticketreply_tbl> cls_ticketreply_tbl { get; set; }
-        public virtual DbSet<cls_corporatesubscriber_tbl> cls_corporatesubscriber_tbl { get; set; }
-        public virtual DbSet<cls_statusmst_tbl> cls_statusmst_tbl { get; set; }
         public virtual DbSet<cls_usermst_tbl> cls_usermst_tbl { get; set; }
     }
 }

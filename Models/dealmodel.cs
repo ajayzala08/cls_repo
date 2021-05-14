@@ -29,7 +29,7 @@ namespace WebApplication3.Models
 	public class stagecls 
 	{
         public int id { get; set; }
-        public string type { get; set; }
+       // public string type { get; set; }
     }
 
 	public class customcls 
@@ -40,17 +40,17 @@ namespace WebApplication3.Models
 	public class dealmainmodel
 	{
         public string title { get; set; }
-        public string state { get; set; }
-        public string customValue { get; set; }
-        public int currencyId { get; set; }
-        public string currencyType { get; set; }
-        public string company { get; set; }
-        public DateTime expectedCloseDate { get; set; }
+        //public string state { get; set; }
+        //public string customValue { get; set; }
+        //public int currencyId { get; set; }
+        //public string currencyType { get; set; }
+        //public string company { get; set; }
+        //public DateTime expectedCloseDate { get; set; }
         public int stageId { get; set; }
-        public string stageType { get; set; }
-        public List<string> products { get; set; }
-        public List<string> contacts { get; set; }
-        public string custom { get; set; }
+     //   public string stageType { get; set; }
+     //   public List<string> products { get; set; }
+     //   public List<string> contacts { get; set; }
+     //   public string custom { get; set; }
 
 
     }

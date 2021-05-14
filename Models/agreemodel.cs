@@ -13,7 +13,7 @@
         public string addressline1 { get; set; }
         public string addressline2 { get; set; }
         public string addressline3 { get; set; }
-        public decimal postal { get; set; }
+        public string postal { get; set; }
         public decimal phone { get; set; }
         public string email { get; set; }
         public string username { get; set; }

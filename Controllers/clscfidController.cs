@@ -16,7 +16,7 @@ namespace WebApplication3.Controllers
             HttpResponseMessage response;
             try
             {
-                using (var db = new CompanyFormation_dbEntities())
+                using (var db = new CompanyFormationdbEntities())
                 {
                     var cfid = db.cls_agree_tbl.OrderByDescending(x => x.cfid).FirstOrDefault().cfid.ToString();
                     if (cfid != null && cfid.ToString() != "")

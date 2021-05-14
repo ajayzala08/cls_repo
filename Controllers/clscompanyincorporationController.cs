@@ -16,7 +16,7 @@ namespace WebApplication3.Controllers
             HttpResponseMessage response;
             try
             {
-                using (var db = new CompanyFormation_dbEntities())
+                using (var db = new CompanyFormationdbEntities())
                 {
                     var checkfirstchoice = db.cls_companyincorporation_tbl.Where(x => x.firstchoice.ToLower() == model.firstchoice.ToLower()).FirstOrDefault();
                     if (checkfirstchoice == null)

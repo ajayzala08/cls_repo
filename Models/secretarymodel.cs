@@ -10,7 +10,7 @@ namespace WebApplication3.Models
         public string addressline1 { get; set; }
         public string addressline2 { get; set; }
         public string addressline3 { get; set; }
-        public decimal postal { get; set; }
+        public string postal { get; set; }
         public string country { get; set; }
         public string companyname { get; set; }
         public decimal companynumber { get; set; }
@@ -18,7 +18,7 @@ namespace WebApplication3.Models
         public string companyregiseroffice { get; set; }
         public string companyaddressline1 { get; set; }
         public string companyaddressline2 { get; set; }
-        public decimal companypostal { get; set; }
+        public string companypostal { get; set; }
         public string companycountry { get; set; }
     }
 }

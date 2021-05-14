@@ -22,7 +22,7 @@ namespace WebApplication3
         public string registerofficeaddress { get; set; }
         public string addressline2 { get; set; }
         public string addressline3 { get; set; }
-        public Nullable<decimal> postalcode { get; set; }
+        public string postalcode { get; set; }
         public string country { get; set; }
         public string numberofshare { get; set; }
     }

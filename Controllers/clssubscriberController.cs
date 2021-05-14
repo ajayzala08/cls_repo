@@ -17,7 +17,7 @@ namespace WebApplication3.Controllers
             HttpResponseMessage response;
             try
             {
-                using (var db = new CompanyFormation_dbEntities())
+                using (var db = new CompanyFormationdbEntities())
                 {
                     int total = 0, success = 0, fail = 0;
 
@@ -89,7 +89,7 @@ namespace WebApplication3.Controllers
 
             for (int i = 0; i < model.Count; i++)
             {
-                using (var db = new CompanyFormation_dbEntities())
+                using (var db = new CompanyFormationdbEntities())
                 {
                     if ((model[i].name != null) && (model[i].name.ToString() != ""))
                     {

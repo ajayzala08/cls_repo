@@ -20,7 +20,7 @@ namespace WebApplication3.Controllers
             HttpResponseMessage response = new HttpResponseMessage();
             try
             {
-                using (var db = new CompanyFormation_dbEntities()) 
+                using (var db = new CompanyFormationdbEntities()) 
                 {
                     var finduser = db.cls_usermst_tbl.Where(x => x.user_fullname.ToLower() == registration.fullname.ToLower() || x.user_code==registration.empcode).FirstOrDefault();
                     if (finduser != null)
@@ -74,7 +74,7 @@ namespace WebApplication3.Controllers
             HttpResponseMessage response = new HttpResponseMessage();
             try
             {
-                using (var db = new CompanyFormation_dbEntities())
+                using (var db = new CompanyFormationdbEntities())
                 {
                     var finduser = db.cls_usermst_tbl.Where(x => x.user_id == id).FirstOrDefault();
                     if (finduser != null)
@@ -115,7 +115,7 @@ namespace WebApplication3.Controllers
             HttpResponseMessage response = new HttpResponseMessage();
             try
             {
-                using (var db = new CompanyFormation_dbEntities())
+                using (var db = new CompanyFormationdbEntities())
                 {
                     List<registrationmodel> userlist = db.cls_usermst_tbl.Select(x=> new registrationmodel
                     {

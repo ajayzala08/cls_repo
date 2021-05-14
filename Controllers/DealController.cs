@@ -40,44 +40,44 @@ namespace WebApplication3.Controllers
                 client.DefaultRequestHeaders.Clear();
                 client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", "tkn.v1_YmEzYzg4MzctYjE2OC00NDlmLTk0YjYtZjlmYzdmYjMxNWYxLTY4MzY1OC41ODA3MDMuRVU=");
                 currencycls ccls = new currencycls();
-                ccls.id = model.currencyId;
-                ccls.type = model.currencyType;
+               // ccls.id = model.currencyId;
+               // ccls.type = model.currencyType;
 
                 stagecls scls = new stagecls();
                 scls.id = model.stageId;
-                scls.type = model.stageType;
+               // scls.type = model.stageType;
 
                 customcls cucls = new customcls();
 
                 List<string> objproduct = new List<string>();
-                if (model.products.Count > 0)
-                {
-                    foreach (var item in model.products)
-                    {
-                        objproduct.Add(item);
-                    }
-                }
+                //if (model.products.Count > 0)
+                //{
+                //    foreach (var item in model.products)
+                //    {
+                //        objproduct.Add(item);
+                //    }
+                //}
 
                 List<string> objcontacts = new List<string>();
-                if (model.contacts.Count>0)
-                {
-                    foreach (var item in model.contacts)
-                    {
-                        objcontacts.Add(item);
-                    }
-                }
+                //if (model.contacts.Count>0)
+                //{
+                //    foreach (var item in model.contacts)
+                //    {
+                //        objcontacts.Add(item);
+                //    }
+                //}
 
                 dealmodel dmodel = new dealmodel();
-                dmodel.title = "Test Arche AZ";
+                dmodel.title = model.title;
                 dmodel.state = "open";
-                dmodel.customValue = "custvalue";
-                dmodel.currency = ccls;
-                dmodel.company = null;
+               // dmodel.customValue = model.customValue;
+               // dmodel.currency = ccls;
+               // dmodel.company = null;
                 dmodel.expectedCloseDate = System.DateTime.Now.AddDays(10);
                 dmodel.stage = scls;
-                dmodel.products = objproduct;
-                dmodel.contacts = objcontacts;
-                dmodel.custom = cucls;
+               // dmodel.products = objproduct;
+               // dmodel.contacts = objcontacts;
+               // dmodel.custom = cucls;
                 
                 
                 

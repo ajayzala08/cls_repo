@@ -19,7 +19,7 @@ namespace WebApplication3.Controllers
             HttpResponseMessage response;
             try
             {
-                using (var db = new CompanyFormation_dbEntities())
+                using (var db = new CompanyFormationdbEntities())
                 {
                     List<statusmodel> model = db.cls_statusmst_tbl.Select(x => new statusmodel
                     {
@@ -49,7 +49,7 @@ namespace WebApplication3.Controllers
             HttpResponseMessage response = new HttpResponseMessage();
             try
             {
-                using (var db = new CompanyFormation_dbEntities())
+                using (var db = new CompanyFormationdbEntities())
                 {
                     var tbl = db.cls_statusmst_tbl.Where(x => x.cfid == cfid).FirstOrDefault();
                     if (tbl != null)
@@ -163,7 +163,7 @@ namespace WebApplication3.Controllers
             HttpResponseMessage response = new HttpResponseMessage();
             try
             {
-                using (var db = new CompanyFormation_dbEntities())
+                using (var db = new CompanyFormationdbEntities())
                 {
                     if (username == "User")
                     {

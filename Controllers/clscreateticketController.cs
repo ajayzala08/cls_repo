@@ -20,7 +20,7 @@ namespace WebApplication3.Controllers
             HttpResponseMessage response = new HttpResponseMessage();
             try
             {
-                using (var db = new CompanyFormation_dbEntities())
+                using (var db = new CompanyFormationdbEntities())
                 {
                     var httpRequest = HttpContext.Current.Request;
                     DataSet dsexcelRecords = new DataSet();
@@ -96,7 +96,7 @@ namespace WebApplication3.Controllers
         private string generateticketno()
         {
             string ticketno = string.Empty;
-            using (var db = new CompanyFormation_dbEntities())
+            using (var db = new CompanyFormationdbEntities())
             {
                 var lastticketno = db.cls_ticketmst_tbl.OrderByDescending(x => x.ticket_id).FirstOrDefault();
                 if (lastticketno != null)
@@ -177,7 +177,7 @@ namespace WebApplication3.Controllers
             HttpResponseMessage response;
             try
             {
-                using (var db = new CompanyFormation_dbEntities())
+                using (var db = new CompanyFormationdbEntities())
                 {
 
                     if (status == "All")
@@ -230,7 +230,7 @@ namespace WebApplication3.Controllers
                 string toEmail = string.Empty;
                 string ticketNo = string.Empty;
                 string htmlstring = string.Empty;
-                using (var db = new CompanyFormation_dbEntities())
+                using (var db = new CompanyFormationdbEntities())
                 {
                     var replies = db.cls_ticketmst_tbl.Where(x => x.ticket_email == email && x.ticket_number == ticketno).FirstOrDefault();
                     if (replies != null)

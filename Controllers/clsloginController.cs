@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Web;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using WebApplication3.Models;
@@ -18,7 +19,7 @@ namespace WebApplication3.Controllers
             usermode usermodel = new usermode();
             try
             {
-                using (var db = new CompanyFormation_dbEntities())
+                using (var db = new CompanyFormationdbEntities())
                 {
                     var user = db.cls_usermst_tbl.Where(x => x.user_username == model.username && x.user_pwd == model.password && x.user_active == 0 && x.user_delete == 1).FirstOrDefault();
                     if (user != null)
@@ -59,6 +60,7 @@ namespace WebApplication3.Controllers
                         //usermodel.username = user.user_username;
                         //usermodel.department = user.user_department;
                         //usermodel.token = "";
+                        HttpContext.Current.Response.AppendHeader("Access-Control-Allow-Origin", "*");
                         rsmodel.message = "Success";
                         rsmodel.status = true;
                         rsmodel.data = loginResponse;

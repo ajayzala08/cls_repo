@@ -16,7 +16,7 @@ namespace WebApplication3.Controllers
         {
             try
             {
-                using (var db = new CompanyFormation_dbEntities())
+                using (var db = new CompanyFormationdbEntities())
                 {
                     HttpResponseMessage response = new HttpResponseMessage();
                     var checkeckname = db.cls_agree_tbl.Where(x => x.name.ToLower() == agreemodel.name.ToLower()).FirstOrDefault();

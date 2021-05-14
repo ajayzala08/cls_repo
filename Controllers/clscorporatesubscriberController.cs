@@ -19,7 +19,7 @@ namespace WebApplication3.Controllers
             try
             {
                 int total = 0, success = 0, fail = 0;
-                using (var db = new CompanyFormation_dbEntities())
+                using (var db = new CompanyFormationdbEntities())
                 {
                     if (model.Count > 0)
                     {
@@ -98,7 +98,7 @@ namespace WebApplication3.Controllers
 
             for (int i = 0; i < model.Count; i++)
             {
-                using (var db = new CompanyFormation_dbEntities())
+                using (var db = new CompanyFormationdbEntities())
                 {
                     if ((model[i].companyname != null) && (model[i].companyname.ToString() != ""))
                     {
@@ -134,7 +134,7 @@ namespace WebApplication3.Controllers
 
             for (int i = 0; i < model.Count; i++)
             {
-                using (var db = new CompanyFormation_dbEntities())
+                using (var db = new CompanyFormationdbEntities())
                 {
                     if (model[i].companyphonenumber != null && model[i].companyphonenumber != "")
                     {
@@ -170,7 +170,7 @@ namespace WebApplication3.Controllers
 
             for (int i = 0; i < model.Count; i++)
             {
-                using (var db = new CompanyFormation_dbEntities())
+                using (var db = new CompanyFormationdbEntities())
                 {
                     if ((model[i].companydirector != null) && (model[i].companydirector.ToString() != ""))
                     {

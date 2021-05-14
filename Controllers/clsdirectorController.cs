@@ -18,7 +18,7 @@ namespace WebApplication3.Controllers
             try
             {
                 int success = 0, fail = 0, total = 0;
-                using (var db = new CompanyFormation_dbEntities())
+                using (var db = new CompanyFormationdbEntities())
                 {
                     if (model.Count > 0)
                     {
@@ -96,7 +96,7 @@ namespace WebApplication3.Controllers
 
             for (int i = 0; i < model.Count; i++)
             {
-                using (var db = new CompanyFormation_dbEntities())
+                using (var db = new CompanyFormationdbEntities())
                 {
                     if ((model[i].name != null) && (model[i].name.ToString() != ""))
                     {

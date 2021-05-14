@@ -47,7 +47,7 @@ namespace WebApplication3.Controllers
             {
                 body = reader.ReadToEnd();
             }
-            using (var db = new CompanyFormation_dbEntities())
+            using (var db = new CompanyFormationdbEntities())
             {
                 var section1 = db.cls_agree_tbl.Where(x => x.cfid == cfid).FirstOrDefault();
                 
@@ -1115,7 +1115,7 @@ namespace WebApplication3.Controllers
 
         private void pdffomrstatus(decimal cfid, string companyname, string filename,string filepath,string status)
         {
-            using (var db = new CompanyFormation_dbEntities())
+            using (var db = new CompanyFormationdbEntities())
             {
                 cls_statusmst_tbl tbl = new cls_statusmst_tbl();
                 tbl.cfid = cfid;

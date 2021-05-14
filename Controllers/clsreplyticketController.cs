@@ -51,7 +51,7 @@ namespace WebApplication3.Controllers
 
                     }
                 }
-                using (var db = new CompanyFormation_dbEntities())
+                using (var db = new CompanyFormationdbEntities())
                 {
                     string tn = httpRequest.Form["ticketno"].ToString();
                     cls_ticketreply_tbl tbl = new cls_ticketreply_tbl();
@@ -100,7 +100,7 @@ namespace WebApplication3.Controllers
             HttpResponseMessage response;
             try
             {
-                using (var db = new CompanyFormation_dbEntities())
+                using (var db = new CompanyFormationdbEntities())
                 {
                     List<replydetails> replies = db.cls_ticketreply_tbl.Where(x => x.tciket_number == ticketno).Select(x => new replydetails
                     {

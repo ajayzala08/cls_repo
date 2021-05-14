@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="CompanyFormation_dbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="CompanyFormationdbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="cls_additionalinfo_tbl">
           <Key>
             <PropertyRef Name="id" />
@@ -22,11 +22,11 @@
           <Property Name="roaddressline1" Type="nvarchar(max)" />
           <Property Name="roaddressline2" Type="nvarchar(max)" />
           <Property Name="oraddressline3" Type="nvarchar(max)" />
-          <Property Name="ropostalcode" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="ropostalcode" Type="nvarchar" MaxLength="20" />
           <Property Name="caaddressline1" Type="nvarchar(max)" />
           <Property Name="caaddressline2" Type="nvarchar(max)" />
           <Property Name="caaddressline3" Type="nvarchar(max)" />
-          <Property Name="capostalcode" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="capostalcode" Type="nvarchar" MaxLength="20" />
           <Property Name="roisalsothebusinessorcaaddress" Type="varchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="cls_agree_tbl">
@@ -44,7 +44,7 @@
           <Property Name="addressline1" Type="nvarchar(max)" />
           <Property Name="addressline2" Type="nvarchar(max)" />
           <Property Name="addressline3" Type="nvarchar(max)" />
-          <Property Name="postcode" Type="numeric" Precision="10" Scale="0" />
+          <Property Name="postcode" Type="nvarchar" MaxLength="20" />
           <Property Name="phonenumber" Type="numeric" Precision="11" Scale="0" />
           <Property Name="email" Type="nvarchar" MaxLength="100" />
           <Property Name="username" Type="nvarchar" MaxLength="100" />
@@ -59,7 +59,7 @@
           <Property Name="addressline1" Type="nvarchar(max)" />
           <Property Name="addressline2" Type="nvarchar(max)" />
           <Property Name="addressline3" Type="nvarchar(max)" />
-          <Property Name="postalcode" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="postalcode" Type="nvarchar" MaxLength="20" />
           <Property Name="country" Type="varchar" MaxLength="100" />
           <Property Name="nationality" Type="varchar" MaxLength="100" />
           <Property Name="occupation" Type="nvarchar" MaxLength="100" />
@@ -90,7 +90,7 @@
           <Property Name="registerofficeaddress" Type="nvarchar(max)" />
           <Property Name="addressline2" Type="nvarchar(max)" />
           <Property Name="addressline3" Type="nvarchar(max)" />
-          <Property Name="postalcode" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="postalcode" Type="nvarchar" MaxLength="20" />
           <Property Name="country" Type="varchar" MaxLength="100" />
           <Property Name="numberofshare" Type="nvarchar" MaxLength="50" />
         </EntityType>
@@ -106,7 +106,7 @@
           <Property Name="addressline1" Type="nvarchar(max)" />
           <Property Name="addressline2" Type="nvarchar(max)" />
           <Property Name="addressline3" Type="nvarchar(max)" />
-          <Property Name="postalcode" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="postalcode" Type="nvarchar" MaxLength="20" />
           <Property Name="country" Type="varchar" MaxLength="100" />
           <Property Name="nationality" Type="varchar" MaxLength="100" />
           <Property Name="otherdirectorship1" Type="nvarchar(max)" />
@@ -127,7 +127,7 @@
           <Property Name="addressline1" Type="nvarchar(max)" />
           <Property Name="addressline2" Type="nvarchar(max)" />
           <Property Name="addressline3" Type="nvarchar(max)" />
-          <Property Name="postalcode" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="postalcode" Type="nvarchar" MaxLength="20" />
           <Property Name="country" Type="varchar" MaxLength="100" />
           <Property Name="companyname" Type="nvarchar" MaxLength="1000" />
           <Property Name="companynumber" Type="decimal" Precision="11" Scale="0" />
@@ -135,7 +135,7 @@
           <Property Name="companyregionaloffice" Type="nvarchar(max)" />
           <Property Name="companyaddressline1" Type="nvarchar(max)" />
           <Property Name="companyaddressline2" Type="nvarchar(max)" />
-          <Property Name="compnaypostal" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="compnaypostal" Type="nvarchar" MaxLength="20" />
           <Property Name="compnaycountry" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="cls_sharecapital_tbl">
@@ -170,7 +170,7 @@
           <Property Name="addressline1" Type="nvarchar(max)" />
           <Property Name="addressline2" Type="nvarchar(max)" />
           <Property Name="addressline3" Type="nvarchar(max)" />
-          <Property Name="postalcode" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="postalcode" Type="nvarchar" MaxLength="20" />
           <Property Name="country" Type="varchar" MaxLength="100" />
           <Property Name="nationality" Type="varchar" MaxLength="100" />
           <Property Name="occupation" Type="nvarchar" MaxLength="1000" />
@@ -227,7 +227,7 @@
           <Property Name="user_delete" Type="int" Nullable="false" />
           <Property Name="user_createdon" Type="datetime" Nullable="false" />
         </EntityType>
-        <EntityContainer Name="CompanyFormation_dbModelStoreContainer">
+        <EntityContainer Name="CompanyFormationdbModelStoreContainer">
           <EntitySet Name="cls_additionalinfo_tbl" EntityType="Self.cls_additionalinfo_tbl" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="cls_addressdetails_tbl" EntityType="Self.cls_addressdetails_tbl" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="cls_agree_tbl" EntityType="Self.cls_agree_tbl" Schema="dbo" store:Type="Tables" />
@@ -243,10 +243,11 @@
           <EntitySet Name="cls_ticketreply_tbl" EntityType="Self.cls_ticketreply_tbl" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="cls_usermst_tbl" EntityType="Self.cls_usermst_tbl" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="CompanyFormation_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="CompanyFormationdbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="cls_additionalinfo_tbl">
           <Key>
             <PropertyRef Name="id" />
@@ -264,11 +265,11 @@
           <Property Name="roaddressline1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="roaddressline2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="oraddressline3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="ropostalcode" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="ropostalcode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="caaddressline1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="caaddressline2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="caaddressline3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="capostalcode" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="capostalcode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="roisalsothebusinessorcaaddress" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="cls_agree_tbl">
@@ -286,7 +287,7 @@
           <Property Name="addressline1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="addressline2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="addressline3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="postcode" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="postcode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="phonenumber" Type="Decimal" Precision="11" Scale="0" />
           <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="username" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
@@ -301,7 +302,7 @@
           <Property Name="addressline1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="addressline2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="addressline3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="postalcode" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="postalcode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="country" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="nationality" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="occupation" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
@@ -320,6 +321,22 @@
           <Property Name="additionalwording" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="companytype" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="cls_corporatesubscriber_tbl">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cfid" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="companyname" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="companyphonenumber" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="companydirector" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="registerofficeaddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="addressline2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="addressline3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="postalcode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="country" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="numberofshare" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
         <EntityType Name="cls_director_tbl">
           <Key>
             <PropertyRef Name="id" />
@@ -332,7 +349,7 @@
           <Property Name="addressline1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="addressline2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="addressline3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="postalcode" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="postalcode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="country" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="nationality" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="otherdirectorship1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -353,7 +370,7 @@
           <Property Name="addressline1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="addressline2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="addressline3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="postalcode" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="postalcode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="country" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="companyname" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
           <Property Name="companynumber" Type="Decimal" Precision="11" Scale="0" />
@@ -361,7 +378,7 @@
           <Property Name="companyregionaloffice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="companyaddressline1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="companyaddressline2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="compnaypostal" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="compnaypostal" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="compnaycountry" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="cls_sharecapital_tbl">
@@ -375,6 +392,17 @@
           <Property Name="shareclass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="authorisedsharecapital" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="cls_statusmst_tbl">
+          <Key>
+            <PropertyRef Name="cfid" />
+          </Key>
+          <Property Name="cfid" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="company_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="form_status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pdf_filename" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pdf_filepath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="createdon" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
         <EntityType Name="cls_subscriber_tbl">
           <Key>
             <PropertyRef Name="id" />
@@ -385,7 +413,7 @@
           <Property Name="addressline1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="addressline2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="addressline3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="postalcode" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="postalcode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="country" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="nationality" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="occupation" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
@@ -425,59 +453,16 @@
           <Property Name="reply_status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="reply_date" Type="DateTime" Precision="3" />
         </EntityType>
-        <EntityContainer Name="CompanyFormation_dbEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="cls_additionalinfo_tbl" EntityType="Self.cls_additionalinfo_tbl" />
-          <EntitySet Name="cls_addressdetails_tbl" EntityType="Self.cls_addressdetails_tbl" />
-          <EntitySet Name="cls_agree_tbl" EntityType="Self.cls_agree_tbl" />
-          <EntitySet Name="cls_beneficialowner_tbl" EntityType="Self.cls_beneficialowner_tbl" />
-          <EntitySet Name="cls_companyincorporation_tbl" EntityType="Self.cls_companyincorporation_tbl" />
-          <EntitySet Name="cls_director_tbl" EntityType="Self.cls_director_tbl" />
-          <EntitySet Name="cls_secretary_tbl" EntityType="Self.cls_secretary_tbl" />
-          <EntitySet Name="cls_sharecapital_tbl" EntityType="Self.cls_sharecapital_tbl" />
-          <EntitySet Name="cls_subscriber_tbl" EntityType="Self.cls_subscriber_tbl" />
-          <EntitySet Name="cls_ticketmst_tbl" EntityType="Self.cls_ticketmst_tbl" />
-          <EntitySet Name="cls_ticketreply_tbl" EntityType="Self.cls_ticketreply_tbl" />
-          <EntitySet Name="cls_corporatesubscriber_tbl" EntityType="CompanyFormation_dbModel.cls_corporatesubscriber_tbl" />
-          <EntitySet Name="cls_statusmst_tbl" EntityType="CompanyFormation_dbModel.cls_statusmst_tbl" />
-          <EntitySet Name="cls_usermst_tbl" EntityType="CompanyFormation_dbModel.cls_usermst_tbl" />
-        </EntityContainer>
-        <EntityType Name="cls_corporatesubscriber_tbl">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="cfid" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="companyname" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
-          <Property Name="companyphonenumber" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
-          <Property Name="companydirector" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
-          <Property Name="registerofficeaddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="addressline2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="addressline3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="postalcode" Type="Decimal" Precision="10" Scale="0" />
-          <Property Name="country" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="numberofshare" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="cls_statusmst_tbl">
-          <Key>
-            <PropertyRef Name="cfid" />
-          </Key>
-          <Property Name="cfid" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-          <Property Name="company_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="form_status" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="pdf_filename" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="pdf_filepath" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="createdon" Type="DateTime" Nullable="false" Precision="3" />
-        </EntityType>
         <EntityType Name="cls_usermst_tbl">
           <Key>
             <PropertyRef Name="user_id" />
           </Key>
-          <Property Name="user_id" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_id" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="user_code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="user_fullname" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
           <Property Name="user_emailid" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="user_username" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
-          <Property Name="user_pwd" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="user_username" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="user_pwd" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="user_department" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="user_phone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Name="user_role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -485,14 +470,30 @@
           <Property Name="user_delete" Type="Int32" Nullable="false" />
           <Property Name="user_createdon" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
+        <EntityContainer Name="CompanyFormationdbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="cls_additionalinfo_tbl" EntityType="Self.cls_additionalinfo_tbl" />
+          <EntitySet Name="cls_addressdetails_tbl" EntityType="Self.cls_addressdetails_tbl" />
+          <EntitySet Name="cls_agree_tbl" EntityType="Self.cls_agree_tbl" />
+          <EntitySet Name="cls_beneficialowner_tbl" EntityType="Self.cls_beneficialowner_tbl" />
+          <EntitySet Name="cls_companyincorporation_tbl" EntityType="Self.cls_companyincorporation_tbl" />
+          <EntitySet Name="cls_corporatesubscriber_tbl" EntityType="Self.cls_corporatesubscriber_tbl" />
+          <EntitySet Name="cls_director_tbl" EntityType="Self.cls_director_tbl" />
+          <EntitySet Name="cls_secretary_tbl" EntityType="Self.cls_secretary_tbl" />
+          <EntitySet Name="cls_sharecapital_tbl" EntityType="Self.cls_sharecapital_tbl" />
+          <EntitySet Name="cls_statusmst_tbl" EntityType="Self.cls_statusmst_tbl" />
+          <EntitySet Name="cls_subscriber_tbl" EntityType="Self.cls_subscriber_tbl" />
+          <EntitySet Name="cls_ticketmst_tbl" EntityType="Self.cls_ticketmst_tbl" />
+          <EntitySet Name="cls_ticketreply_tbl" EntityType="Self.cls_ticketreply_tbl" />
+          <EntitySet Name="cls_usermst_tbl" EntityType="Self.cls_usermst_tbl" />
+        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="CompanyFormation_dbModelStoreContainer" CdmEntityContainer="CompanyFormation_dbEntities">
+        <EntityContainerMapping StorageEntityContainer="CompanyFormationdbModelStoreContainer" CdmEntityContainer="CompanyFormationdbEntities">
           <EntitySetMapping Name="cls_additionalinfo_tbl">
-            <EntityTypeMapping TypeName="CompanyFormation_dbModel.cls_additionalinfo_tbl">
+            <EntityTypeMapping TypeName="CompanyFormationdbModel.cls_additionalinfo_tbl">
               <MappingFragment StoreEntitySet="cls_additionalinfo_tbl">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="cfid" ColumnName="cfid" />
@@ -501,7 +502,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="cls_addressdetails_tbl">
-            <EntityTypeMapping TypeName="CompanyFormation_dbModel.cls_addressdetails_tbl">
+            <EntityTypeMapping TypeName="CompanyFormationdbModel.cls_addressdetails_tbl">
               <MappingFragment StoreEntitySet="cls_addressdetails_tbl">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="cfid" ColumnName="cfid" />
@@ -518,9 +519,8 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="cls_agree_tbl">
-            <EntityTypeMapping TypeName="CompanyFormation_dbModel.cls_agree_tbl">
+            <EntityTypeMapping TypeName="CompanyFormationdbModel.cls_agree_tbl">
               <MappingFragment StoreEntitySet="cls_agree_tbl">
-                <ScalarProperty Name="username" ColumnName="username" />
                 <ScalarProperty Name="cfid" ColumnName="cfid" />
                 <ScalarProperty Name="agree" ColumnName="agree" />
                 <ScalarProperty Name="nonthirdparties" ColumnName="nonthirdparties" />
@@ -535,11 +535,12 @@
                 <ScalarProperty Name="postcode" ColumnName="postcode" />
                 <ScalarProperty Name="phonenumber" ColumnName="phonenumber" />
                 <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="username" ColumnName="username" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="cls_beneficialowner_tbl">
-            <EntityTypeMapping TypeName="CompanyFormation_dbModel.cls_beneficialowner_tbl">
+            <EntityTypeMapping TypeName="CompanyFormationdbModel.cls_beneficialowner_tbl">
               <MappingFragment StoreEntitySet="cls_beneficialowner_tbl">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="cfid" ColumnName="cfid" />
@@ -556,7 +557,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="cls_companyincorporation_tbl">
-            <EntityTypeMapping TypeName="CompanyFormation_dbModel.cls_companyincorporation_tbl">
+            <EntityTypeMapping TypeName="CompanyFormationdbModel.cls_companyincorporation_tbl">
               <MappingFragment StoreEntitySet="cls_companyincorporation_tbl">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="cfid" ColumnName="cfid" />
@@ -569,8 +570,25 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="cls_corporatesubscriber_tbl">
+            <EntityTypeMapping TypeName="CompanyFormationdbModel.cls_corporatesubscriber_tbl">
+              <MappingFragment StoreEntitySet="cls_corporatesubscriber_tbl">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="cfid" ColumnName="cfid" />
+                <ScalarProperty Name="companyname" ColumnName="companyname" />
+                <ScalarProperty Name="companyphonenumber" ColumnName="companyphonenumber" />
+                <ScalarProperty Name="companydirector" ColumnName="companydirector" />
+                <ScalarProperty Name="registerofficeaddress" ColumnName="registerofficeaddress" />
+                <ScalarProperty Name="addressline2" ColumnName="addressline2" />
+                <ScalarProperty Name="addressline3" ColumnName="addressline3" />
+                <ScalarProperty Name="postalcode" ColumnName="postalcode" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="numberofshare" ColumnName="numberofshare" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="cls_director_tbl">
-            <EntityTypeMapping TypeName="CompanyFormation_dbModel.cls_director_tbl">
+            <EntityTypeMapping TypeName="CompanyFormationdbModel.cls_director_tbl">
               <MappingFragment StoreEntitySet="cls_director_tbl">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="cfid" ColumnName="cfid" />
@@ -593,7 +611,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="cls_secretary_tbl">
-            <EntityTypeMapping TypeName="CompanyFormation_dbModel.cls_secretary_tbl">
+            <EntityTypeMapping TypeName="CompanyFormationdbModel.cls_secretary_tbl">
               <MappingFragment StoreEntitySet="cls_secretary_tbl">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="cfid" ColumnName="cfid" />
@@ -616,7 +634,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="cls_sharecapital_tbl">
-            <EntityTypeMapping TypeName="CompanyFormation_dbModel.cls_sharecapital_tbl">
+            <EntityTypeMapping TypeName="CompanyFormationdbModel.cls_sharecapital_tbl">
               <MappingFragment StoreEntitySet="cls_sharecapital_tbl">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="cfid" ColumnName="cfid" />
@@ -627,8 +645,20 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="cls_statusmst_tbl">
+            <EntityTypeMapping TypeName="CompanyFormationdbModel.cls_statusmst_tbl">
+              <MappingFragment StoreEntitySet="cls_statusmst_tbl">
+                <ScalarProperty Name="cfid" ColumnName="cfid" />
+                <ScalarProperty Name="company_name" ColumnName="company_name" />
+                <ScalarProperty Name="form_status" ColumnName="form_status" />
+                <ScalarProperty Name="pdf_filename" ColumnName="pdf_filename" />
+                <ScalarProperty Name="pdf_filepath" ColumnName="pdf_filepath" />
+                <ScalarProperty Name="createdon" ColumnName="createdon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="cls_subscriber_tbl">
-            <EntityTypeMapping TypeName="CompanyFormation_dbModel.cls_subscriber_tbl">
+            <EntityTypeMapping TypeName="CompanyFormationdbModel.cls_subscriber_tbl">
               <MappingFragment StoreEntitySet="cls_subscriber_tbl">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="cfid" ColumnName="cfid" />
@@ -646,7 +676,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="cls_ticketmst_tbl">
-            <EntityTypeMapping TypeName="CompanyFormation_dbModel.cls_ticketmst_tbl">
+            <EntityTypeMapping TypeName="CompanyFormationdbModel.cls_ticketmst_tbl">
               <MappingFragment StoreEntitySet="cls_ticketmst_tbl">
                 <ScalarProperty Name="ticket_id" ColumnName="ticket_id" />
                 <ScalarProperty Name="ticket_number" ColumnName="ticket_number" />
@@ -667,7 +697,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="cls_ticketreply_tbl">
-            <EntityTypeMapping TypeName="CompanyFormation_dbModel.cls_ticketreply_tbl">
+            <EntityTypeMapping TypeName="CompanyFormationdbModel.cls_ticketreply_tbl">
               <MappingFragment StoreEntitySet="cls_ticketreply_tbl">
                 <ScalarProperty Name="reply_id" ColumnName="reply_id" />
                 <ScalarProperty Name="tciket_number" ColumnName="tciket_number" />
@@ -680,50 +710,21 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="cls_corporatesubscriber_tbl">
-            <EntityTypeMapping TypeName="CompanyFormation_dbModel.cls_corporatesubscriber_tbl">
-              <MappingFragment StoreEntitySet="cls_corporatesubscriber_tbl">
-                <ScalarProperty Name="numberofshare" ColumnName="numberofshare" />
-                <ScalarProperty Name="country" ColumnName="country" />
-                <ScalarProperty Name="postalcode" ColumnName="postalcode" />
-                <ScalarProperty Name="addressline3" ColumnName="addressline3" />
-                <ScalarProperty Name="addressline2" ColumnName="addressline2" />
-                <ScalarProperty Name="registerofficeaddress" ColumnName="registerofficeaddress" />
-                <ScalarProperty Name="companydirector" ColumnName="companydirector" />
-                <ScalarProperty Name="companyphonenumber" ColumnName="companyphonenumber" />
-                <ScalarProperty Name="companyname" ColumnName="companyname" />
-                <ScalarProperty Name="cfid" ColumnName="cfid" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="cls_statusmst_tbl">
-            <EntityTypeMapping TypeName="CompanyFormation_dbModel.cls_statusmst_tbl">
-              <MappingFragment StoreEntitySet="cls_statusmst_tbl">
-                <ScalarProperty Name="createdon" ColumnName="createdon" />
-                <ScalarProperty Name="pdf_filepath" ColumnName="pdf_filepath" />
-                <ScalarProperty Name="pdf_filename" ColumnName="pdf_filename" />
-                <ScalarProperty Name="form_status" ColumnName="form_status" />
-                <ScalarProperty Name="company_name" ColumnName="company_name" />
-                <ScalarProperty Name="cfid" ColumnName="cfid" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="cls_usermst_tbl">
-            <EntityTypeMapping TypeName="CompanyFormation_dbModel.cls_usermst_tbl">
+            <EntityTypeMapping TypeName="CompanyFormationdbModel.cls_usermst_tbl">
               <MappingFragment StoreEntitySet="cls_usermst_tbl">
-                <ScalarProperty Name="user_createdon" ColumnName="user_createdon" />
-                <ScalarProperty Name="user_delete" ColumnName="user_delete" />
-                <ScalarProperty Name="user_active" ColumnName="user_active" />
-                <ScalarProperty Name="user_role" ColumnName="user_role" />
-                <ScalarProperty Name="user_phone" ColumnName="user_phone" />
-                <ScalarProperty Name="user_department" ColumnName="user_department" />
-                <ScalarProperty Name="user_pwd" ColumnName="user_pwd" />
-                <ScalarProperty Name="user_username" ColumnName="user_username" />
-                <ScalarProperty Name="user_emailid" ColumnName="user_emailid" />
-                <ScalarProperty Name="user_fullname" ColumnName="user_fullname" />
-                <ScalarProperty Name="user_code" ColumnName="user_code" />
                 <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="user_code" ColumnName="user_code" />
+                <ScalarProperty Name="user_fullname" ColumnName="user_fullname" />
+                <ScalarProperty Name="user_emailid" ColumnName="user_emailid" />
+                <ScalarProperty Name="user_username" ColumnName="user_username" />
+                <ScalarProperty Name="user_pwd" ColumnName="user_pwd" />
+                <ScalarProperty Name="user_department" ColumnName="user_department" />
+                <ScalarProperty Name="user_phone" ColumnName="user_phone" />
+                <ScalarProperty Name="user_role" ColumnName="user_role" />
+                <ScalarProperty Name="user_active" ColumnName="user_active" />
+                <ScalarProperty Name="user_delete" ColumnName="user_delete" />
+                <ScalarProperty Name="user_createdon" ColumnName="user_createdon" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -741,7 +742,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />

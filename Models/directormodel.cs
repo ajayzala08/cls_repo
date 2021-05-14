@@ -11,7 +11,7 @@ namespace WebApplication3.Models
         public string addressline1 { get; set; }
         public string addressline2 { get; set; }
         public string addressline3 { get; set; }
-        public decimal postal { get; set; }
+        public string postal { get; set; }
         public string country { get; set; }
         public string nationality { get; set; }
         public string otherdirectorship1 { get; set; }

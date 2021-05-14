@@ -15,7 +15,7 @@ namespace WebApplication3.Controllers
             HttpResponseMessage response;
             try
             {
-                using (var db = new CompanyFormation_dbEntities())
+                using (var db = new CompanyFormationdbEntities())
                 {
                     cls_sharecapital_tbl tbl = new cls_sharecapital_tbl();
                     tbl.cfid = model.cfid;

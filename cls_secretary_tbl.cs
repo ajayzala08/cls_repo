@@ -21,7 +21,7 @@ namespace WebApplication3
         public string addressline1 { get; set; }
         public string addressline2 { get; set; }
         public string addressline3 { get; set; }
-        public Nullable<decimal> postalcode { get; set; }
+        public string postalcode { get; set; }
         public string country { get; set; }
         public string companyname { get; set; }
         public Nullable<decimal> companynumber { get; set; }
@@ -29,7 +29,7 @@ namespace WebApplication3
         public string companyregionaloffice { get; set; }
         public string companyaddressline1 { get; set; }
         public string companyaddressline2 { get; set; }
-        public Nullable<decimal> compnaypostal { get; set; }
+        public string compnaypostal { get; set; }
         public string compnaycountry { get; set; }
     }
 }
