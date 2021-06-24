@@ -46,7 +46,7 @@ namespace WebApplication3.Controllers
                         }
 
                         LoginResponseModel loginResponse = new LoginResponseModel();
-                        loginResponse.EmployeeCode = Convert.ToDecimal(user.user_code);
+                        loginResponse.EmployeeCode = user.user_code;
                         loginResponse.Firstname = firstname;
                         loginResponse.Lastname = lastname;
                         loginResponse.Role = user.user_role;
@@ -60,7 +60,7 @@ namespace WebApplication3.Controllers
                         //usermodel.username = user.user_username;
                         //usermodel.department = user.user_department;
                         //usermodel.token = "";
-                        HttpContext.Current.Response.AppendHeader("Access-Control-Allow-Origin", "*");
+                        //HttpContext.Current.Response.AppendHeader("Access-Control-Allow-Origin", "*");
                         rsmodel.message = "Success";
                         rsmodel.status = true;
                         rsmodel.data = loginResponse;
@@ -70,7 +70,7 @@ namespace WebApplication3.Controllers
                     else
                     {
                         LoginResponseModel loginResponse = new LoginResponseModel();
-                        loginResponse.EmployeeCode = Convert.ToDecimal("0");
+                        loginResponse.EmployeeCode = "0";
                         loginResponse.Firstname = "";
                         loginResponse.Lastname = "";
                         loginResponse.Role = "";

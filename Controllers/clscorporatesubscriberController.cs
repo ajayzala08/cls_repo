@@ -23,13 +23,19 @@ namespace WebApplication3.Controllers
                 {
                     if (model.Count > 0)
                     {
-                        bool checkcompanyname = checkcorporatesubscriber(model);
+                        decimal dcfid = model[0].cfid;
+                        var find = db.cls_corporatesubscriber_tbl.Where(x => x.cfid == dcfid).ToList();
+                        if (find.Count > 0)
+                        {
+                            deletecorporatesubscriber(dcfid);
+                        }
+                        bool checkcompanyname = true; //checkcorporatesubscriber(model);
                         if (checkcompanyname)
                         {
-                            bool checknum = checknumber(model);
+                            bool checknum = true; //checknumber(model);
                             if (checknum)
                             {
-                                bool checkcomdir = checkdirectorname(model);
+                                bool checkcomdir = true; //checkdirectorname(model);
                                 if (checkcomdir)
                                 {
                                     for (int i = 0; i < model.Count; i++)
@@ -197,6 +203,17 @@ namespace WebApplication3.Controllers
             }
         corporatesubscribercondition:
             return checkdirector;
+        }
+
+        protected void deletecorporatesubscriber(decimal cfid)
+        {
+            using (var db = new CompanyFormationdbEntities())
+            {
+
+                db.cls_corporatesubscriber_tbl.RemoveRange(db.cls_corporatesubscriber_tbl.Where(x => x.cfid == cfid));
+                db.SaveChanges();
+
+            }
         }
     }
 }

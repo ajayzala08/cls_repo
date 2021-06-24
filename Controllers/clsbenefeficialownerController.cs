@@ -21,7 +21,13 @@ namespace WebApplication3.Controllers
                 {
                     if (model.Count > 0)
                     {
-                        bool checkbo = checkbeneficalownername(model);
+                        decimal dcfid = model[0].cfid;
+                        var find = db.cls_beneficialowner_tbl.Where(x => x.cfid == dcfid).ToList();
+                        if (find.Count > 0)
+                        {
+                            deletebo(dcfid);
+                        }
+                        bool checkbo = true; //checkbeneficalownername(model);
                         if (checkbo)
                         {
                             int total = 0, success = 0, fail = 0;
@@ -30,12 +36,13 @@ namespace WebApplication3.Controllers
                                 
                                 if (model[i].cfid > 0 && model[i].cfid.ToString() != "")
                                 {
-                                    if ((model[i].name != null) && (model[i].name.ToString() != ""))
+                                    if ((model[i].firstname != null) && (model[i].firstname.ToString() != "") && (model[i].lastname != null) && (model[i].lastname.ToString() != ""))
                                     {
                                         total++;
+                                        string fullname = model[i].firstname.ToString().Trim() + " " + model[i].lastname.ToString().Trim();
                                         cls_beneficialowner_tbl tbl = new cls_beneficialowner_tbl();
                                         tbl.cfid = model[i].cfid;
-                                        tbl.name = model[i].name;
+                                        tbl.name = fullname;
                                         tbl.addressline1 = model[i].addressline1;
                                         tbl.addressline2 = model[i].addressline2;
                                         tbl.addressline3 = model[i].addressline3;
@@ -90,9 +97,10 @@ namespace WebApplication3.Controllers
             {
                 using (var db = new CompanyFormationdbEntities())
                 {
-                    if ((model[i].name != null) && (model[i].name.ToString() != ""))
+                    if ((model[i].firstname != null) && (model[i].firstname.ToString() != "") && (model[i].lastname != null) && (model[i].lastname.ToString() != ""))
                     {
-                        var name = model[i].name.ToLower();
+                        string fullname = model[i].firstname.ToString() + " " + model[i].lastname.ToString();
+                        var name = fullname.ToLower();
                         var find = db.cls_beneficialowner_tbl.Where(x => x.name.ToLower() == name).FirstOrDefault();
                         //var find = db.cls_director_tbl.Where(x => x.name.ToLower() == model[i].name.ToLower()).ToList();
 
@@ -115,6 +123,17 @@ namespace WebApplication3.Controllers
             }
         corporatesubscribercondition:
             return checkboname;
+        }
+
+        protected void deletebo(decimal cfid)
+        {
+            using (var db = new CompanyFormationdbEntities())
+            {
+
+                db.cls_beneficialowner_tbl.RemoveRange(db.cls_beneficialowner_tbl.Where(x => x.cfid == cfid));
+                db.SaveChanges();
+
+            }
         }
     }
 }

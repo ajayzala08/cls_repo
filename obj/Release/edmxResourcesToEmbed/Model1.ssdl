@@ -40,7 +40,7 @@
     <Property Name="addressline2" Type="nvarchar(max)" />
     <Property Name="addressline3" Type="nvarchar(max)" />
     <Property Name="postcode" Type="nvarchar" MaxLength="20" />
-    <Property Name="phonenumber" Type="numeric" Precision="11" Scale="0" />
+    <Property Name="phonenumber" Type="nvarchar" MaxLength="20" />
     <Property Name="email" Type="nvarchar" MaxLength="100" />
     <Property Name="username" Type="nvarchar" MaxLength="100" />
   </EntityType>
@@ -125,7 +125,7 @@
     <Property Name="postalcode" Type="nvarchar" MaxLength="20" />
     <Property Name="country" Type="varchar" MaxLength="100" />
     <Property Name="companyname" Type="nvarchar" MaxLength="1000" />
-    <Property Name="companynumber" Type="decimal" Precision="11" Scale="0" />
+    <Property Name="companynumber" Type="nvarchar" MaxLength="20" />
     <Property Name="companydirector" Type="varchar" MaxLength="1000" />
     <Property Name="companyregionaloffice" Type="nvarchar(max)" />
     <Property Name="companyaddressline1" Type="nvarchar(max)" />

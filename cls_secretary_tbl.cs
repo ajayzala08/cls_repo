@@ -24,7 +24,7 @@ namespace WebApplication3
         public string postalcode { get; set; }
         public string country { get; set; }
         public string companyname { get; set; }
-        public Nullable<decimal> companynumber { get; set; }
+        public string companynumber { get; set; }
         public string companydirector { get; set; }
         public string companyregionaloffice { get; set; }
         public string companyaddressline1 { get; set; }

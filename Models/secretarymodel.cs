@@ -13,7 +13,7 @@ namespace WebApplication3.Models
         public string postal { get; set; }
         public string country { get; set; }
         public string companyname { get; set; }
-        public decimal companynumber { get; set; }
+        public string companynumber { get; set; }
         public string companydirector { get; set; }
         public string companyregiseroffice { get; set; }
         public string companyaddressline1 { get; set; }

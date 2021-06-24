@@ -23,7 +23,14 @@ namespace WebApplication3.Controllers
 
                     if (model.Count > 0)
                     {
-                        bool checksubscribername = checksubscriber(model);
+                        decimal dcfid = model[0].cfid;
+                        var find = db.cls_subscriber_tbl.Where(x => x.cfid == dcfid).ToList();
+                        if (find.Count > 0)
+                        {
+                            deletesubscriber(dcfid);
+                        }
+
+                        bool checksubscribername = true;// checksubscriber(model);
                         if (checksubscribername)
                         {
                             for (int i = 0; i < model.Count; i++)
@@ -31,12 +38,13 @@ namespace WebApplication3.Controllers
                                
                                 if (model[i].cfid > 0)
                                 {
-                                    if ((model[i].name != null) && (model[i].name.ToString() != ""))
+                                    if ((model[i].firstname != null) && (model[i].firstname.ToString() != "") && (model[i].lastname != null) && (model[i].lastname.ToString() != ""))
                                     {
                                         total++;
+                                        string fullname = model[i].firstname.ToString().Trim() + " " + model[i].lastname.ToString().Trim();
                                         cls_subscriber_tbl tbl = new cls_subscriber_tbl();
                                         tbl.cfid = model[i].cfid;
-                                        tbl.name = model[i].name;
+                                        tbl.name = fullname;
                                         tbl.addressline1 = model[i].addressline1;
                                         tbl.addressline2 = model[i].addressline2;
                                         tbl.addressline3 = model[i].addressline3;
@@ -91,9 +99,10 @@ namespace WebApplication3.Controllers
             {
                 using (var db = new CompanyFormationdbEntities())
                 {
-                    if ((model[i].name != null) && (model[i].name.ToString() != ""))
+                    if ((model[i].firstname != null) && (model[i].firstname.ToString() != "") && (model[i].lastname != null) && (model[i].lastname.ToString() != ""))
                     {
-                        var name = model[i].name.ToLower();
+                        string fullname = model[i].firstname.ToString() + " " + model[i].lastname.ToString();
+                        var name = fullname.ToLower();
                         var find = db.cls_subscriber_tbl.Where(x => x.name.ToLower() == name).FirstOrDefault();
                         //var find = db.cls_director_tbl.Where(x => x.name.ToLower() == model[i].name.ToLower()).ToList();
 
@@ -116,6 +125,17 @@ namespace WebApplication3.Controllers
             }
         subscribernamecheckcondition:
             return checksubscribername;
+        }
+
+        protected void deletesubscriber(decimal cfid)
+        {
+            using (var db = new CompanyFormationdbEntities())
+            {
+
+                db.cls_subscriber_tbl.RemoveRange(db.cls_subscriber_tbl.Where(x => x.cfid == cfid));
+                db.SaveChanges();
+
+            }
         }
     }
 }

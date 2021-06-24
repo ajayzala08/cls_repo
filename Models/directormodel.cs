@@ -5,7 +5,9 @@ namespace WebApplication3.Models
     public class directormodel
     {
         public decimal cfid { get; set; }
-        public string name { get; set; }
+        //public string name { get; set; }
+        public string firstname { get; set; }
+        public string lastname { get; set; }
         public DateTime dob { get; set; }
         public string occupation { get; set; }
         public string addressline1 { get; set; }

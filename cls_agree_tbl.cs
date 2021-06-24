@@ -26,7 +26,7 @@ namespace WebApplication3
         public string addressline2 { get; set; }
         public string addressline3 { get; set; }
         public string postcode { get; set; }
-        public Nullable<decimal> phonenumber { get; set; }
+        public string phonenumber { get; set; }
         public string email { get; set; }
         public string username { get; set; }
     }
