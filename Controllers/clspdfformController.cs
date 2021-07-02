@@ -4713,30 +4713,17 @@ namespace WebApplication3.Controllers
                         cell.HorizontalAlignment = Element.ALIGN_LEFT;
                         table1.AddCell(cell);
                         #endregion blank
-                        if ((section10.additionalinformation.ToString() != "") && (section10.additionalinformation != null))
-                        {
-                            Paragraph paragraph4102 = new Paragraph();
-                            paragraph4102.Add(new Chunk(section10.additionalinformation.ToString(), FontFactory.GetFont("Calibri", 15, Font.NORMAL, BaseColor.BLUE)));
-                            cell = new PdfPCell(paragraph4102);
-                            cell.Colspan = 2;
-                            cell.BorderWidth = 0;
-                            cell.Padding = 0;
-                            cell.PaddingTop = 12; cell.PaddingBottom = 12;
-                            cell.HorizontalAlignment = Element.ALIGN_LEFT;
-                            table1.AddCell(cell);
-                        }
-                        else
-                        {
-                            Paragraph paragraph4102 = new Paragraph();
-                            paragraph4102.Add(new Chunk("", FontFactory.GetFont("Calibri", 15, Font.NORMAL, BaseColor.BLUE)));
-                            cell = new PdfPCell(paragraph4102);
-                            cell.Colspan = 2;
-                            cell.BorderWidth = 0;
-                            cell.Padding = 0;
-                            cell.PaddingTop = 12; cell.PaddingBottom = 12;
-                            cell.HorizontalAlignment = Element.ALIGN_LEFT;
-                            table1.AddCell(cell);
-                        }
+                     
+                        Paragraph paragraph4102 = new Paragraph();
+                        paragraph4102.Add(new Chunk(section10.additionalinformation != null ? section10.additionalinformation.ToString():"" , FontFactory.GetFont("Calibri", 15, Font.NORMAL, BaseColor.BLUE)));
+                        cell = new PdfPCell(paragraph4102);
+                        cell.Colspan = 2;
+                        cell.BorderWidth = 0;
+                        cell.Padding = 0;
+                        cell.PaddingTop = 12; cell.PaddingBottom = 12;
+                        cell.HorizontalAlignment = Element.ALIGN_LEFT;
+                        table1.AddCell(cell);
+      
                        
 
 
