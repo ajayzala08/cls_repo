@@ -58,11 +58,11 @@ namespace WebApplication3.Controllers
                         if (status == "Completed")
                         {
                             var sourcepath = tbl.pdf_filepath;
-                            var destinationpath = Path.Combine(System.Web.Hosting.HostingEnvironment.MapPath("~/clscharteredsecretaries/" + tbl.company_name + "/Completed"), tbl.pdf_filename);
-                            var exists = Directory.Exists(System.Web.Hosting.HostingEnvironment.MapPath("~/clscharteredsecretaries/" + tbl.company_name + "/Completed"));
+                            var destinationpath = Path.Combine(System.Web.Hosting.HostingEnvironment.MapPath("~/OneDrive - CLS Chartered Secretaries/clscharteredsecretaries/" + tbl.company_name + "/Completed"), tbl.pdf_filename);
+                            var exists = Directory.Exists(System.Web.Hosting.HostingEnvironment.MapPath("~/OneDrive - CLS Chartered Secretaries/clscharteredsecretaries/" + tbl.company_name + "/Completed"));
                             if (!exists)
                             {
-                                Directory.CreateDirectory(System.Web.Hosting.HostingEnvironment.MapPath("~/clscharteredsecretaries/" + tbl.company_name + "/Completed/"));
+                                Directory.CreateDirectory(System.Web.Hosting.HostingEnvironment.MapPath("~/OneDrive - CLS Chartered Secretaries/clscharteredsecretaries/" + tbl.company_name + "/Completed/"));
                                 File.Move(sourcepath, destinationpath);
                                 //File.Copy(sourcepath, destinationpath);
                             }
@@ -87,11 +87,11 @@ namespace WebApplication3.Controllers
                         if (status == "InProgress")
                         {
                             var sourcepath = tbl.pdf_filepath;
-                            var destinationpath = Path.Combine(System.Web.Hosting.HostingEnvironment.MapPath("~/clscharteredsecretaries/" + tbl.company_name + "/In Progress"), tbl.pdf_filename);
-                            var exists = Directory.Exists(System.Web.Hosting.HostingEnvironment.MapPath("~/clscharteredsecretaries/" + tbl.company_name + "/In Progress"));
+                            var destinationpath = Path.Combine(System.Web.Hosting.HostingEnvironment.MapPath("~/OneDrive - CLS Chartered Secretaries/clscharteredsecretaries/" + tbl.company_name + "/In Progress"), tbl.pdf_filename);
+                            var exists = Directory.Exists(System.Web.Hosting.HostingEnvironment.MapPath("~/OneDrive - CLS Chartered Secretaries/clscharteredsecretaries/" + tbl.company_name + "/In Progress"));
                             if (!exists)
                             {
-                                Directory.CreateDirectory(System.Web.Hosting.HostingEnvironment.MapPath("~/clscharteredsecretaries/" + tbl.company_name + "/In Progress/"));
+                                Directory.CreateDirectory(System.Web.Hosting.HostingEnvironment.MapPath("~/OneDrive - CLS Chartered Secretaries/clscharteredsecretaries/" + tbl.company_name + "/In Progress/"));
                                 File.Move(sourcepath, destinationpath);
                                 //File.Copy(sourcepath, destinationpath);
                             }
@@ -116,11 +116,11 @@ namespace WebApplication3.Controllers
                         if (status == "Submit")
                         {
                             var sourcepath = tbl.pdf_filepath;
-                            var destinationpath = Path.Combine(System.Web.Hosting.HostingEnvironment.MapPath("~/clscharteredsecretaries/" + tbl.company_name + "/Submit"), tbl.pdf_filename);
-                            var exists = Directory.Exists(System.Web.Hosting.HostingEnvironment.MapPath("~/clscharteredsecretaries/" + tbl.company_name + "/Submit"));
+                            var destinationpath = Path.Combine(System.Web.Hosting.HostingEnvironment.MapPath("~/OneDrive - CLS Chartered Secretaries/clscharteredsecretaries/" + tbl.company_name + "/Submit"), tbl.pdf_filename);
+                            var exists = Directory.Exists(System.Web.Hosting.HostingEnvironment.MapPath("~/OneDrive - CLS Chartered Secretaries/clscharteredsecretaries/" + tbl.company_name + "/Submit"));
                             if (!exists)
                             {
-                                Directory.CreateDirectory(System.Web.Hosting.HostingEnvironment.MapPath("~/clscharteredsecretaries/" + tbl.company_name + "/Submit/"));
+                                Directory.CreateDirectory(System.Web.Hosting.HostingEnvironment.MapPath("~/OneDrive - CLS Chartered Secretaries/clscharteredsecretaries/" + tbl.company_name + "/Submit/"));
                                 File.Move(sourcepath, destinationpath);
                                 //File.Copy(sourcepath, destinationpath);
                             }

@@ -371,6 +371,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Logs\" />
     <Folder Include="PdfForm\" />
     <Folder Include="TicketRepo\" />
   </ItemGroup>

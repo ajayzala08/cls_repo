@@ -8,14 +8,17 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Mail;
 using System.Web.Http;
 using System.Web.Http.Cors;
+
 
 namespace WebApplication3.Controllers
 {
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class clspdfformController : ApiController
     {
+        
         string companyFolderName = string.Empty;
         string pdfFileName = string.Empty;
         
@@ -30,6 +33,7 @@ namespace WebApplication3.Controllers
                 string filepath = CreatePDFBody(cfid); //ExportToHtmlPdf(htmlstring);
                 dictionary.Add("Filepath", filepath);
                 dictionary.Add("CompanyName", companyFolderName);
+                bool emailsendattachment = emailsend(companyFolderName, filepath, cfid);
                 pdffomrstatus(cfid, companyFolderName, pdfFileName, filepath, "Submit");
                 //response = Request.CreateResponse(HttpStatusCode.OK, Newtonsoft.Json.JsonConvert.SerializeObject(dictionary));
                 response = Request.CreateResponse(HttpStatusCode.OK, dictionary);
@@ -4739,13 +4743,13 @@ namespace WebApplication3.Controllers
                     memoryStream.Close();
                     var filename = Guid.NewGuid();
                     pdfFileName = filename.ToString() + ".pdf";
-                    var exists = Directory.Exists(System.Web.Hosting.HostingEnvironment.MapPath("~/clscharteredsecretaries/" + companyFolderName + "/Submit"));
+                    var exists = Directory.Exists(System.Web.Hosting.HostingEnvironment.MapPath("~/OneDrive - CLS Chartered Secretaries/clscharteredsecretaries/" + companyFolderName + "/Submit"));
                     if (!exists)
                     {
-                        Directory.CreateDirectory(System.Web.Hosting.HostingEnvironment.MapPath("~/clscharteredsecretaries/" + companyFolderName + "/Submit"));
+                        Directory.CreateDirectory(System.Web.Hosting.HostingEnvironment.MapPath("~/OneDrive - CLS Chartered Secretaries/clscharteredsecretaries/" + companyFolderName + "/Submit"));
                     }
 
-                    filePath = System.Web.Hosting.HostingEnvironment.MapPath("~/clscharteredsecretaries/" + companyFolderName + "/Submit/" + filename + ".pdf");
+                    filePath = System.Web.Hosting.HostingEnvironment.MapPath("~/OneDrive - CLS Chartered Secretaries/clscharteredsecretaries/" + companyFolderName + "/Submit/" + filename + ".pdf");
                     System.IO.File.WriteAllBytes(filePath, bytes);
                 }
                 
@@ -4754,7 +4758,111 @@ namespace WebApplication3.Controllers
 
         }
 
+        private bool emailsend(string companyname,string pdfpath,decimal cfid)
+        {
+            WriteToFile("--------------------");
+            WriteToFile("Mail send code begin");
+            //string fromaddr = WebConfigurationManager.AppSettings["username"].ToString();
+            //string toaddr = tomailid;//TO ADDRESS HERE
+            //string password = WebConfigurationManager.AppSettings["pwd"].ToString();
 
+            //MailMessage msg = new MailMessage();
+            //msg.Subject = "Ticket";
+            //msg.From = new MailAddress(fromaddr);
+            //msg.Body = "Ticket Number : " + ticketno.ToString();
+            //msg.To.Add(new MailAddress(toaddr));
+            //SmtpClient smtp = new SmtpClient();
+            //smtp.Host = "smtp.gmail.com";
+            //smtp.Port = 587;
+            //smtp.UseDefaultCredentials = false;
+            //smtp.EnableSsl = true;
+            //NetworkCredential nc = new NetworkCredential(fromaddr, password);
+            //smtp.Credentials = nc;
+            //smtp.Send(msg);
+            try
+            {
+                string body = string.Empty;
+                body = "Hello," + "<br><br>";
+
+                body += "Contact Details for Incorporation Purposes" + "<br><br>";
+                using (var db = new CompanyFormationdbEntities())
+                {
+                    var comincdetails = db.cls_agree_tbl.Where(x => x.cfid == cfid).FirstOrDefault();
+                    if (comincdetails != null)
+                    {
+                        string fullName = comincdetails.name != null ? comincdetails.name : "";
+                        string companyName = comincdetails.companyname != null ? comincdetails.companyname : "";
+                        string companyAddress = comincdetails.addressline1 != null ? comincdetails.addressline1 : "" + ", " + comincdetails.addressline2 != null ? comincdetails.addressline2 : "" + ", " + comincdetails.addressline3 != null ? comincdetails.addressline3 : "";
+                        string postCode = comincdetails.postcode != null ? comincdetails.postcode : "";
+                        string phoneNumber = comincdetails.phonenumber != null ? comincdetails.phonenumber : "";
+                        string emailAddress = comincdetails.email != null ? comincdetails.email : "";
+                        body += "FullName : " + fullName + "<br><br>";
+                        body += "Company Name : " + companyName + "<br><br>";
+                        body += "Address : " + companyAddress + "<br><br>";
+                        body += "Postcode : " + postCode + "<br><br>";
+                        body += "Phone No : " + phoneNumber + "<br><br>";
+                        body += "Email : " + emailAddress + "<br><br>";
+                        body += "Thank You";
+                    }
+                }
+
+                MailMessage mail = new MailMessage();
+
+                //mail.From.DisplayName = "CLS Chartered Secretaries (“CLS”)";
+                mail.From = new MailAddress("formations@clscs.ie", "CLS Chartered Secretaries (“CLS”)");
+                mail.To.Add(new MailAddress("ajay.zala@archesoftronix.com"));
+                mail.Subject = "New Company Formation";
+                mail.Body = body;
+                mail.IsBodyHtml = true;
+                mail.Attachments.Add(new Attachment(pdfpath));
+                SmtpClient smtp = new SmtpClient();
+                smtp.Host = "smtp.office365.com";
+                smtp.Port = 25;
+                smtp.EnableSsl = true;
+                smtp.UseDefaultCredentials = true;
+                smtp.Credentials = new System.Net.NetworkCredential("formations@clscs.ie", "Sav42425", "");
+                smtp.Send(mail);
+
+
+
+
+
+                WriteToFile("Mail send");
+                WriteToFile("--------------------");
+                return true;
+            }
+            catch (Exception ex)
+            {
+                WriteToFile("Mail Exception");
+                WriteToFile(ex.Message.ToString());
+                WriteToFile(ex.InnerException.Message.ToString());
+                WriteToFile("--------------------");
+                return true;
+            }
+        }
+
+        
+
+        #region log
+
+        private void WriteToFile(string text)
+        {
+            string logFileName = System.DateTime.Now.ToString("dd/MM/yyyy").Replace('/', '_').ToString() + ".log";
+            var exists = Directory.Exists(System.Web.Hosting.HostingEnvironment.MapPath("~/Logs/"));
+            if (!exists)
+            {
+                Directory.CreateDirectory(System.Web.Hosting.HostingEnvironment.MapPath("~/Logs/"));
+            }
+            string path = System.Web.Hosting.HostingEnvironment.MapPath("~/Logs/" + logFileName);
+            using (StreamWriter writer = new StreamWriter(path, true))
+            {
+                writer.WriteLine(string.Format(text, DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss tt")));
+                writer.Close();
+            }
+        }
+
+
+        #endregion
 
         /*
         #region oldcode
