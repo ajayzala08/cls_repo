@@ -19,6 +19,7 @@
         <EntityTypeShape EntityType="CompanyFormationdbModel.cls_usermst_tbl" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CompanyFormationdbModel.cls_agree_tbl" Width="1.5" PointX="11.375" PointY="5.75" />
         <EntityTypeShape EntityType="CompanyFormationdbModel.cls_secretary_tbl" Width="1.5" PointX="5.375" PointY="9.75" />
+        <EntityTypeShape EntityType="CompanyFormationdbModel.cls_filemst_tbl" Width="1.5" PointX="7.375" PointY="11.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

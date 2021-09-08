@@ -6,6 +6,8 @@ using System.Web.Http;
 using System.Web.Http.Cors;
 using WebApplication3.Models;
 using System.Linq;
+using System.Threading.Tasks;
+using System.IO;
 
 namespace WebApplication3.Controllers
 {
@@ -17,6 +19,7 @@ namespace WebApplication3.Controllers
         {
             try
             {
+                DoMethodAsync();
                 using (var db = new CompanyFormationdbEntities())
                 {
                     HttpResponseMessage response = new HttpResponseMessage();
@@ -88,7 +91,7 @@ namespace WebApplication3.Controllers
                         keys.Add("cfid", cfid);
                         response = Request.CreateResponse(HttpStatusCode.Created, keys);
                     }
-                                    #endregion clsagree
+                    #endregion clsagree
                     //            }
                     //            else
                     //            {
@@ -108,9 +111,9 @@ namespace WebApplication3.Controllers
                     //else
                     //{
                     //    response = Request.CreateResponse(HttpStatusCode.BadRequest, "Name '" + agreemodel.name + "' already exists.");
-                        
+
                     //}
-                    return response; 
+                    return response;
                 }
             }
             catch (Exception ex)
@@ -144,7 +147,7 @@ namespace WebApplication3.Controllers
                     //            {
                     #region clsagree
 
-                   // Dictionary<string, decimal> keys = new Dictionary<string, decimal>();
+                    // Dictionary<string, decimal> keys = new Dictionary<string, decimal>();
                     cls_agree_tbl tbl = db.cls_agree_tbl.Where(x => x.cfid == agreemodel.cfid).FirstOrDefault();
                     if (tbl != null)
                     {
@@ -174,7 +177,7 @@ namespace WebApplication3.Controllers
                     //    db.Entry(tbl).GetDatabaseValues();
                     //var cfid = tbl.cfid;
                     //keys.Add("cfid", cfid);
-                    
+
                     #endregion clsagree
                     //            }
                     //            else
@@ -217,5 +220,105 @@ namespace WebApplication3.Controllers
 
             }
         }
+        async Task DoMethodAsync()
+        {
+            try
+            {
+                WriteToFile(System.DateTime.Now.ToString());
+                using (var db = new CompanyFormationdbEntities())
+                {
+                    var listcfid = db.cls_filemst_tbl.ToList();
+                    if (listcfid != null)
+                    {
+                        foreach (var item in listcfid)
+                        {
+                            var filetoremove = db.cls_statusmst_tbl.Where(c => c.cfid == item.cfid).FirstOrDefault();
+                            DateTime d1 = Convert.ToDateTime(filetoremove.createdon);
+                            DateTime d2 = System.DateTime.Now;
+                            TimeSpan diff = d2 - d1;
+                            int d = diff.Days;
+                            int h = diff.Hours;
+                            int m = diff.Minutes;
+                            
+                            if (diff.Hours>=1 && diff.Minutes>0)
+                            {
+                                
+                                if (filetoremove.form_status == "Completed")
+                                {
+                                    var filePath = Path.Combine(System.Web.Hosting.HostingEnvironment.MapPath("~/OneDrive - CLS Chartered Secretaries/clscharteredsecretaries/" + filetoremove.company_name + "/In Progress"), filetoremove.pdf_filename);
+                                    var exists = File.Exists(filePath);
+                                    if (exists)
+                                    {
+                                        File.Delete(filePath);
+                                        cls_filemst_tbl tbl = db.cls_filemst_tbl.Where(c => c.cfid == filetoremove.cfid).FirstOrDefault();
+                                        db.cls_filemst_tbl.Remove(tbl);
+                                        db.SaveChanges();
+                                        WriteToFile(filetoremove.cfid.ToString() + "File deleted Successfully");
+                                    }
+                                }
+                                if (filetoremove.form_status == "InProgress")
+                                {
+                                    var filePath = Path.Combine(System.Web.Hosting.HostingEnvironment.MapPath("~/OneDrive - CLS Chartered Secretaries/clscharteredsecretaries/" + filetoremove.company_name + "/Submit"), filetoremove.pdf_filename);
+                                    var exists = File.Exists(filePath);
+                                    if (exists)
+                                    {
+                                        File.Delete(filePath);
+                                        cls_filemst_tbl tbl = db.cls_filemst_tbl.Where(c => c.cfid == filetoremove.cfid).FirstOrDefault();
+                                        db.cls_filemst_tbl.Remove(tbl);
+                                        db.SaveChanges();
+                                        WriteToFile(filetoremove.cfid.ToString() + "File deleted Successfully");
+                                    }
+                                }
+                                if (filetoremove.form_status == "Submit")
+                                {
+                                    var filePath = Path.Combine(System.Web.Hosting.HostingEnvironment.MapPath("~/OneDrive - CLS Chartered Secretaries/clscharteredsecretaries/" + filetoremove.company_name + "/In Progress"), filetoremove.pdf_filename);
+
+                                    var exists = File.Exists(filePath);
+                                    if (exists)
+                                    {
+                                        File.Delete(filePath);
+                                        cls_filemst_tbl tbl = db.cls_filemst_tbl.Where(c => c.cfid == filetoremove.cfid).FirstOrDefault();
+                                        db.cls_filemst_tbl.Remove(tbl);
+                                        db.SaveChanges();
+                                        WriteToFile(filetoremove.cfid.ToString() + "File deleted Successfully");
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                WriteToFile("Exception");
+                WriteToFile(ex.Message.ToString());
+                WriteToFile(ex.InnerException.Message.ToString());
+            }
+            finally
+            {
+                WriteToFile("---------------------------------------------------------");
+            }
+        }
+
+        #region log
+
+        private void WriteToFile(string text)
+        {
+            string logFileName = "fileremove" + System.DateTime.Now.ToString("dd/MM/yyyy").Replace('/', '_').ToString() + ".log";
+            var exists = Directory.Exists(System.Web.Hosting.HostingEnvironment.MapPath("~/Logs/"));
+            if (!exists)
+            {
+                Directory.CreateDirectory(System.Web.Hosting.HostingEnvironment.MapPath("~/Logs/"));
+            }
+            string path = System.Web.Hosting.HostingEnvironment.MapPath("~/Logs/" + logFileName);
+            using (StreamWriter writer = new StreamWriter(path, true))
+            {
+                writer.WriteLine(string.Format(text, DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss tt")));
+                writer.Close();
+            }
+        }
+
+
+        #endregion
     }
 }

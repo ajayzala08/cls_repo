@@ -111,6 +111,12 @@
     <Property Name="numberofshare" Type="nvarchar" MaxLength="50" />
     <Property Name="beneficialowner" Type="nvarchar" MaxLength="10" />
   </EntityType>
+  <EntityType Name="cls_filemst_tbl">
+    <Key>
+      <PropertyRef Name="cfid" />
+    </Key>
+    <Property Name="cfid" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+  </EntityType>
   <EntityType Name="cls_secretary_tbl">
     <Key>
       <PropertyRef Name="id" />
@@ -230,6 +236,7 @@
     <EntitySet Name="cls_companyincorporation_tbl" EntityType="Self.cls_companyincorporation_tbl" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="cls_corporatesubscriber_tbl" EntityType="Self.cls_corporatesubscriber_tbl" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="cls_director_tbl" EntityType="Self.cls_director_tbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cls_filemst_tbl" EntityType="Self.cls_filemst_tbl" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="cls_secretary_tbl" EntityType="Self.cls_secretary_tbl" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="cls_sharecapital_tbl" EntityType="Self.cls_sharecapital_tbl" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="cls_statusmst_tbl" EntityType="Self.cls_statusmst_tbl" Schema="dbo" store:Type="Tables" />

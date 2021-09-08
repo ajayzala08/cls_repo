@@ -195,6 +195,7 @@
     <EntitySet Name="cls_usermst_tbl" EntityType="Self.cls_usermst_tbl" />
     <EntitySet Name="cls_agree_tbl" EntityType="CompanyFormationdbModel.cls_agree_tbl" />
     <EntitySet Name="cls_secretary_tbl" EntityType="CompanyFormationdbModel.cls_secretary_tbl" />
+    <EntitySet Name="cls_filemst_tbl" EntityType="CompanyFormationdbModel.cls_filemst_tbl" />
   </EntityContainer>
   <EntityType Name="cls_agree_tbl">
     <Key>
@@ -237,5 +238,11 @@
     <Property Name="companyaddressline2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="compnaypostal" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="compnaycountry" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="cls_filemst_tbl">
+    <Key>
+      <PropertyRef Name="cfid" />
+    </Key>
+    <Property Name="cfid" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
   </EntityType>
 </Schema>

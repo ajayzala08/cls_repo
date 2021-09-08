@@ -116,6 +116,12 @@
           <Property Name="numberofshare" Type="nvarchar" MaxLength="50" />
           <Property Name="beneficialowner" Type="nvarchar" MaxLength="10" />
         </EntityType>
+        <EntityType Name="cls_filemst_tbl">
+          <Key>
+            <PropertyRef Name="cfid" />
+          </Key>
+          <Property Name="cfid" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
         <EntityType Name="cls_secretary_tbl">
           <Key>
             <PropertyRef Name="id" />
@@ -235,6 +241,7 @@
           <EntitySet Name="cls_companyincorporation_tbl" EntityType="Self.cls_companyincorporation_tbl" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="cls_corporatesubscriber_tbl" EntityType="Self.cls_corporatesubscriber_tbl" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="cls_director_tbl" EntityType="Self.cls_director_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cls_filemst_tbl" EntityType="Self.cls_filemst_tbl" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="cls_secretary_tbl" EntityType="Self.cls_secretary_tbl" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="cls_sharecapital_tbl" EntityType="Self.cls_sharecapital_tbl" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="cls_statusmst_tbl" EntityType="Self.cls_statusmst_tbl" Schema="dbo" store:Type="Tables" />
@@ -442,6 +449,7 @@
           <EntitySet Name="cls_usermst_tbl" EntityType="Self.cls_usermst_tbl" />
           <EntitySet Name="cls_agree_tbl" EntityType="CompanyFormationdbModel.cls_agree_tbl" />
           <EntitySet Name="cls_secretary_tbl" EntityType="CompanyFormationdbModel.cls_secretary_tbl" />
+          <EntitySet Name="cls_filemst_tbl" EntityType="CompanyFormationdbModel.cls_filemst_tbl" />
         </EntityContainer>
         <EntityType Name="cls_agree_tbl">
           <Key>
@@ -484,6 +492,12 @@
           <Property Name="companyaddressline2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="compnaypostal" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="compnaycountry" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="cls_filemst_tbl">
+          <Key>
+            <PropertyRef Name="cfid" />
+          </Key>
+          <Property Name="cfid" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -724,6 +738,13 @@
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="cfid" ColumnName="cfid" />
                 <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cls_filemst_tbl">
+            <EntityTypeMapping TypeName="CompanyFormationdbModel.cls_filemst_tbl">
+              <MappingFragment StoreEntitySet="cls_filemst_tbl">
+                <ScalarProperty Name="cfid" ColumnName="cfid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

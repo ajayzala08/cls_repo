@@ -237,5 +237,12 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="cls_filemst_tbl">
+      <EntityTypeMapping TypeName="CompanyFormationdbModel.cls_filemst_tbl">
+        <MappingFragment StoreEntitySet="cls_filemst_tbl">
+          <ScalarProperty Name="cfid" ColumnName="cfid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

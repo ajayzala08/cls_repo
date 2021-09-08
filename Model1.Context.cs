@@ -39,5 +39,6 @@ namespace WebApplication3
         public virtual DbSet<cls_usermst_tbl> cls_usermst_tbl { get; set; }
         public virtual DbSet<cls_agree_tbl> cls_agree_tbl { get; set; }
         public virtual DbSet<cls_secretary_tbl> cls_secretary_tbl { get; set; }
+        public virtual DbSet<cls_filemst_tbl> cls_filemst_tbl { get; set; }
     }
 }

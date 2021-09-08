@@ -9,6 +9,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Mail;
+using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Cors;
 
@@ -117,6 +118,7 @@ namespace WebApplication3.Controllers
                 tbl = db.cls_statusmst_tbl.Where(x => x.cfid == cfid).FirstOrDefault();
                 if (tbl != null)
                 {
+                    //filemst(cfid);
                     tbl.company_name = companyname;
                     tbl.pdf_filename = filename;
                     tbl.pdf_filepath = filepath;
@@ -124,6 +126,7 @@ namespace WebApplication3.Controllers
                     tbl.createdon = DateTime.Now;
                     db.Entry(tbl).State = System.Data.Entity.EntityState.Modified;
                     db.SaveChanges();
+
                 }
                 else
                 {
@@ -137,10 +140,24 @@ namespace WebApplication3.Controllers
                     tbl.createdon = DateTime.Now;
                     db.cls_statusmst_tbl.Add(tbl);
                     db.SaveChanges();
+                   // filemst(cfid);
                 }
+                
+            }
+        }
+
+        async Task filemst(decimal cfid)
+        {
+            using (var db = new CompanyFormationdbEntities())
+            {
+                cls_filemst_tbl tbl = new cls_filemst_tbl();
+                tbl.cfid = cfid;
+                db.cls_filemst_tbl.Add(tbl);
+                db.SaveChanges();
 
             }
         }
+
         private string PopulateBody(decimal cfid)
         {
             string path = System.Web.Hosting.HostingEnvironment.MapPath("~/TemplateFile/Formpdf.html");
@@ -4743,6 +4760,7 @@ namespace WebApplication3.Controllers
                     memoryStream.Close();
                     var filename = Guid.NewGuid();
                     pdfFileName = filename.ToString() + ".pdf";
+                   
                     var exists = Directory.Exists(System.Web.Hosting.HostingEnvironment.MapPath("~/OneDrive - CLS Chartered Secretaries/clscharteredsecretaries/" + companyFolderName + "/Submit"));
                     if (!exists)
                     {
@@ -4760,6 +4778,7 @@ namespace WebApplication3.Controllers
 
         private bool emailsend(string companyname,string pdfpath,decimal cfid)
         {
+            WriteToFile(System.DateTime.Now.ToLongDateString());
             WriteToFile("--------------------");
             WriteToFile("Mail send code begin");
             //string fromaddr = WebConfigurationManager.AppSettings["username"].ToString();
@@ -4790,6 +4809,17 @@ namespace WebApplication3.Controllers
                     var comincdetails = db.cls_agree_tbl.Where(x => x.cfid == cfid).FirstOrDefault();
                     if (comincdetails != null)
                     {
+                        string ProposedCompanyName = string.Empty;
+                        var comincorporationdetails = db.cls_companyincorporation_tbl.Where(x => x.cfid == cfid).FirstOrDefault();
+                        if (comincorporationdetails != null)
+                        {
+                            ProposedCompanyName = comincorporationdetails.firstchoice != null ? comincorporationdetails.firstchoice : "";
+                        }
+                        else
+                        {
+                            ProposedCompanyName = "";
+                        }
+
                         string fullName = comincdetails.name != null ? comincdetails.name : "";
                         string companyName = comincdetails.companyname != null ? comincdetails.companyname : "";
                         string companyAddress = comincdetails.addressline1 != null ? comincdetails.addressline1 : "" + ", " + comincdetails.addressline2 != null ? comincdetails.addressline2 : "" + ", " + comincdetails.addressline3 != null ? comincdetails.addressline3 : "";
@@ -4797,7 +4827,8 @@ namespace WebApplication3.Controllers
                         string phoneNumber = comincdetails.phonenumber != null ? comincdetails.phonenumber : "";
                         string emailAddress = comincdetails.email != null ? comincdetails.email : "";
                         body += "FullName : " + fullName + "<br><br>";
-                        body += "Company Name : " + companyName + "<br><br>";
+                        body += "Practice/Company Name : " + companyName + "<br><br>";
+                        body += "Proposed First Choice : " + ProposedCompanyName + "<br><br>";
                         body += "Address : " + companyAddress + "<br><br>";
                         body += "Postcode : " + postCode + "<br><br>";
                         body += "Phone No : " + phoneNumber + "<br><br>";
@@ -4810,14 +4841,17 @@ namespace WebApplication3.Controllers
 
                 //mail.From.DisplayName = "CLS Chartered Secretaries (“CLS”)";
                 mail.From = new MailAddress("formations@clscs.ie", "CLS Chartered Secretaries (“CLS”)");
-                mail.To.Add(new MailAddress("ajay.zala@archesoftronix.com"));
+                //mail.To.Add(new MailAddress("conor@clscs.ie"));
+                mail.To.Add(new MailAddress("formations@clscs.ie"));
+                mail.To.Add(new MailAddress("roisin @clscs.ie"));
+
                 mail.Subject = "New Company Formation";
                 mail.Body = body;
                 mail.IsBodyHtml = true;
                 mail.Attachments.Add(new Attachment(pdfpath));
                 SmtpClient smtp = new SmtpClient();
                 smtp.Host = "smtp.office365.com";
-                smtp.Port = 25;
+                smtp.Port = 587;
                 smtp.EnableSsl = true;
                 smtp.UseDefaultCredentials = true;
                 smtp.Credentials = new System.Net.NetworkCredential("formations@clscs.ie", "Sav42425", "");
