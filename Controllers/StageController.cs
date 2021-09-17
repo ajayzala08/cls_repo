@@ -21,7 +21,7 @@ namespace WebApplication3.Controllers
                 client.BaseAddress = new Uri(baseurl);
                 client.DefaultRequestHeaders.Clear();
                 client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", "tkn.v1_YmEzYzg4MzctYjE2OC00NDlmLTk0YjYtZjlmYzdmYjMxNWYxLTY4MzY1OC41ODA3MDMuRVU=");
-
+                
                 var res = await client.GetAsync("crm/api/v1/stages.json");
                 return res;
             }

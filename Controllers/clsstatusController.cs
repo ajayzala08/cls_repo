@@ -50,6 +50,12 @@ namespace WebApplication3.Controllers
             return response;
         }
 
+
+        /* 
+         * 16-09-2021
+         * Commnet copy file code and Subfolder (Submit, In Progress, Completed)
+         * as per client requirement only one folder and file will be created 
+         */
         public HttpResponseMessage put(decimal cfid, string status)
         {
             HttpResponseMessage response = new HttpResponseMessage();
@@ -60,106 +66,139 @@ namespace WebApplication3.Controllers
                     var tbl = db.cls_statusmst_tbl.Where(x => x.cfid == cfid).FirstOrDefault();
                     if (tbl != null)
                     {
+                        #region newcode
+                        //var sp = tbl.pdf_filepath.ToString();
+                        //string foldername = GetFolderName(cfid);
+                        //var dp = System.Web.Hosting.HostingEnvironment.MapPath("~/OneDrive - CLS Chartered Secretaries/clscharteredsecretaries/" + foldername + "/" + status + "/" + tbl.pdf_filename);
+                        //var AgentExists = Directory.Exists(System.Web.Hosting.HostingEnvironment.MapPath("~/OneDrive - CLS Chartered Secretaries/clscharteredsecretaries/" + foldername + "/" + status));
+                        //if (!AgentExists)
+                        //{
+                        //    Directory.CreateDirectory(System.Web.Hosting.HostingEnvironment.MapPath("~/OneDrive - CLS Chartered Secretaries/clscharteredsecretaries/" + foldername + "/" + status));
+                        //    File.Copy(sp, dp);
+                        //}
+                        //else
+                        //{
+                        //    if(!File.Exists(dp))
+                        //    File.Copy(sp, dp);
+                        //}
+                        tbl.form_status = status;
+                       // tbl.pdf_filepath = dp;
+                        tbl.createdon = DateTime.Now;
+                        db.Entry(tbl).State = EntityState.Modified;
+                        var result = db.SaveChanges();
+                        if (result > 0)
+                        {
+                            response = Request.CreateResponse(HttpStatusCode.OK, "Status Updated");
+                        }
+                        else
+                        {
+                            response = Request.CreateResponse(HttpStatusCode.NotModified, "Fail To Update");
+                        }
+                        filemst(cfid);
+                        #endregion
 
-                        if (status == "Completed")
-                        {
-                            var sourcepath = tbl.pdf_filepath;
-                            var destinationpath = Path.Combine(System.Web.Hosting.HostingEnvironment.MapPath("~/OneDrive - CLS Chartered Secretaries/clscharteredsecretaries/" + tbl.company_name + "/Completed"), tbl.pdf_filename);
-                            var exists = Directory.Exists(System.Web.Hosting.HostingEnvironment.MapPath("~/OneDrive - CLS Chartered Secretaries/clscharteredsecretaries/" + tbl.company_name + "/Completed"));
-                            if (!exists)
-                            {
-                                Directory.CreateDirectory(System.Web.Hosting.HostingEnvironment.MapPath("~/OneDrive - CLS Chartered Secretaries/clscharteredsecretaries/" + tbl.company_name + "/Completed/"));
-                                //File.Move(sourcepath, destinationpath);
-                                File.Copy(sourcepath, destinationpath);
-                               // File.Delete(sourcepath);
-                                
-                            }
-                            else
-                            {
-                                //File.Move(sourcepath, destinationpath);
-                                File.Copy(sourcepath, destinationpath);
-                              //  File.Delete(sourcepath);
-                            }
-                            tbl.form_status = status;
-                            tbl.pdf_filepath = destinationpath;
-                            tbl.createdon = DateTime.Now;
-                            db.Entry(tbl).State = EntityState.Modified;
-                            var result = db.SaveChanges();
-                            if (result > 0)
-                            {
-                                response = Request.CreateResponse(HttpStatusCode.OK, "Status Updated");
-                            }
-                            else
-                            {
-                                response = Request.CreateResponse(HttpStatusCode.NotModified, "Fail To Update");
-                            }
-                            filemst(cfid);
-                        }
-                        if (status == "InProgress")
-                        {
-                            var sourcepath = tbl.pdf_filepath;
-                            var destinationpath = Path.Combine(System.Web.Hosting.HostingEnvironment.MapPath("~/OneDrive - CLS Chartered Secretaries/clscharteredsecretaries/" + tbl.company_name + "/In Progress"), tbl.pdf_filename);
-                            var exists = Directory.Exists(System.Web.Hosting.HostingEnvironment.MapPath("~/OneDrive - CLS Chartered Secretaries/clscharteredsecretaries/" + tbl.company_name + "/In Progress"));
-                            if (!exists)
-                            {
-                                Directory.CreateDirectory(System.Web.Hosting.HostingEnvironment.MapPath("~/OneDrive - CLS Chartered Secretaries/clscharteredsecretaries/" + tbl.company_name + "/In Progress/"));
-                                //File.Move(sourcepath, destinationpath);
-                                File.Copy(sourcepath, destinationpath);
-                                // File.Delete(sourcepath);
-                                filemst(cfid);
-                            }
-                            else
-                            {
-                                //File.Move(sourcepath, destinationpath);
-                                File.Copy(sourcepath, destinationpath);
-                             //   File.Delete(sourcepath);
-                            }
-                            tbl.form_status = status;
-                            tbl.pdf_filepath = destinationpath;
-                            tbl.createdon = DateTime.Now;
-                            db.Entry(tbl).State = EntityState.Modified;
-                            var result = db.SaveChanges();
-                            if (result > 0)
-                            {
-                                response = Request.CreateResponse(HttpStatusCode.OK, "Status Updated");
-                            }
-                            else
-                            {
-                                response = Request.CreateResponse(HttpStatusCode.NotModified, "Fail To Update");
-                            }
-                        }
-                        if (status == "Submit")
-                        {
-                            var sourcepath = tbl.pdf_filepath;
-                            var destinationpath = Path.Combine(System.Web.Hosting.HostingEnvironment.MapPath("~/OneDrive - CLS Chartered Secretaries/clscharteredsecretaries/" + tbl.company_name + "/Submit"), tbl.pdf_filename);
-                            var exists = Directory.Exists(System.Web.Hosting.HostingEnvironment.MapPath("~/OneDrive - CLS Chartered Secretaries/clscharteredsecretaries/" + tbl.company_name + "/Submit"));
-                            if (!exists)
-                            {
-                                Directory.CreateDirectory(System.Web.Hosting.HostingEnvironment.MapPath("~/OneDrive - CLS Chartered Secretaries/clscharteredsecretaries/" + tbl.company_name + "/Submit/"));
-                                //File.Move(sourcepath, destinationpath);
-                                File.Copy(sourcepath, destinationpath);
-                              //  File.Delete(sourcepath);
-                            }
-                            else
-                            {
-                                //File.Move(sourcepath, destinationpath);
-                                File.Copy(sourcepath, destinationpath);
-                             //   File.Delete(sourcepath);
-                            }
-                            tbl.form_status = status;
-                            tbl.pdf_filepath = destinationpath;
-                            tbl.createdon = DateTime.Now;
-                            db.Entry(tbl).State = EntityState.Modified;
-                            var result = db.SaveChanges();
-                            if (result > 0)
-                            {
-                                response = Request.CreateResponse(HttpStatusCode.OK, "Status Updated");
-                            }
-                            else
-                            {
-                                response = Request.CreateResponse(HttpStatusCode.NotModified, "Fail To Update");
-                            }
-                        }
+
+                        #region oldcode
+                        //if (status == "Completed")
+                        //{
+                        //    var sourcepath = tbl.pdf_filepath;
+                        //    var destinationpath = Path.Combine(System.Web.Hosting.HostingEnvironment.MapPath("~/OneDrive - CLS Chartered Secretaries/clscharteredsecretaries/" + tbl.company_name + "/Completed"), tbl.pdf_filename);
+                        //    var exists = Directory.Exists(System.Web.Hosting.HostingEnvironment.MapPath("~/OneDrive - CLS Chartered Secretaries/clscharteredsecretaries/" + tbl.company_name + "/Completed"));
+                        //    if (!exists)
+                        //    {
+                        //        Directory.CreateDirectory(System.Web.Hosting.HostingEnvironment.MapPath("~/OneDrive - CLS Chartered Secretaries/clscharteredsecretaries/" + tbl.company_name + "/Completed/"));
+                        //        //File.Move(sourcepath, destinationpath);
+                        //        File.Copy(sourcepath, destinationpath);
+                        //       // File.Delete(sourcepath);
+
+                        //    }
+                        //    else
+                        //    {
+                        //        //File.Move(sourcepath, destinationpath);
+                        //        File.Copy(sourcepath, destinationpath);
+                        //      //  File.Delete(sourcepath);
+                        //    }
+                        //    tbl.form_status = status;
+                        //    tbl.pdf_filepath = destinationpath;
+                        //    tbl.createdon = DateTime.Now;
+                        //    db.Entry(tbl).State = EntityState.Modified;
+                        //    var result = db.SaveChanges();
+                        //    if (result > 0)
+                        //    {
+                        //        response = Request.CreateResponse(HttpStatusCode.OK, "Status Updated");
+                        //    }
+                        //    else
+                        //    {
+                        //        response = Request.CreateResponse(HttpStatusCode.NotModified, "Fail To Update");
+                        //    }
+                        //    filemst(cfid);
+                        //}
+                        //if (status == "InProgress")
+                        //{
+                        //    var sourcepath = tbl.pdf_filepath;
+                        //    var destinationpath = Path.Combine(System.Web.Hosting.HostingEnvironment.MapPath("~/OneDrive - CLS Chartered Secretaries/clscharteredsecretaries/" + tbl.company_name + "/In Progress"), tbl.pdf_filename);
+                        //    var exists = Directory.Exists(System.Web.Hosting.HostingEnvironment.MapPath("~/OneDrive - CLS Chartered Secretaries/clscharteredsecretaries/" + tbl.company_name + "/In Progress"));
+                        //    if (!exists)
+                        //    {
+                        //        Directory.CreateDirectory(System.Web.Hosting.HostingEnvironment.MapPath("~/OneDrive - CLS Chartered Secretaries/clscharteredsecretaries/" + tbl.company_name + "/In Progress/"));
+                        //        //File.Move(sourcepath, destinationpath);
+                        //        File.Copy(sourcepath, destinationpath);
+                        //        // File.Delete(sourcepath);
+                        //        filemst(cfid);
+                        //    }
+                        //    else
+                        //    {
+                        //        //File.Move(sourcepath, destinationpath);
+                        //        File.Copy(sourcepath, destinationpath);
+                        //     //   File.Delete(sourcepath);
+                        //    }
+                        //    tbl.form_status = status;
+                        //    tbl.pdf_filepath = destinationpath;
+                        //    tbl.createdon = DateTime.Now;
+                        //    db.Entry(tbl).State = EntityState.Modified;
+                        //    var result = db.SaveChanges();
+                        //    if (result > 0)
+                        //    {
+                        //        response = Request.CreateResponse(HttpStatusCode.OK, "Status Updated");
+                        //    }
+                        //    else
+                        //    {
+                        //        response = Request.CreateResponse(HttpStatusCode.NotModified, "Fail To Update");
+                        //    }
+                        //}
+                        //if (status == "Submit")
+                        //{
+                        //    var sourcepath = tbl.pdf_filepath;
+                        //    var destinationpath = Path.Combine(System.Web.Hosting.HostingEnvironment.MapPath("~/OneDrive - CLS Chartered Secretaries/clscharteredsecretaries/" + tbl.company_name + "/Submit"), tbl.pdf_filename);
+                        //    var exists = Directory.Exists(System.Web.Hosting.HostingEnvironment.MapPath("~/OneDrive - CLS Chartered Secretaries/clscharteredsecretaries/" + tbl.company_name + "/Submit"));
+                        //    if (!exists)
+                        //    {
+                        //        Directory.CreateDirectory(System.Web.Hosting.HostingEnvironment.MapPath("~/OneDrive - CLS Chartered Secretaries/clscharteredsecretaries/" + tbl.company_name + "/Submit/"));
+                        //        //File.Move(sourcepath, destinationpath);
+                        //        File.Copy(sourcepath, destinationpath);
+                        //      //  File.Delete(sourcepath);
+                        //    }
+                        //    else
+                        //    {
+                        //        //File.Move(sourcepath, destinationpath);
+                        //        File.Copy(sourcepath, destinationpath);
+                        //     //   File.Delete(sourcepath);
+                        //    }
+                        //    tbl.form_status = status;
+                        //    tbl.pdf_filepath = destinationpath;
+                        //    tbl.createdon = DateTime.Now;
+                        //    db.Entry(tbl).State = EntityState.Modified;
+                        //    var result = db.SaveChanges();
+                        //    if (result > 0)
+                        //    {
+                        //        response = Request.CreateResponse(HttpStatusCode.OK, "Status Updated");
+                        //    }
+                        //    else
+                        //    {
+                        //        response = Request.CreateResponse(HttpStatusCode.NotModified, "Fail To Update");
+                        //    }
+                        //}
+                        #endregion
                         return response;
                     }
                     else
@@ -186,6 +225,29 @@ namespace WebApplication3.Controllers
 
             }
         }
+
+        private string GetFolderName(decimal cfid)
+        {
+            using (var db = new CompanyFormationdbEntities())
+            {
+                string foldername = string.Empty;
+                var agentname = db.cls_agree_tbl.Where(x => x.cfid == cfid).FirstOrDefault();
+                if (agentname != null)
+                {
+                    if (agentname.username == "Agent")
+                    {
+                        foldername = agentname.name;
+                    }
+                    else
+                    {
+                        foldername = agentname.companyname;
+                    }
+                 
+                }
+                return foldername;
+            }
+        }
+
         private string CreatePDFBody(decimal cfid)
         {
 

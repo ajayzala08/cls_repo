@@ -219,4 +219,3 @@ D:\CompnayFormation\cls_repo\obj\Debug\WebApplication3.csproj.CoreCompileInputs.
 D:\CompnayFormation\cls_repo\obj\Debug\WebApplication3.csproj.CopyComplete
 D:\CompnayFormation\cls_repo\obj\Debug\WebApplication3.dll
 D:\CompnayFormation\cls_repo\obj\Debug\WebApplication3.pdb
-D:\CompnayFormation\cls_repo\obj\Debug\WebApplication3.csprojAssemblyReference.cache

@@ -19,7 +19,7 @@ namespace WebApplication3.Controllers
         {
             try
             {
-                DoMethodAsync();
+               // DoMethodAsync();
                 using (var db = new CompanyFormationdbEntities())
                 {
                     HttpResponseMessage response = new HttpResponseMessage();
@@ -220,6 +220,12 @@ namespace WebApplication3.Controllers
 
             }
         }
+
+        /*
+         * 16-09-2021
+         * Only one folder and pdf file created in drive so no need to remove file code 
+         * comment DoMethodAsync code
+         */
         async Task DoMethodAsync()
         {
             try
@@ -240,9 +246,8 @@ namespace WebApplication3.Controllers
                             int h = diff.Hours;
                             int m = diff.Minutes;
                             
-                            if (diff.Hours>=1 && diff.Minutes>0)
+                            if (diff.Hours>=2 && diff.Minutes>0)
                             {
-                                
                                 if (filetoremove.form_status == "Completed")
                                 {
                                     var filePath = Path.Combine(System.Web.Hosting.HostingEnvironment.MapPath("~/OneDrive - CLS Chartered Secretaries/clscharteredsecretaries/" + filetoremove.company_name + "/In Progress"), filetoremove.pdf_filename);

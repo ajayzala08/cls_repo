@@ -19,11 +19,11 @@ namespace WebApplication3.Controllers
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class clspdfformController : ApiController
     {
-        
+
         string companyFolderName = string.Empty;
         string pdfFileName = string.Empty;
-        
-        Dictionary<string,string> dictionary= new Dictionary<string, string>();
+
+        Dictionary<string, string> dictionary = new Dictionary<string, string>();
         public HttpResponseMessage post(decimal cfid)
         {
             HttpResponseMessage response = new HttpResponseMessage();
@@ -34,7 +34,7 @@ namespace WebApplication3.Controllers
                 string filepath = CreatePDFBody(cfid); //ExportToHtmlPdf(htmlstring);
                 dictionary.Add("Filepath", filepath);
                 dictionary.Add("CompanyName", companyFolderName);
-                bool emailsendattachment = emailsend(companyFolderName, filepath, cfid);
+                // bool emailsendattachment = emailsend(companyFolderName, filepath, cfid);
                 pdffomrstatus(cfid, companyFolderName, pdfFileName, filepath, "Submit");
                 //response = Request.CreateResponse(HttpStatusCode.OK, Newtonsoft.Json.JsonConvert.SerializeObject(dictionary));
                 response = Request.CreateResponse(HttpStatusCode.OK, dictionary);
@@ -140,9 +140,9 @@ namespace WebApplication3.Controllers
                     tbl.createdon = DateTime.Now;
                     db.cls_statusmst_tbl.Add(tbl);
                     db.SaveChanges();
-                   // filemst(cfid);
+                    // filemst(cfid);
                 }
-                
+
             }
         }
 
@@ -169,7 +169,7 @@ namespace WebApplication3.Controllers
             using (var db = new CompanyFormationdbEntities())
             {
                 var section1 = db.cls_agree_tbl.Where(x => x.cfid == cfid).FirstOrDefault();
-                
+
                 if (section1.agree.ToString() == "0")
                 {
                     body = body.Replace("{Agree}", "Agree");
@@ -1172,7 +1172,7 @@ namespace WebApplication3.Controllers
         {
 
             string filePath = string.Empty;
-            
+
             using (var db = new CompanyFormationdbEntities())
             {
                 using (System.IO.MemoryStream memoryStream = new System.IO.MemoryStream())
@@ -1294,8 +1294,8 @@ namespace WebApplication3.Controllers
 
                         if ((section1.incorporationtype != null) && (section1.incorporationtype.ToString() != ""))
                         {
-                          //  Paragraph paragraph6 = new Paragraph();
-                         //   paragraph6.Add(new Chunk("Incorporation Type:", FontFactory.GetFont("Calibri", 15, Font.BOLD, BaseColor.BLACK)));
+                            //  Paragraph paragraph6 = new Paragraph();
+                            //   paragraph6.Add(new Chunk("Incorporation Type:", FontFactory.GetFont("Calibri", 15, Font.BOLD, BaseColor.BLACK)));
                             Chunk ch1 = new Chunk("Incorporation Type:", FontFactory.GetFont("Calibri", 15, Font.BOLD, BaseColor.BLACK));
                             Chunk ch2 = new Chunk(section1.incorporationtype.ToString(), FontFactory.GetFont("Calibri", 15, Font.NORMAL, BaseColor.BLUE));
                             Chunk chspace = new Chunk("     ");
@@ -1362,8 +1362,8 @@ namespace WebApplication3.Controllers
 
                         if ((section1.paymenttype != null) && (section1.paymenttype.ToString() != ""))
                         {
-                          //  Paragraph paragraph11 = new Paragraph();
-                          //  paragraph11.Add(new Chunk(section1.paymenttype.ToString(), FontFactory.GetFont("Calibri", 15, Font.NORMAL, BaseColor.BLACK)));
+                            //  Paragraph paragraph11 = new Paragraph();
+                            //  paragraph11.Add(new Chunk(section1.paymenttype.ToString(), FontFactory.GetFont("Calibri", 15, Font.NORMAL, BaseColor.BLACK)));
                             Chunk ch1 = new Chunk(section1.paymenttype.ToString(), FontFactory.GetFont("Calibri", 15, Font.NORMAL, BaseColor.BLUE));
                             Chunk ch2 = new Chunk("Payment Type (Select):", FontFactory.GetFont("Calibri", 15, Font.BOLD, BaseColor.BLACK));
                             Chunk chspace = new Chunk("     ");
@@ -1397,7 +1397,7 @@ namespace WebApplication3.Controllers
                         #region Contact Details For Incorporation Purposes
 
                         #region blank
-                       // Paragraph paragraph1blank = new Paragraph();
+                        // Paragraph paragraph1blank = new Paragraph();
                         paragraph1blank.Add(new Chunk("*", FontFactory.GetFont("Calibri", 15, Font.BOLD, BaseColor.WHITE)));
                         cell = new PdfPCell(paragraph1blank);
                         cell.Colspan = 2;
@@ -1530,7 +1530,7 @@ namespace WebApplication3.Controllers
                             cell.PaddingTop = 12; cell.PaddingBottom = 12;
                             cell.HorizontalAlignment = Element.ALIGN_LEFT;
                             table1.AddCell(cell);
-                            
+
                         }
 
                         if ((section1.addressline1 != null) && (section1.addressline1.ToString() != ""))
@@ -1703,7 +1703,7 @@ namespace WebApplication3.Controllers
                             table1.AddCell(cell);
                         }
                         #endregion Contact Details For Incorporation Purposes
-                       
+
                     }
                     #endregion section1
 
@@ -1899,7 +1899,7 @@ namespace WebApplication3.Controllers
                             paragraph44.Add(new Chunk("Principal Activity of the Company:", FontFactory.GetFont("Calibri", 15, Font.BOLD, BaseColor.BLACK)));
                             cell = new PdfPCell(paragraph44);
                             cell.Colspan = 2;
-                            cell.BorderWidth = 0; 
+                            cell.BorderWidth = 0;
                             cell.Padding = 0;
                             cell.PaddingTop = 12; cell.PaddingBottom = 12;
                             cell.HorizontalAlignment = Element.ALIGN_LEFT;
@@ -1942,7 +1942,7 @@ namespace WebApplication3.Controllers
                             if ((section2.additionalwording != null) && (section2.additionalwording.ToString() != ""))
                             {
                                 Chunk ch3 = new Chunk("Additional Wording:", FontFactory.GetFont("Calibri", 15, Font.BOLD, BaseColor.BLACK));
-                                
+
                                 Chunk ch4 = new Chunk(section2.additionalwording.ToString(), FontFactory.GetFont("Calibri", 15, Font.NORMAL, BaseColor.BLUE));
 
                                 Paragraph paragraph44additionalwording = new Paragraph();
@@ -2033,7 +2033,7 @@ namespace WebApplication3.Controllers
                         cell.Colspan = 2;
                         cell.BorderWidth = 0;
                         cell.Padding = 0;
-                       // cell.PaddingTop = 12; cell.PaddingBottom = 12;
+                        // cell.PaddingTop = 12; cell.PaddingBottom = 12;
                         cell.HorizontalAlignment = Element.ALIGN_LEFT;
                         table1.AddCell(cell);
                         #endregion blank
@@ -2042,7 +2042,7 @@ namespace WebApplication3.Controllers
                         paragraph50.Add(new Chunk("Share Capital", FontFactory.GetFont("Calibri", 20, Font.BOLD, BaseColor.RED)));
                         cell = new PdfPCell(paragraph50);
                         cell.Colspan = 2;
-                        cell.BorderWidth = 0; 
+                        cell.BorderWidth = 0;
                         cell.Padding = 0;
                         cell.PaddingTop = 12; cell.PaddingBottom = 12;
                         cell.HorizontalAlignment = Element.ALIGN_LEFT;
@@ -2061,7 +2061,7 @@ namespace WebApplication3.Controllers
                         //table1.AddCell(cell);
                         //#endregion blank
 
-                        if ((section3.issuedsharecapital != null) && (section3.issuedsharecapital.ToString()!=""))
+                        if ((section3.issuedsharecapital != null) && (section3.issuedsharecapital.ToString() != ""))
                         {
                             Chunk ch1 = new Chunk("Issued Share Capital:", FontFactory.GetFont("Calibri", 15, Font.BOLD, BaseColor.BLACK));
                             Chunk ch2 = new Chunk(section3.issuedsharecapital.ToString(), FontFactory.GetFont("Calibri", 15, Font.NORMAL, BaseColor.BLUE));
@@ -2355,7 +2355,7 @@ namespace WebApplication3.Controllers
                             Paragraph paragraph67 = new Paragraph();
                             paragraph67.Add(ch1);
                             paragraph67.Add(chspace);
-                            paragraph67.Add(ch2); 
+                            paragraph67.Add(ch2);
                             cell = new PdfPCell(paragraph67);
                             cell.Colspan = 2;
                             cell.BorderWidth = 0; cell.BorderWidthBottom = 0.5f;
@@ -2473,7 +2473,7 @@ namespace WebApplication3.Controllers
                             paragraph75.Add(new Chunk("Corporate Secretary Details", FontFactory.GetFont("Calibri", 20, Font.BOLD, BaseColor.BLACK)));
                             cell = new PdfPCell(paragraph75);
                             cell.Colspan = 2;
-                            cell.BorderWidth = 0; 
+                            cell.BorderWidth = 0;
                             cell.Padding = 0;
                             cell.PaddingTop = 12; cell.PaddingBottom = 12;
                             cell.HorizontalAlignment = Element.ALIGN_LEFT;
@@ -2756,30 +2756,30 @@ namespace WebApplication3.Controllers
                                 cell.HorizontalAlignment = Element.ALIGN_LEFT;
                                 table1.AddCell(cell);
                                 #endregion blank
-                                if (i==3)
+                                if (i == 3)
                                 {
 
-                                    
+
 
                                     Paragraph paragraph92addtional = new Paragraph();
                                     paragraph92addtional.Add(new Chunk("Additional Director Details", FontFactory.GetFont("Calibri", 20, Font.BOLD, BaseColor.RED)));
                                     cell = new PdfPCell(paragraph92addtional);
                                     cell.Colspan = 2;
-                                    cell.BorderWidth = 0; 
+                                    cell.BorderWidth = 0;
                                     cell.Padding = 0;
                                     cell.PaddingTop = 12; cell.PaddingBottom = 12;
                                     cell.HorizontalAlignment = Element.ALIGN_LEFT;
                                     table1.AddCell(cell);
 
 
-                                    
+
                                 }
                                 #region director 1
                                 //director 1
                                 int n = 1 + i;
 
                                 Paragraph paragraph93 = new Paragraph();
-                                paragraph93.Add(new Chunk("Director "+ n.ToString(), FontFactory.GetFont("Calibri", 20, Font.BOLD, BaseColor.BLACK)));
+                                paragraph93.Add(new Chunk("Director " + n.ToString(), FontFactory.GetFont("Calibri", 20, Font.BOLD, BaseColor.BLACK)));
                                 cell = new PdfPCell(paragraph93);
                                 cell.Colspan = 2;
                                 cell.BorderWidth = 0;
@@ -3261,14 +3261,14 @@ namespace WebApplication3.Controllers
                         {
                             #region Subscriber Details (Individual)
                             Paragraph paragraph311 = new Paragraph();
-                        paragraph311.Add(new Chunk("Subscriber Details (Individual)", FontFactory.GetFont("Calibri", 20, Font.BOLD, BaseColor.RED)));
-                        cell = new PdfPCell(paragraph311);
-                        cell.Colspan = 2;
-                        cell.BorderWidth = 0;
-                        cell.Padding = 0;
-                        cell.PaddingTop = 12; cell.PaddingBottom = 12;
-                        cell.HorizontalAlignment = Element.ALIGN_LEFT;
-                        table1.AddCell(cell);
+                            paragraph311.Add(new Chunk("Subscriber Details (Individual)", FontFactory.GetFont("Calibri", 20, Font.BOLD, BaseColor.RED)));
+                            cell = new PdfPCell(paragraph311);
+                            cell.Colspan = 2;
+                            cell.BorderWidth = 0;
+                            cell.Padding = 0;
+                            cell.PaddingTop = 12; cell.PaddingBottom = 12;
+                            cell.HorizontalAlignment = Element.ALIGN_LEFT;
+                            table1.AddCell(cell);
 
                             //#region blank
                             //Paragraph paragraph1blank = new Paragraph();
@@ -3313,7 +3313,7 @@ namespace WebApplication3.Controllers
                                 //director 7
                                 int n = 1 + i;
                                 Paragraph paragraph312 = new Paragraph();
-                                paragraph312.Add(new Chunk("Subscriber "+n.ToString(), FontFactory.GetFont("Calibri", 20, Font.BOLD, BaseColor.BLACK)));
+                                paragraph312.Add(new Chunk("Subscriber " + n.ToString(), FontFactory.GetFont("Calibri", 20, Font.BOLD, BaseColor.BLACK)));
                                 cell = new PdfPCell(paragraph312);
                                 cell.Colspan = 2;
                                 cell.BorderWidth = 0;
@@ -4690,8 +4690,8 @@ namespace WebApplication3.Controllers
 
 
                         }
-                            
-                        
+
+
                         #endregion Address Details
                     }
                     #endregion section9
@@ -4734,9 +4734,9 @@ namespace WebApplication3.Controllers
                         cell.HorizontalAlignment = Element.ALIGN_LEFT;
                         table1.AddCell(cell);
                         #endregion blank
-                     
+
                         Paragraph paragraph4102 = new Paragraph();
-                        paragraph4102.Add(new Chunk(section10.additionalinformation != null ? section10.additionalinformation.ToString():"" , FontFactory.GetFont("Calibri", 15, Font.NORMAL, BaseColor.BLUE)));
+                        paragraph4102.Add(new Chunk(section10.additionalinformation != null ? section10.additionalinformation.ToString() : "", FontFactory.GetFont("Calibri", 15, Font.NORMAL, BaseColor.BLUE)));
                         cell = new PdfPCell(paragraph4102);
                         cell.Colspan = 2;
                         cell.BorderWidth = 0;
@@ -4744,8 +4744,8 @@ namespace WebApplication3.Controllers
                         cell.PaddingTop = 12; cell.PaddingBottom = 12;
                         cell.HorizontalAlignment = Element.ALIGN_LEFT;
                         table1.AddCell(cell);
-      
-                       
+
+
 
 
                         #endregion additionalinfo
@@ -4758,25 +4758,124 @@ namespace WebApplication3.Controllers
                     document.Close();
                     byte[] bytes = memoryStream.ToArray();
                     memoryStream.Close();
-                    var filename = Guid.NewGuid();
-                    pdfFileName = filename.ToString() + ".pdf";
-                   
-                    var exists = Directory.Exists(System.Web.Hosting.HostingEnvironment.MapPath("~/OneDrive - CLS Chartered Secretaries/clscharteredsecretaries/" + companyFolderName + "/Submit"));
-                    if (!exists)
-                    {
-                        Directory.CreateDirectory(System.Web.Hosting.HostingEnvironment.MapPath("~/OneDrive - CLS Chartered Secretaries/clscharteredsecretaries/" + companyFolderName + "/Submit"));
-                    }
 
-                    filePath = System.Web.Hosting.HostingEnvironment.MapPath("~/OneDrive - CLS Chartered Secretaries/clscharteredsecretaries/" + companyFolderName + "/Submit/" + filename + ".pdf");
+                    #region ClientPdfCode
+                    //var filename = Guid.NewGuid();
+                    //pdfFileName = filename.ToString() + ".pdf";
+
+                    //var exists = Directory.Exists(System.Web.Hosting.HostingEnvironment.MapPath("~/OneDrive - CLS Chartered Secretaries/clscharteredsecretaries/" + companyFolderName + "/Submit"));
+                    //if (!exists)
+                    //{
+                    //    Directory.CreateDirectory(System.Web.Hosting.HostingEnvironment.MapPath("~/OneDrive - CLS Chartered Secretaries/clscharteredsecretaries/" + companyFolderName + "/Submit"));
+                    //}
+
+                    //filePath = System.Web.Hosting.HostingEnvironment.MapPath("~/OneDrive - CLS Chartered Secretaries/clscharteredsecretaries/" + companyFolderName + "/Submit/" + filename + ".pdf");
+                    //System.IO.File.WriteAllBytes(filePath, bytes);
+                    #endregion
+
+
+
+
+                    //code for create agent/clent folder and pdf file when agent fill form 
+                    #region AgentPdfCode
+                    //List<string> FilenFolderName = GetFolderName(cfid);
+
+                    //pdfFileName = FilenFolderName[1].ToString();
+                    //var AgentExists = Directory.Exists(System.Web.Hosting.HostingEnvironment.MapPath("~/OneDrive - CLS Chartered Secretaries/clscharteredsecretaries/" + FilenFolderName[0].ToString() + "/Submit"));
+                    //if (!AgentExists)
+                    //{
+                    //    Directory.CreateDirectory(System.Web.Hosting.HostingEnvironment.MapPath("~/OneDrive - CLS Chartered Secretaries/clscharteredsecretaries/" + FilenFolderName[0].ToString() + "/Submit"));
+                    //}
+                    //filePath = System.Web.Hosting.HostingEnvironment.MapPath("~/OneDrive - CLS Chartered Secretaries/clscharteredsecretaries/" + FilenFolderName[0].ToString() + "/Submit/" + FilenFolderName[1] + ".pdf");
+                    //System.IO.File.WriteAllBytes(filePath, bytes);
+                    #endregion
+
+
+
+                    #region 16-09-2021 Folder created with CompanyName and pdf created with First choice 
+                    //removed submit folder from path as per client requirement
+
+                    List<string> FilenFolderName = GetFolderName(cfid);
+
+                    pdfFileName = FilenFolderName[1].ToString();
+                    var AgentExists = Directory.Exists(System.Web.Hosting.HostingEnvironment.MapPath("~/OneDrive - CLS Chartered Secretaries/clscharteredsecretaries/" + FilenFolderName[0].ToString()));
+                    if (!AgentExists)
+                    {
+                        Directory.CreateDirectory(System.Web.Hosting.HostingEnvironment.MapPath("~/OneDrive - CLS Chartered Secretaries/clscharteredsecretaries/" + FilenFolderName[0].ToString()));
+                    }
+                    filePath = System.Web.Hosting.HostingEnvironment.MapPath("~/OneDrive - CLS Chartered Secretaries/clscharteredsecretaries/" + FilenFolderName[0].ToString() + "/" + FilenFolderName[1] + ".pdf");
                     System.IO.File.WriteAllBytes(filePath, bytes);
+                    #endregion
+
                 }
-                
+
             }
             return filePath;
 
         }
+        private List<string> GetFolderName(decimal cfid)
+        {
+            using (var db = new CompanyFormationdbEntities())
+            {
+                List<string> nameList = new List<string>();
+                var agentname = db.cls_agree_tbl.Where(x => x.cfid == cfid).FirstOrDefault();
+                if (agentname != null)
+                {
+                    nameList.Add(agentname.companyname);
+                    string pdffilename = GetFileName(cfid) + ".pdf";
+                    nameList.Add(pdffilename);
+                }
+                return nameList;
+            }
+        }
+        //private List<string> GetFolderName(decimal cfid)
+        //{
+        //    using (var db = new CompanyFormationdbEntities())
+        //    {
+        //        List<string> nameList = new List<string>();
+        //        var agentname = db.cls_agree_tbl.Where(x => x.cfid == cfid).FirstOrDefault();
+        //        if (agentname != null)
+        //        {
+        //            if (agentname.username == "Agent")
+        //            {
 
-        private bool emailsend(string companyname,string pdfpath,decimal cfid)
+        //                nameList.Add(agentname.name);
+        //                string pdffilename = GetFileName(cfid) + ".pdf";
+        //                nameList.Add(pdffilename);
+        //            }
+        //            else
+        //            {
+        //                nameList.Add(agentname.companyname);
+        //                string pdffilename = Guid.NewGuid() + ".pdf";
+        //                nameList.Add(pdffilename);
+        //            }
+
+        //        }
+        //        return nameList;
+        //    }
+        //}
+
+
+        private string GetFileName(decimal cfid)
+        {
+            using (var db = new CompanyFormationdbEntities())
+            {
+                string _PdfFileName = string.Empty;
+                var FindAgentRecord = db.cls_companyincorporation_tbl.Where(x => x.cfid == cfid).FirstOrDefault();
+                if (FindAgentRecord != null)
+                {
+                    return FindAgentRecord.firstchoice.ToString();
+                }
+                else
+                {
+                    //Take permission from client to generate guid if record not exits
+                    //change code as per client requirement
+                    return FindAgentRecord.firstchoice.ToString();
+                }
+            }
+        }
+
+        private bool emailsend(string companyname, string pdfpath, decimal cfid)
         {
             WriteToFile(System.DateTime.Now.ToLongDateString());
             WriteToFile("--------------------");
@@ -4874,8 +4973,6 @@ namespace WebApplication3.Controllers
                 return true;
             }
         }
-
-        
 
         #region log
 
