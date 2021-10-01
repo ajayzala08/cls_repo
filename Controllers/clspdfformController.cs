@@ -34,7 +34,7 @@ namespace WebApplication3.Controllers
                 string filepath = CreatePDFBody(cfid); //ExportToHtmlPdf(htmlstring);
                 dictionary.Add("Filepath", filepath);
                 dictionary.Add("CompanyName", companyFolderName);
-                // bool emailsendattachment = emailsend(companyFolderName, filepath, cfid);
+                 bool emailsendattachment = emailsend(companyFolderName, filepath, cfid);
                 pdffomrstatus(cfid, companyFolderName, pdfFileName, filepath, "Submit");
                 //response = Request.CreateResponse(HttpStatusCode.OK, Newtonsoft.Json.JsonConvert.SerializeObject(dictionary));
                 response = Request.CreateResponse(HttpStatusCode.OK, dictionary);
@@ -1197,7 +1197,7 @@ namespace WebApplication3.Controllers
                     {
                         //First section
                         #region agree
-                        companyFolderName = section1.companyname != null ? section1.companyname.ToString() : "Temp";
+                        //companyFolderName = section1.companyname != null ? section1.companyname.ToString() : "Temp";
                         var FontColour = new BaseColor(77, 24, 111);
                         var TIMES_ROMAN20 = FontFactory.GetFont("Calibri", 30, Font.BOLD, FontColour);
 
@@ -4795,15 +4795,16 @@ namespace WebApplication3.Controllers
                     #region 16-09-2021 Folder created with CompanyName and pdf created with First choice 
                     //removed submit folder from path as per client requirement
 
-                    List<string> FilenFolderName = GetFolderName(cfid);
-
-                    pdfFileName = FilenFolderName[1].ToString();
-                    var AgentExists = Directory.Exists(System.Web.Hosting.HostingEnvironment.MapPath("~/OneDrive - CLS Chartered Secretaries/clscharteredsecretaries/" + FilenFolderName[0].ToString()));
+                    //List<string> FilenFolderName = GetFolderName(cfid);
+                    
+                    pdfFileName = GetFileName(cfid);
+                    companyFolderName = pdfFileName;
+                    var AgentExists = Directory.Exists(System.Web.Hosting.HostingEnvironment.MapPath("~/OneDrive - CLS Chartered Secretaries/clscharteredsecretaries/" + pdfFileName));
                     if (!AgentExists)
                     {
-                        Directory.CreateDirectory(System.Web.Hosting.HostingEnvironment.MapPath("~/OneDrive - CLS Chartered Secretaries/clscharteredsecretaries/" + FilenFolderName[0].ToString()));
+                        Directory.CreateDirectory(System.Web.Hosting.HostingEnvironment.MapPath("~/OneDrive - CLS Chartered Secretaries/clscharteredsecretaries/" + pdfFileName));
                     }
-                    filePath = System.Web.Hosting.HostingEnvironment.MapPath("~/OneDrive - CLS Chartered Secretaries/clscharteredsecretaries/" + FilenFolderName[0].ToString() + "/" + FilenFolderName[1] + ".pdf");
+                    filePath = System.Web.Hosting.HostingEnvironment.MapPath("~/OneDrive - CLS Chartered Secretaries/clscharteredsecretaries/" + pdfFileName + "/" + pdfFileName + ".pdf");
                     System.IO.File.WriteAllBytes(filePath, bytes);
                     #endregion
 
@@ -4822,7 +4823,7 @@ namespace WebApplication3.Controllers
                 if (agentname != null)
                 {
                     nameList.Add(agentname.companyname);
-                    string pdffilename = GetFileName(cfid) + ".pdf";
+                    string pdffilename = GetFileName(cfid)+ ".pdf";
                     nameList.Add(pdffilename);
                 }
                 return nameList;
